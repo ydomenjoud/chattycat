@@ -18,7 +18,7 @@ body
                 display:
                 transform: translateY(-50px)
                 transition: transform 230ms ease-in-out
-                &:hover
+                &:hover, &.active
                     transform: none
 
     // global page navigation
@@ -35,13 +35,15 @@ body
             text-transform: uppercase
             &:not(:first-of-type)
                 border-left: 2px solid $grey
-        img[alt=search]
-            margin-left: 50px
-        input
+        label
             flex: 1
-            padding: 0 25px
-            border: 0
-            font-size: 14px
+            img[alt=search]
+                margin-left: 50px
+            input
+                flex: 1
+                padding: 0 25px
+                border: 0
+                font-size: 14px
 
 
 
