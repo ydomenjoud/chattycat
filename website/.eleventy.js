@@ -1,4 +1,5 @@
 const Image = require("@11ty/eleventy-img");
+const slugify = require("slugify");
 
 const distDir = '../dist/';
 
@@ -27,6 +28,16 @@ module.exports = function(eleventyConfig) {
           width="${lowestSrc.width}"
           height="${lowestSrc.height}">
       </picture>`;
+  });
+
+  // replace default slug with better imp
+  eleventyConfig.addFilter("slug", (input) => {
+    const options = {
+      replacement: "-",
+      remove: /[&,+()$~%.'":*?<>{}]/g,
+      lower: true
+    };
+    return slugify(input, options);
   });
 
   // copy assets
