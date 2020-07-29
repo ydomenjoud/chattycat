@@ -1,0 +1,18 @@
+---
+tags: books
+pagination:
+    data: global.books
+    size: 1
+    alias: book
+    addAllPagesToCollections: true
+eleventyComputed:
+    title: "{{book.title}}"
+permalink: "books/{{ book.title | slug }}.html"
+---
+
+<h1>{{ title }}</h1>
+{%- if pagination.items[0].image %}
+ {% remoteImage  pagination.items[0].image, "plop", {widths: [200]} %}
+{%- endif %}
+
+# {{ pagination.pageNumber }} {{ page.url }}

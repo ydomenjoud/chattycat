@@ -1,0 +1,10 @@
+---
+title: Chattycat
+---
+hello
+
+<ol>
+    {%- for book in collections.books %}
+    <li><a href="{{ book.data.page.url }}">{{ book.data.title }}</a></li>
+    {%- endfor %}
+</ol>
