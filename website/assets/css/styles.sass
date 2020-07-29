@@ -1,0 +1,51 @@
+@import "reset"
+@import "params"
+@import "utilities"
+
+body
+    font-family: 'Montserrat', sans-serif
+    color: $black
+    // global page header
+    > header
+        display: flex
+        justify-content: space-between
+        // navigation by age
+        nav
+            height: 130px
+            display: flex
+            a
+                z-index: 100
+                display:
+                transform: translateY(-50px)
+                transition: transform 230ms ease-in-out
+                &:hover
+                    transform: none
+
+    // global page navigation
+    > nav
+        border-bottom: 3px solid $black
+        display: flex
+        padding-bottom: 10px
+        a
+            padding: 10px 40px
+            color: inherit
+            font-size: 16px
+            font-weight: 500 // Medium
+            text-decoration: none
+            text-transform: uppercase
+            &:not(:first-of-type)
+                border-left: 2px solid $grey
+        img[alt=search]
+            margin-left: 50px
+        input
+            flex: 1
+            padding: 0 25px
+            border: 0
+            font-size: 14px
+
+
+
+#jumbotron
+    border-bottom: 3px solid $black
+    height: 450px
+    background: url("/assets/img/home/news-cleo.png") no-repeat center center
