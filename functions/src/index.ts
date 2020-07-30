@@ -5,8 +5,15 @@ import * as functions from 'firebase-functions';
 admin.initializeApp(functions.config().firebase);
 
 function fdocToJS<T>(doc: admin.firestore.QueryDocumentSnapshot<T>): T {
+    const options = {
+        replacement: "-",
+        remove: /[&,+()$~%.'":*?<>{}]/g,
+        lower: true
+    };
+    const slug = require("slugify")((doc.data() as any)?.title, options);
     return {
         ...doc.data(),
+        slug,
         id: doc.id,
         ref: doc.ref.path
     };
