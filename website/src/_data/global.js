@@ -18,7 +18,9 @@ module.exports = async function () {
                 }
                 fs.writeFileSync(distDir + "books.json", data);
                 console.log(`found ${books.length} books`);
-                resolve({books});
+                resolve({
+                    books,
+                });
             });
             res.on("error", error => reject(error));
         });
