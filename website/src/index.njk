@@ -20,3 +20,11 @@
     <li><a href="{{ book.data.page.url }}">{{ book.data.title }}</a></li>
     {%- endfor %}
 </ol>
+
+<h3>NOUVEAUTES</h3>
+
+<ol>
+    {%- for book in global.newBooks %}
+    <li><a href = "books/{{ book.slug }}.html"> {{ book.title }}</a></li>
+    {%- endfor %}
+</ol>
