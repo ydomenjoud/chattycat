@@ -18,6 +18,9 @@ module.exports = async function () {
                 }
                 fs.writeFileSync(distDir + "books.json", data);
 
+                //get 5 main books
+                let mainBooks = books.slice(0,5)
+
                 //get last 5 published books
                 let newBooks = [...books]
                 newBooks  = newBooks.sort((a,b)=> (a.date._seconds - b.date._seconds < 0) ? 1 : -1).slice(0,5)
@@ -25,6 +28,7 @@ module.exports = async function () {
                 console.log(`found ${books.length} books, including ${newBooks.length} novelties`);
                 resolve({
                     books,
+                    mainBooks,
                     newBooks
                 });
             });
