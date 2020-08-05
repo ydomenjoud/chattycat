@@ -13,14 +13,14 @@
 
     <ol>
         {%- for book in global.mainBooks %}
-        <li>
+        <li><a href="books/{{ book.slug }}.html">
             <div>
                 <img src="{{book.image}}" alt="No Image"/>
             </div>
-            <a href="books/{{ book.slug }}.html">{{ book.title }}</a>
+            <p class="book_title">{{ book.title }}</p>
             <p class="book_info">{{book.author1}}</p>
             <p class="book_info">{{book.illustrator}}</p>
-        </li>
+        </a></li>
         {%- endfor %}
     </ol>
 
@@ -33,12 +33,12 @@
 
     <ol>
         {%- for book in global.newBooks %}
-        <li>
+        <li><a href = "books/{{ book.slug }}.html">
             <div>
                 <img src="{{book.image}}" alt="No Image"/>
             </div>
-            <a href = "books/{{ book.slug }}.html"> {{ book.title }}</a>
-        </li>
+            <p class="book_title">{{ book.title }}</p>
+        </a></li>
         {%- endfor %}
     </ol>
 
