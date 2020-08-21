@@ -59,13 +59,21 @@ async function displayResults() {
         }
     })
 
-    let filterResultsString ="";
+    let filterResultsString =`<ol>`;
     books.map(book => {
-        filterResultsString += `<div><p>${book.title}</p><p>${book.author1}</p></div>`
+        filterResultsString += `
+        <li><a href = "books/${book.slug}.html">
+            <div>
+                <img src=${book.image} alt="${book.title} cover"/>
+            </div>
+            <p class="book_title">${book.title}</p>
+        </a></li>`
     })
+    filterResultsString += `</ol>`;
     filter_results.innerHTML = filterResultsString
 
 }
+
 
 async function init() {
     await initCatalogue()

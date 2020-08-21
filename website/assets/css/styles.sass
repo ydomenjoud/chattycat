@@ -118,10 +118,12 @@ body
         display: flex
         justify-content: space-around
         align-items: flex-start
+        flex-wrap: wrap
         li
             display: flex
             flex-direction: column
             width: 154px
+            margin-bottom: 30px
         div
             width: 154px
             height: 217px
@@ -256,25 +258,53 @@ footer
 // CATALOGUE
 //////////////////
 
-#selectors
-    display: flex
-    align-items: flex-start
-    justify-content: space-between
+#catalogue
+    h3 
+        margin: 41px 0
     width: 100%
-    .selector_pair
-        width: 23%
+    h5 
+        margin: 40px 0 60px
+    #filter_results
+        padding: 0
         display: flex
-        flex-direction: column
-        p
+        width: 100%
+        ol
+            justify-content: flex-start
+            left: 0
+            right: 0
+        li
+            margin-right: 57px
+        li:nth-child(5n)
+                margin-right: 0
+    #selectors_container
+        width: 100%
+        background: $blue 0% 0% no-repeat padding-box
+        padding: 10px
+        > p
             text-align: left
-            font: Normal 18px/25px Montserrat
+            font: Normal 300 18px/25px Montserrat
             letter-spacing: 0.18px
-            color: #070909
-            margin-bottom: 6px
-        select
-            width: 100%
-            height: 36px
-            background: #FFFFFF 0% 0% no-repeat padding-box
+            color: #FFFFFF
+            margin-bottom: 15px
+        #selectors
+            display: flex
+            align-items: flex-start
+            justify-content: space-between
+            .selector_pair
+                width: 23%
+                display: flex
+                flex-direction: column
+                p
+                    text-align: left
+                    font: Normal 18px/25px Montserrat
+                    letter-spacing: 0.18px
+                    color: #070909
+                    margin-bottom: 6px
+                select
+                    width: 100%
+                    height: 36px
+                    background: #FFFFFF 0% 0% no-repeat padding-box
+    
 
 
 
