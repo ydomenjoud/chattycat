@@ -1,6 +1,6 @@
 ---
-tags: concept
-title: Concept
+tags: catalogue
+title: Catalogue
 permalink: "catalogue.html"
 ---
 
@@ -13,13 +13,30 @@ permalink: "catalogue.html"
 <section id="catalogue" class="books_container">
 
     <h3>NOTRE CATALOGUE</h3>
+    
     {# TODO : populate with data from json #}
+    <p>Affiner ma sélection</p>
+
     <div id="selectors"> 
-        <select name="age" id="age-select"></select>
-        <select name="genre" id="genre-select"></select>
-        <select name="author" id="author-select"></select>
-        <select name="collection" id="collection-select"></select>
+        <div class="selector_pair">
+            <p>Âges</p>
+            <select name="age" id="age-select"></select>
+        </div>
+        <div class="selector_pair">
+            <p>Genres</p>
+            <select name="genre" id="genre-select"></select>
+        </div>
+        <div class="selector_pair">
+            <p>Auteurs / illustrateurs</p>
+            <select name="author" id="author-select"></select>
+        </div>
+        <div class="selector_pair">
+            <p>Séries</p>
+            <select name="collection" id="collection-select"></select>
+        </div>
     </div>
+
+    <h5>Ma sélection</h5>
 
     <div id="filter_results">
     </div>

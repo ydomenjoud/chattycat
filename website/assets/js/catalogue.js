@@ -3,10 +3,10 @@ const author_selector = document.getElementById("author-select");
 const filter_results = document.getElementById("filter_results");
 
 const selectors = [
-    {"key": "author1","id_selector": "author-select" },
-    {"key": "genre","id_selector": "genre-select"},
-    {"key": "age","id_selector": "age-select"},
-    {"key": "collection","id_selector": "collection-select"},
+    {"key": "author1","id_selector": "author-select", 'valueAll': "Tous" },
+    {"key": "genre","id_selector": "genre-select", 'valueAll': "Tous"},
+    {"key": "age","id_selector": "age-select", 'valueAll': "Tous"},
+    {"key": "collection","id_selector": "collection-select", 'valueAll': "Toutes"},
 ]
 
 function onlyUnique(value, index, self) { 
@@ -25,6 +25,11 @@ async function initCatalogue() {
     selectors.map(selector => {
         let data_filtered = books.map(book => {return book[selector['key']]}).filter(onlyUnique)
         let document_selector = document.getElementById(selector['id_selector']);
+
+        let option = document.createElement('option')
+        option.setAttribute('value', 'all');
+        option.textContent = selector['valueAll']
+        document_selector.append(option)
     
         data_filtered.map(data =>{
             let option = document.createElement('option')
@@ -35,8 +40,6 @@ async function initCatalogue() {
     })
 
 }
-
-initCatalogue()
 
 //event listener
 selectors.map(selector => {
@@ -51,7 +54,9 @@ async function displayResults() {
 
     selectors.map(selector => {
         let document_selector = document.getElementById(selector['id_selector']);
-        books = [...books.filter(book=>{return book[selector['key']]===document_selector.value})]
+        if (document_selector.value!=='all') {
+            books = [...books.filter(book=>{return book[selector['key']]===document_selector.value})]
+        }
     })
 
     let filterResultsString ="";
@@ -61,3 +66,10 @@ async function displayResults() {
     filter_results.innerHTML = filterResultsString
 
 }
+
+async function init() {
+    await initCatalogue()
+    await displayResults()
+}
+
+init()
