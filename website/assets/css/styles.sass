@@ -94,20 +94,18 @@ body
     p
         margin-top: 13px
         width: 341px
-        height: 99px
         text-align: left
         font: Lighter 20px/29px Open Sans
         letter-spacing: 0.2px
         color: #000000
     button
-        margin-top: 10.5px
+        margin-top: 20px
         width: 154px
 
 #landing_index
     background: url("/assets/img/home/news-cleo.png") no-repeat center center
 
-#landing_catalogue
-    background: url("/assets/img/catalogue/landing.png") no-repeat center center
+
 
 .books_container
     padding: 41px 0px 70px
@@ -155,7 +153,7 @@ body
     width: 1280px
     height: 422px
     margin-left: -140px
-    background: transparent url('/assets/img/home/heros.png') 0% 0% no-repeat padding-box;
+    background: transparent url('/assets/img/home/heros.png') 0% 0% no-repeat padding-box
     display: flex
     flex-direction: column
     justify-content: center
@@ -254,9 +252,90 @@ footer
             text-decoration: none
             color: white
 
+
+//////////////////
+// CONCEPT
+//////////////////
+
+#landing_concept
+    background: url("/assets/img/concept/landing.png") no-repeat center center
+    > h1, p
+        color: white
+    p 
+        font: 300 20px/29px Open Sans
+        letter-spacing: 0.2px
+
+#notre_concept
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    img 
+        width: 45%
+    > div
+        padding: 60px 0
+        width: 45%
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        h3 
+            text-transform: uppercase
+            color: black
+        h5 
+            font-weight: 300
+            margin-top: 23px
+        p
+            font: 300 14px/22px Montserrat
+            letter-spacing: 0.14px
+            color: $black
+            margin-top: 10px
+
+#qui_sommes_nous
+    background: transparent url('/assets/img/concept/fond-black.png')  0% 0% no-repeat padding-box;
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 100%
+    > h4 
+        margin-top: 50px
+    > h5 
+        color: white
+        text-align: center
+        width: 58%
+        margin-top: 15px
+        font-weight: 500
+    > div
+        margin-top: 80px
+        width: 100%
+        display: flex
+        align-items: flex-start
+        justify-content: space-around
+        > div
+            width: 300px
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            h5 
+                font-weight: 300
+                margin: 20px 0 10px
+            p 
+                font: Lighter 14px/22px Montserrat
+                letter-spacing: 0.14px
+                color: $black
+
+
+        
+
+        
+
+
+
 //////////////////
 // CATALOGUE
 //////////////////
+
+#landing_catalogue
+    background: url("/assets/img/catalogue/landing.png") no-repeat center center
 
 #catalogue
     h3 
