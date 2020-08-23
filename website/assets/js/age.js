@@ -15,7 +15,7 @@ selectors.map(selector => {
     let document_selector = document.getElementById(selector['id_selector']);
     document_selector.onchange = async (e) => {
         const books = await fetchDatas()
-        const age = document.getElementById("age").classList[0]
+        const age = document.getElementById("selectors_container").classList[0]
         const booksFiltered = booksFilterByAge(books,age)
         const booksResults = await displayResults(booksFiltered, selectors)
         await initCatalogue(booksResults, selectors)
@@ -24,7 +24,7 @@ selectors.map(selector => {
 
 async function init() {
     const books = await fetchDatas()
-    const age = document.getElementById("age").classList[0]
+    const age = document.getElementById("selectors_container").classList[0]
     const booksFiltered = booksFilterByAge(books,age)
     await initCatalogue(booksFiltered, selectors)
     await displayResults(booksFiltered, selectors)

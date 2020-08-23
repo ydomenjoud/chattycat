@@ -44,7 +44,7 @@ selectors.map(function (selector) {
 
           case 2:
             books = _context.sent;
-            age = document.getElementById("age").classList[0];
+            age = document.getElementById("selectors_container").classList[0];
             booksFiltered = booksFilterByAge(books, age);
             _context.next = 7;
             return regeneratorRuntime.awrap(displayResults(booksFiltered, selectors));
@@ -74,7 +74,7 @@ function init() {
 
         case 2:
           books = _context2.sent;
-          age = document.getElementById("age").classList[0];
+          age = document.getElementById("selectors_container").classList[0];
           booksFiltered = booksFilterByAge(books, age);
           _context2.next = 7;
           return regeneratorRuntime.awrap(initCatalogue(booksFiltered, selectors));
