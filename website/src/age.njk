@@ -1,35 +1,46 @@
 ---
-tags: catalogue
-title: Catalogue
-permalink: "catalogue.html"
+tags: ages
+pagination:
+    data: ages
+    size: 1
+    alias: age
+    addAllPagesToCollections: true
+eleventyComputed:
+    age: "{{age.age}}"
+    color: "{{age.color}}"
+    class: "{{age.class}}"
+permalink: "ages/{{age.age}}.html"
 ---
 
-<div id="landing_catalogue" class="landing_container">
-    <h1>Cléo Lefort publico vigore, discessit</h1>
+<div id="ages_page"> 
+
+<div id="landing_age" class="landing_container">
+    <h1>Max le Youtubeur publico vigore, discessit</h1>
     <p>Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat</p>
     <button>découvrir</button>
 </div>
 
-<section id="catalogue_catalogue" class="catalogue">
+<div id="age" class="{{age}}">
+    <img src='/assets/img/ages/empreinte-chat.svg'></img>
+    <h3>{{age}} <span>ans</span></h3>
+    <p>{{color}}</p>
+</div>
 
-    <h3>NOTRE CATALOGUE</h3>
+<section id="ages_catalogue" class="catalogue">
 
-    {# TODO : populate with data from json #}
-    
-
-    <div class="selectors_container"> 
+    <div id="{{age}}" class="selectors_container"> 
 
         <p>Affiner ma sélection</p>
 
         <div id="selectors"> 
 
             <div class="selector_pair">
-                <p>Âges</p>
-                <select name="age" id="age-select"></select>
-            </div>
-            <div class="selector_pair">
                 <p>Genres</p>
                 <select name="genre" id="genre-select"></select>
+            </div>
+            <div class="selector_pair">
+                <p>Thèmes</p>
+                <select name="themes" id="themes-select"></select>
             </div>
             <div class="selector_pair">
                 <p>Auteurs / illustrateurs</p>
@@ -49,5 +60,7 @@ permalink: "catalogue.html"
 
 </section>
 
+</div>
+
 <script src="/assets/js/search_base.js"></script>
-<script src="/assets/js/catalogue.js"></script>
+<script src="/assets/js/age.js"></script>

@@ -446,8 +446,44 @@ footer
 
 
         
+//////////////////
+// AGES
+//////////////////
 
-        
+#landing_age
+    background: url("/assets/img/ages/landing.png") no-repeat center center  
+
+#ages_page
+    #age
+        display: flex
+        width: 100%
+        align-items: center
+        justify-content: center
+        margin: 40px 0
+        img 
+            width: 38px
+            height: 38px
+        h3 
+            color: $black
+
+// TODO : gestion couleur du svg
+
+[class = '6-8']
+    span
+        color: $yellow
+
+[class = '8-10']
+    img
+        fill: $blue
+    span
+        color: $blue
+
+#ages_catalogue
+    [id = '6-8']
+        background: $yellow 0 0 no-repeat padding-box
+    [id = '8-10']
+        background: $blue 0 0 no-repeat padding-box
+    
 
 
 
@@ -458,7 +494,7 @@ footer
 #landing_catalogue
     background: url("/assets/img/catalogue/landing.png") no-repeat center center
 
-#catalogue
+.catalogue
     h3 
         margin: 41px 0
     width: 100%
@@ -476,7 +512,7 @@ footer
             margin-right: 57px
         li:nth-child(5n)
                 margin-right: 0
-    #selectors_container
+    .selectors_container
         width: 100%
         background: $blue 0% 0% no-repeat padding-box
         padding: 10px
