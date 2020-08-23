@@ -59,8 +59,10 @@ function initCatalogue(books, selectors) {
             }
 
             var document_selector = document.getElementById(selector['id_selector']);
-            var selectedValue = document_selector.value;
-            document_selector.innerHTML = "";
+            var selectedValue = document_selector.value; //usefull to set value on selected value after reload
+
+            document_selector.innerHTML = ""; //usefull for reload of values
+
             var option = document.createElement('option');
             option.setAttribute('value', 'all');
             option.textContent = selector['valueAll'];

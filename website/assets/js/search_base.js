@@ -26,8 +26,8 @@ async function initCatalogue(books, selectors) {
         }
 
         let document_selector = document.getElementById(selector['id_selector']);
-        const selectedValue = document_selector.value
-        document_selector.innerHTML = "";
+        const selectedValue = document_selector.value //usefull to set value on selected value after reload
+        document_selector.innerHTML = ""; //usefull for reload of values
 
         let option = document.createElement('option')
         option.setAttribute('value', 'all');
