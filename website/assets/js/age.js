@@ -6,7 +6,6 @@ const selectors = [
 ]
 
 function booksFilterByAge(books, age) {
-    console.log(books, age)
     return books.filter(book=>{return book.age===age})
 }
 

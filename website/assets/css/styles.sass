@@ -113,6 +113,7 @@ body
         box-sizing: border-box
         margin-bottom: 40px
     ol
+        width: 1000px
         display: flex
         justify-content: space-around
         align-items: flex-start
@@ -146,6 +147,11 @@ body
 
 #new_books
     background-color: $red
+    width: 1280px
+    margin-left: -140px
+    display: flex
+    flex-direction: column
+    align-items: center
     h3
         color: white
 
@@ -153,7 +159,7 @@ body
     width: 1280px
     height: 422px
     margin-left: -140px
-    background: transparent url('/assets/img/home/heros.png') 0% 0% no-repeat padding-box
+    background: transparent url('/assets/img/home/heros2.png') 0% 0% no-repeat padding-box
     display: flex
     flex-direction: column
     justify-content: center
@@ -544,3 +550,31 @@ footer
         background: $blue 0 0 no-repeat padding-box
     [class = '10-plus']
         background: $green 0 0 no-repeat padding-box
+
+// AUTEURS
+
+#authors
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+    margin-bottom: 175px
+    a
+        margin-right: 15px
+        margin-bottom: 20px
+        width: calc(100% / 3 - 10px)
+        text-decoration: none
+        img
+            max-width: 100%
+        p:nth-child(2)
+            margin-top: 25px
+            font: Normal 18px/35px Montserrat
+            letter-spacing: 0.18px
+            color: $black
+        p:nth-child(3)
+            font: 300 18px/35px Montserrat
+            letter-spacing: 0.18px
+            color: $red
+
+#authors
+    a:nth-child(3n)
+        margin-right: 0

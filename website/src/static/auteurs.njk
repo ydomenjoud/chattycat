@@ -3,3 +3,14 @@ tags: auteurs
 title: Auteurs
 permalink: "authors.html"
 ---
+<section id="authors">
+
+    {%- for author in authors %}
+        <a href = "/authors/{{author.slug}}.html">
+            <img src="{{author.image}}" alt="No Image"/>
+            <p>{{ author.name }}</p>
+            <p>{{ author.occupation }}</p>
+        </a>
+    {%- endfor %}
+
+</section>
