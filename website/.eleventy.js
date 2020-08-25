@@ -6,6 +6,15 @@ const distDir = '../dist/';
 
 module.exports = function (eleventyConfig) {
 
+    //add "unique" filter (for age page)
+    eleventyConfig.addNunjucksFilter("unique", function(array) {
+        function onlyUnique(value, index, self) { 
+            return self.indexOf(value) === index;
+        }
+        const arrayFiltered = array.filter(onlyUnique)
+        return arrayFiltered
+    });
+
     // add plugin for remote image
     eleventyConfig.addNunjucksAsyncShortcode("remoteImage", async function (src, alt, options) {
         // returns Promise

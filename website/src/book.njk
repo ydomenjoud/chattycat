@@ -8,14 +8,61 @@ pagination:
 eleventyComputed:
     title: "{{book.title}}"
     image: "{{book.image}}"
+    serie: "{{book.collection}}"
     author: "{{book.author1}}"
     illustrator: "{{book.illustrator}}"
+    intro: "{{book.introduction}}"
+    themes: "{{book.themes}}" 
+    summary: "{{book.summary}}" 
+    age: "{{book.age}}" 
 permalink: "books/{{ book.slug }}.html"
 ---
 
-<h1>{{ title }}</h1>
-{%- if pagination.items[0].image %}
- {% remoteImage  pagination.items[0].image, "plop", {widths: [200]} %}
-{%- endif %}
+<div id="book_presentation">
+    <div>
+        {%- if pagination.items[0].image %}
+            {% remoteImage  pagination.items[0].image, "plop", {widths: [312]} %}
+        {%- endif %}
+        {%- if pagination.items[0].image %}
+            {% remoteImage  pagination.items[0].image, "plop", {widths: [90]} %}
+        {%- endif %}
+    </div>
+    
+    <div>
+        <h1>{{serie}}</h1>
+        <h2>{{title}}</h2>
+        <h5>{{author1}}</h5>
+        <h5>{{illustrator}}</h5>
+        <h3>{{intro}}</h3>
+    </div>    
+</div>
 
-# {{ pagination.pageNumber }} {{ page.url }}
+<div id="book_presentation2">
+
+    
+    <p></p>
+
+    <div>
+        <div id="themes">
+            {% set list = themes.split(', ') %}
+            {%- for theme in list %}
+            <p>{{theme}}</p>
+            {%- endfor %}
+        </div>
+        <h4>Résumé</h4>
+        <p>{{summary}}</p>
+    </div>
+</div>
+
+<div id="book_badges">
+    <div>
+        <h3>{{age}}<span> ans</span></h3>
+        <span>v</span>
+    </div>
+    <div>
+        <h3>EXTRAIT</h3>
+    </div>
+    <div>
+        <button>LIVRE AUDIO</button>
+    </div>
+</div>
