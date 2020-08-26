@@ -93,24 +93,27 @@ function displayResults(books, selectors) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          selectors.map(function (selector) {
-            var document_selector = document.getElementById(selector['id_selector']);
+          if (selectors) {
+            selectors.map(function (selector) {
+              var document_selector = document.getElementById(selector['id_selector']);
 
-            if (document_selector.value !== 'all') {
-              if (selector['isArray']) {
-                books = _toConsumableArray(books.filter(function (book) {
-                  return book[selector['key']].includes(document_selector.value);
-                }));
-              } else {
-                books = _toConsumableArray(books.filter(function (book) {
-                  return book[selector['key']] === document_selector.value;
-                }));
+              if (document_selector.value !== 'all') {
+                if (selector['isArray']) {
+                  books = _toConsumableArray(books.filter(function (book) {
+                    return book[selector['key']].includes(document_selector.value);
+                  }));
+                } else {
+                  books = _toConsumableArray(books.filter(function (book) {
+                    return book[selector['key']] === document_selector.value;
+                  }));
+                }
               }
-            }
-          });
+            });
+          }
+
           filterResultsString = "<ol>";
           books.map(function (book) {
-            filterResultsString += "\n        <li><a href = \"books/".concat(book.slug, ".html\">\n            <div>\n                <img src=").concat(book.image, " alt=\"").concat(book.title, " cover\"/>\n            </div>\n            <p class=\"book_title\">").concat(book.title, "</p>\n        </a></li>");
+            filterResultsString += "\n        <li><a href = \"/books/".concat(book.slug, ".html\">\n            <div>\n                <img src=").concat(book.image, " alt=\"").concat(book.title, " cover\"/>\n            </div>\n            <p class=\"book_title\">").concat(book.title, "</p>\n        </a></li>");
           });
           filterResultsString += "</ol>";
           filter_results = document.getElementById("filter_results");

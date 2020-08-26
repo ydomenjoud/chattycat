@@ -418,7 +418,7 @@ footer
             margin-top: 10px
 
 #qui_sommes_nous
-    background: transparent url('/assets/img/concept/fond-black.png')  0% 0% no-repeat padding-box;
+    background: transparent url('/assets/img/fond-black.png')  0% 0% no-repeat padding-box;
     display: flex
     flex-direction: column
     align-items: center
@@ -553,10 +553,23 @@ footer
 
 // AUTEURS
 
+#authors_title
+    background: transparent url('/assets/img/fond-black.png') 0% 0% no-repeat padding-box
+    width: 1000px
+    height: 186px
+    color: $blue
+    text-align: center
+    font: Normal 45px/35px Love Ya Like A Sister
+    letter-spacing: 3.15px
+    text-transform: uppercase
+    display: flex
+    justify-content: center
+    align-items: center
 #authors
     display: flex
     flex-wrap: wrap
     width: 100%
+    margin-top: -30px
     margin-bottom: 175px
     a
         margin-right: 15px
@@ -578,3 +591,53 @@ footer
 #authors
     a:nth-child(3n)
         margin-right: 0
+
+
+// AUTEURS
+
+#author_page
+    background: transparent url('/assets/img/fond-black.png') 0% 0% no-repeat padding-box
+    width: 1000px
+    height: 241px
+    display: flex
+    > div:first-of-type
+        width: 50%
+        display: flex
+        justify-content: center
+        > picture 
+            margin-top: 40px
+            transform: rotate(-5deg)
+    > div:last-of-type
+        width: 50%
+        height: 241px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        h1 
+            font: Normal 45px/46px Love Ya Like A Sister
+            letter-spacing: 3.15px
+            color: $red
+            margin-bottom: 15px
+        h1:after
+            margin-left: 10px
+            content: url('/assets/img/empreinte chat.svg')
+        p 
+            text-align: left
+            font: Normal 18px/27px Montserrat
+            letter-spacing: 0.18px
+            color: white
+#author_presentation
+    width: 45%
+    margin-top: 40px
+    margin-bottom: 100px
+    margin-left: 50%
+    font: Normal 14px/22px Montserrat
+    letter-spacing: 0.14px
+    color: $black
+#author_books
+    ol
+        justify-content: center
+        li
+            margin-right: 30px
+        li:last-of-type
+            margin-right: 0
