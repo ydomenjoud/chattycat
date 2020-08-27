@@ -13,7 +13,7 @@ eleventyComputed:
 permalink: "authors/{{author.slug}}.html"
 ---
 
-<section id="author_page" data-author="{{name}}"> 
+<section id="author_page" data-author="{{name}}">
     <div>
         {%- if author.image %}
             {% remoteImage  author.image, "plop", {widths: [312]} %}
@@ -22,7 +22,7 @@ permalink: "authors/{{author.slug}}.html"
     <div>
         <h1>{{name}}</h1>
         <p>{{occupation}}</p>
-    <div>
+    </div>
 </section>
 
  <p id="author_presentation">{{presentation}}</p>

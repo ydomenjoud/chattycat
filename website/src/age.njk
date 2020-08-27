@@ -12,7 +12,7 @@ eleventyComputed:
 permalink: "ages/{{age.age}}.html"
 ---
 
-<div id="ages_page"> 
+<div id="ages_page">
 
     <div id="landing_age" class="landing_container">
         <h1>Max le Youtubeur publico vigore, discessit</h1>
@@ -21,18 +21,18 @@ permalink: "ages/{{age.age}}.html"
     </div>
 
     <div id="age">
-        <img src='/assets/img/ages/empreinte-chat.svg'></img>
+        <img src='/assets/img/ages/empreinte-chat.svg'>
         <h3>{{age}} <span class="{{age}}">ans</span></h3>
         <p>{{color}}</p>
     </div>
 
     <section id="ages_catalogue" class="catalogue">
 
-        <div id="selectors_container" class="{{age}}"> 
+        <div id="selectors_container" class="{{age}}">
 
             <p>Affiner ma sélection</p>
 
-            <div id="selectors"> 
+            <div id="selectors">
 
                 <div class="selector_pair">
                     <p>Genres</p>
@@ -60,9 +60,9 @@ permalink: "ages/{{age.age}}.html"
 
     </section>
 
-    {% include "nouveautes.njk" %}
-
 </div>
+
+{% include "nouveautes.njk" %}
 
 <script src="/assets/js/search_base.js"></script>
 <script src="/assets/js/age.js"></script>
