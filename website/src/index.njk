@@ -1,10 +1,10 @@
 
 
-<div id="landing_index" class="landing_container">
+<section id="landing_index" class="landing_container">
     <h1>Cléo Lefort : notre série phare a un nouveau look !</h1>
     <p>Découvrez les aventures de la détective amateure ici (lien vers la page série). Parution en août.</p>
     <button>découvrir</button>
-</div>
+</section>
 
 
 <section id="main_books" class="books_container">
@@ -24,28 +24,7 @@
 
 </section>
 
-
-<section id="new_books" class="books_container">
-
-    <h3>NOUVEAUTÉS</h3>
-
-    <ol>
-        {%- for book in global.newBooks %}
-        <li><a href = "books/{{ book.slug }}.html">
-            <div>
-                <img src="{{book.image}}" alt="No Image"/>
-            </div>
-            <p class="book_title">{{ book.title }}</p>
-        </a></li>
-        {%- endfor %}
-    </ol>
-
-</section>
-
-<div id="heros">
-    <h1>Des univers variés aux nombreux héros et héroïnes pour petits et grands</h1>
-    <button>découvrir</button>
-</div>
+{% include "nouveautes.njk" %}
 
 <div id="follow_us">
     <h3>SUIVEZ-NOUS</h3>
@@ -56,41 +35,7 @@
     </div>
 </div>
 
-<footer>
-    <div id="footer1">
-        <div>
-            <ol>
-                <li><a>les séries</a></li>
-                <li><a>les auteurs</a></li>
-                <li><a>envoyez votre manuscrit</a></li>
-                <li><a>revue de presse</a></li>
-                <li><a>nous contacter</a></li>
-            </ol>
-        </div>
-        <div id="follow_box">
-            <img src="/assets/img/home/CHATTYCAT-logo-chat-blanc.png" alt="chattycat logo">
-            <div>
-                <p>Suivez-nous</p>
-                <div id="follow_buttons">
-                    <a href="https://www.facebook.com/chattycatbooks/" target="_blank"></a>
-                    <a href="https://www.instagram.com/editionschattycat/" target="_blank"></a>
-                    <a href="https://twitter.com/chattycatbooks" target="_blank"></a>
-                </div>
-            </div>
-        </div>
-        <div id="newsletter_box">
-            <p>Inscrivez-vous à la newsletter !</p>
-            <div>
-                <input type="search" id="email" placeholder="email"/>
-                <button id="newsletter">envoyer</button>
-            </div>
-        </div>
-    </div>
-    <div id="footer2">
-        <p>CHATTYCAT © 2020</p>
-        <a href="">MENTIONS LÉGALES</a>
-    </div>
-</footer>
+
 
 
 

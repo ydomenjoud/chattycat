@@ -1,0 +1,35 @@
+---
+tags: ages
+pagination:
+    data: authors
+    size: 1
+    alias: author
+    addAllPagesToCollections: true
+eleventyComputed:
+    name: "{{author.name}}"
+    image: "{{author.image}}"
+    occupation: "{{author.occupation}}"
+    presentation: "{{author.presentation}}"
+permalink: "authors/{{author.slug}}.html"
+---
+
+<section id="author_page" data-author="{{name}}"> 
+    <div>
+        {%- if author.image %}
+            {% remoteImage  author.image, "plop", {widths: [312]} %}
+        {%- endif %}
+    </div>
+    <div>
+        <h1>{{name}}</h1>
+        <p>{{occupation}}</p>
+    <div>
+</section>
+
+ <p id="author_presentation">{{presentation}}</p>
+
+ <h3>SES OUVRAGES</h3>
+
+ <div id="author_books" class="books_container"></div>
+
+ <script src="/assets/js/search_base.js"></script>
+<script src="/assets/js/author.js"></script>

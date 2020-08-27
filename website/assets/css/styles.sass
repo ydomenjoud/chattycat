@@ -89,6 +89,7 @@ body
     justify-content: center
     > *
         margin-left: 84px
+        max-width: 290px
     h1
         text-align: left
     p
@@ -113,6 +114,7 @@ body
         box-sizing: border-box
         margin-bottom: 40px
     ol
+        width: 1000px
         display: flex
         justify-content: space-around
         align-items: flex-start
@@ -146,6 +148,11 @@ body
 
 #new_books
     background-color: $red
+    width: 1280px
+    margin-left: -140px
+    display: flex
+    flex-direction: column
+    align-items: center
     h3
         color: white
 
@@ -153,7 +160,7 @@ body
     width: 1280px
     height: 422px
     margin-left: -140px
-    background: transparent url('/assets/img/home/heros.png') 0% 0% no-repeat padding-box
+    background: transparent url('/assets/img/home/heros2.png') 0% 0% no-repeat padding-box
     display: flex
     flex-direction: column
     justify-content: center
@@ -412,7 +419,7 @@ footer
             margin-top: 10px
 
 #qui_sommes_nous
-    background: transparent url('/assets/img/concept/fond-black.png')  0% 0% no-repeat padding-box;
+    background: transparent url('/assets/img/fond-black.png')  0% 0% no-repeat padding-box;
     display: flex
     flex-direction: column
     align-items: center
@@ -544,3 +551,133 @@ footer
         background: $blue 0 0 no-repeat padding-box
     [class = '10-plus']
         background: $green 0 0 no-repeat padding-box
+
+// AUTEURS
+
+#authors_title
+    background: transparent url('/assets/img/fond-black.png') 0% 0% no-repeat padding-box
+    width: 1000px
+    height: 186px
+    color: $blue
+    text-align: center
+    font: Normal 45px/35px Love Ya Like A Sister
+    letter-spacing: 3.15px
+    text-transform: uppercase
+    display: flex
+    justify-content: center
+    align-items: center
+#authors
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+    margin-top: -30px
+    margin-bottom: 175px
+    a
+        margin-right: 15px
+        margin-bottom: 20px
+        width: calc(100% / 3 - 10px)
+        text-decoration: none
+        img
+            max-width: 100%
+        p:nth-child(2)
+            margin-top: 25px
+            font: Normal 18px/35px Montserrat
+            letter-spacing: 0.18px
+            color: $black
+        p:nth-child(3)
+            font: 300 18px/35px Montserrat
+            letter-spacing: 0.18px
+            color: $red
+
+#authors
+    a:nth-child(3n)
+        margin-right: 0
+
+
+// AUTEURS
+
+#author_page
+    background: transparent url('/assets/img/fond-black.png') 0% 0% no-repeat padding-box
+    width: 1000px
+    height: 241px
+    display: flex
+    > div:first-of-type
+        width: 50%
+        display: flex
+        justify-content: center
+        > picture 
+            margin-top: 40px
+            transform: rotate(-5deg)
+    > div:last-of-type
+        width: 50%
+        height: 241px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        h1 
+            font: Normal 45px/46px Love Ya Like A Sister
+            letter-spacing: 3.15px
+            color: $red
+            margin-bottom: 15px
+        h1:after
+            margin-left: 10px
+            content: url('/assets/img/empreinte chat.svg')
+        p 
+            text-align: left
+            font: Normal 18px/27px Montserrat
+            letter-spacing: 0.18px
+            color: white
+#author_presentation
+    width: 45%
+    margin-top: 40px
+    margin-bottom: 100px
+    margin-left: 50%
+    font: Normal 14px/22px Montserrat
+    letter-spacing: 0.14px
+    color: $black
+#author_books
+    ol
+        justify-content: center
+        li
+            margin-right: 30px
+        li:last-of-type
+            margin-right: 0
+
+
+// SERIES
+
+#landing_series
+    height: 454px
+    background: transparent url('/assets/img/series/landing-series.png') 0% 0% no-repeat padding-box
+    margin-bottom: 40px
+    > *
+        color: white
+
+#series 
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+    margin-top: 40px
+    margin-bottom: 175px
+    a
+        display: flex
+        justify-content: space-between
+        margin-right: 15px
+        margin-bottom: 20px
+        width: calc(100% / 3 - 10px)
+        text-decoration: none
+        box-shadow: 0px 3px 6px #00000029
+        padding-right: 10px
+        img
+            max-width: 50%
+            align-self: flex-end
+        p
+            max-width: 50%
+            margin-top: 25px
+            font: Normal 18px/35px Montserrat
+            letter-spacing: 0.18px
+            color: $black
+            align-self: center
+#series 
+     a:nth-child(3n)
+        margin-right: 0

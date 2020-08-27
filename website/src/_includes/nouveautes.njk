@@ -1,0 +1,21 @@
+<section id="new_books" class="books_container">
+
+    <h3>NOUVEAUTÉS</h3>
+
+    <ol>
+        {%- for book in global.newBooks %}
+        <li><a href = "books/{{ book.slug }}.html">
+            <div>
+                <img src="{{book.image}}" alt="No Image"/>
+            </div>
+            <p class="book_title">{{ book.title }}</p>
+        </a></li>
+        {%- endfor %}
+    </ol>
+
+</section>
+
+<div id="heros">
+    <h1>Des univers variés aux nombreux héros et héroïnes pour petits et grands</h1>
+    <button>découvrir</button>
+</div>

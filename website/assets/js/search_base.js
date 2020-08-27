@@ -46,24 +46,28 @@ async function initCatalogue(books, selectors) {
     })
 }
 
-async function displayResults(books, selectors) {
+async function displayResults(books, selectors, id) {
 
-    selectors.map(selector => {
-        let document_selector = document.getElementById(selector['id_selector']);
-        if (document_selector.value!=='all') {
-            if (selector['isArray']) {
-                books = [...books.filter(book=>{return book[selector['key']].includes(document_selector.value)})]
+    if (!id) {id = "filter_results"}
+
+    if (selectors) {
+        selectors.map(selector => {
+            let document_selector = document.getElementById(selector['id_selector']);
+            if (document_selector.value!=='all') {
+                if (selector['isArray']) {
+                    books = [...books.filter(book=>{return book[selector['key']].includes(document_selector.value)})]
+                }
+                else {
+                    books = [...books.filter(book=>{return book[selector['key']]===document_selector.value})]
+                }
             }
-            else {
-                books = [...books.filter(book=>{return book[selector['key']]===document_selector.value})]
-            }
-        }
-    })
+        })
+    }
 
     let filterResultsString =`<ol>`;
     books.map(book => {
         filterResultsString += `
-        <li><a href = "books/${book.slug}.html">
+        <li><a href = "/books/${book.slug}.html">
             <div>
                 <img src=${book.image} alt="${book.title} cover"/>
             </div>
@@ -71,7 +75,7 @@ async function displayResults(books, selectors) {
         </a></li>`
     })
     filterResultsString += `</ol>`;
-    const filter_results = document.getElementById("filter_results")
+    const filter_results = document.getElementById(id)
     filter_results.innerHTML = filterResultsString
 
     return books

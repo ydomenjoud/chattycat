@@ -1,0 +1,27 @@
+---
+tags: series
+title: Séries
+permalink: "series.html"
+---
+
+<section id="landing_series" class="landing_container">
+    <h1>Des univers variés aux nombreux héros et héroïnes pour petits et grands</h1>
+    <p>Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante.</p>
+</section>
+
+<h3 id="series_title">LES SéRIES</h3>
+
+<section id="series">
+
+{%- for serie in series %}
+    <a href = "/series/{{serie.slug}}.html">
+        <img src="{{serie.image}}" alt="No Image"/>
+        <p>{{ serie.name }}</p>
+    </a>
+{%- endfor %}
+
+</section>
+
+{% include "nouveautes.njk" %}
+
+
