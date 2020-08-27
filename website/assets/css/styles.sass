@@ -4,7 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
 
-
 body
     font-family: 'Montserrat', sans-serif
     color: $black
@@ -12,7 +11,7 @@ body
     > header
         display: flex
         justify-content: space-between
-        background: transparent url("/assets/img/home/empreinte-patte-chat-chien-chiot-animal-trace_177006-37.png") 0% 0% no-repeat padding-box
+        background: transparent url("/assets/img/home/empreinte-patte-chat-chien-chiot-animal-trace_177006-37.png") 0 0 no-repeat padding-box
         background-position: left 70px top -230px
         opacity: 0.7
 
@@ -20,13 +19,31 @@ body
         nav
             height: 130px
             display: flex
+
             a
                 z-index: 100
                 display:
                 transform: translateY(-50px)
                 transition: transform 230ms ease-in-out
+
+                img
+                    display: block
+
+                    &.display_on_hoover
+                        display: none
+
                 &:hover, &.active
-                    transform: none
+                    transform: translateY(-30px)
+
+                    img
+                        display: none
+
+                        &.display_on_hoover
+                            display: block
+
+
+                //transform: none
+
         > img
             position: absolute
             margin-top: -230px
@@ -40,24 +57,31 @@ body
         border-bottom: 3px solid $black
         display: flex
         padding-bottom: 10px
+
         a
             padding: 10px 40px
             color: inherit
             font-size: 16px
-            font-weight: 500 // Medium
+            font-weight: 500
+            // Medium
             text-decoration: none
             text-transform: uppercase
+
             &:not(:first-of-type)
                 border-left: 2px solid $grey
+
         label
             flex: 1
+
             img[alt=search]
                 margin-left: 50px
+
             input
                 flex: 1
                 padding: 0 25px
                 border: 0
                 font-size: 14px
+
         #searched_books_container
             position: absolute
             visibility: hidden
@@ -67,14 +91,17 @@ body
             background-color: white
             margin-top: 35px
             margin-left: 570px
+
             .search_item
                 font-size: 10px
                 line-height: 10px
                 background-color: white
                 border-left: none
                 border-bottom: 1px solid black
+
                 &:last-of-type
                     border-bottom: none
+
             .search_item:hover
                 background-color: $red
                 opacity: 0.7
@@ -87,11 +114,14 @@ body
     display: flex
     flex-direction: column
     justify-content: center
+
     > *
         margin-left: 84px
         max-width: 290px
+
     h1
         text-align: left
+
     p
         margin-top: 13px
         width: 341px
@@ -99,47 +129,58 @@ body
         font: Lighter 20px/29px Open Sans
         letter-spacing: 0.2px
         color: #000000
+
     button
         margin-top: 20px
         width: 154px
 
 #landing_index
+    +container()
     background: url("/assets/img/home/news-cleo.png") no-repeat center center
 
+#main_books
+    +container()
 
 
 .books_container
-    padding: 41px 0px 70px
+    padding: 41px 0 70px
+
     h3
         box-sizing: border-box
         margin-bottom: 40px
+
     ol
-        width: 1000px
         display: flex
         justify-content: space-around
         align-items: flex-start
         flex-wrap: wrap
+
         li
             display: flex
             flex-direction: column
             width: 154px
             margin-bottom: 30px
+
         div
             width: 154px
             height: 217px
             display: flex
             justify-content: center
             align-items: flex-end
+
         img
             max-width: 154px
             max-height: 217px
+
         a
             text-decoration: none
+
         .book_title
             margin-top: 14px
             font: 500 18px/35px Montserrat
             letter-spacing: 0.18px
             color: #070909
+
         .book_info
             text-align: left
             font: 300 18px/27px Montserrat
@@ -148,138 +189,156 @@ body
 
 #new_books
     background-color: $red
-    width: 1280px
-    margin-left: -140px
     display: flex
     flex-direction: column
     align-items: center
+
     h3
         color: white
 
 #heros
-    width: 1280px
     height: 422px
-    margin-left: -140px
-    background: transparent url('/assets/img/home/heros2.png') 0% 0% no-repeat padding-box
+    background: transparent url('/assets/img/home/heros2.png') center center no-repeat padding-box
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
+
     h1
         width: 459px
         text-align: center
         margin-bottom: 30px
 
 #follow_us
+    +container
     padding: 50px 1px 120px
+
     h3
         color: #070909
         text-align: left
         margin-bottom: 20px
+
     > div
         width: 100%
         display: flex
         justify-content: space-between
+
         > #insta
             width: 50%
+
         > #fb
             width: 40%
 
 
-footer
+body > footer
     #footer1
         box-sizing: border-box
-        width: 1000px
-        height: 234px
         background-color: black
-        display: flex
-        justify-content: space-between
-        align-items: flex-start
-        padding: 47px 30px 0 30px
-        li
-            text-align: left
-            font: Lighter 12px Montserrat
-            color: white
-            text-transform: uppercase
-            margin-bottom: 10px
-            a
-                cursor: pointer
-                text-decoration: none
-            a:hover 
-                text-decoration: underline white
-            a:visited
-                color: white
-        > #follow_box
-            display: flex
-            > img
-                width: 69px
-                height: 69px
-                margin-right: 16px
-            p
-                font: Lighter 16px Montserrat
-                margin-bottom: 10px
-                letter-spacing: 0.16px
-                color: #FFFFFF
-            #follow_buttons
-                display: flex
-                a
-                    height: 35px
-                    width: 35px
-                    margin-right: 10px
-                    opacity: 1
-                    cursor: pointer
-                a:nth-child(1)
-                    background: transparent url('/assets/img/home/facebook.svg') 0% 0% no-repeat padding-box
-                a:nth-child(2)
-                    background: transparent url('/assets/img/home/instagram.svg') 0% 0% no-repeat padding-box
-                a:nth-child(3)
-                    background: transparent url('/assets/img/home/twitter.svg') 0% 0% no-repeat padding-box
+        padding: 30px 0
 
-        > #newsletter_box
-            p
-                font: Lighter 16px Montserrat
+        > .container
+            display: flex
+            justify-content: space-between
+            align-items: flex-start
+
+            li
+                text-align: left
+                font: Lighter 12px Montserrat
+                color: white
+                text-transform: uppercase
                 margin-bottom: 10px
-                letter-spacing: 0.16px
-                color: #F1ECEC
-            > div
+
+                a
+                    color: #FFF
+                    text-decoration: none
+                    cursor: pointer
+
+            > #follow_box
                 display: flex
-                input
-                    margin-right: 10px
+
+                > img
+                    margin-right: 16px
+
+                p
+                    font: Lighter 16px Montserrat
+                    margin-bottom: 10px
+                    letter-spacing: 0.16px
+                    color: #FFFFFF
+
+                #follow_buttons
+                    display: flex
+
+                    a
+                        height: 35px
+                        width: 35px
+                        margin-right: 10px
+                        opacity: 1
+                        cursor: pointer
+                        background: transparent 0 0 no-repeat padding-box
+
+                    a:nth-child(1)
+                        background-image: url('/assets/img/home/facebook.svg')
+
+                    a:nth-child(2)
+                        background-image: url('/assets/img/home/instagram.svg')
+
+                    a:nth-child(3)
+                        background-image: url('/assets/img/home/twitter.svg')
+
+            > #newsletter_box
+                label
+                    display: block
+                    font: Lighter 16px Montserrat
+                    margin-bottom: 10px
+                    letter-spacing: 0.16px
+                    color: #F1ECEC
+
+                > div
+                    display: flex
+
+                    input
+                        margin-right: 10px
+
     #footer2
         box-sizing: border-box
-        width: 1000px
-        height: 68px
-        background: $blue 0% 0% no-repeat padding-box
-        display: flex
-        justify-content: space-between
-        align-items: center
-        color: white
-        padding: 1px 30px
-        p
-            text-align: left
-            font: 500 12px/20px Montserrat
-            letter-spacing: 0px
-        a
-            font: Lighter 12px/20px Montserrat
-            text-decoration: none
+        background: $blue 0 0 no-repeat padding-box
+        padding: 30px 0
+
+        > div
+            display: flex
+            justify-content: space-between
+            align-items: center
             color: white
+
+            p
+                text-align: left
+                font: 500 12px/20px Montserrat
+                letter-spacing: 0
+
+            a
+                font: Lighter 12px/20px Montserrat
+                text-decoration: none
+                color: white
 
 //////////////////
 // BOOK
 //////////////////
 
-#book_presentation 
-    background: #070909 0% 0% no-repeat padding-box
+#book_presentation
+    background: #070909 0 0 no-repeat padding-box
     display: flex
     width: 100%
     height: 322px
     justify-content: space-between
     padding: 35px 35px 0
+
     > div:first-child
         display: flex
         flex-direction: column
+
         > picture:first-child
             margin-bottom: 15px
+
     > div:last-child
         display: flex
         flex-direction: column
@@ -287,81 +346,93 @@ footer
         width: 55%
         height: 270px
         justify-content: space-between
-        h1 
+
+        h1
             font: Normal 34px/25px Montserrat
             letter-spacing: 0.34px
             color: #FFFFFF
-            // margin-bottom: 5px
-        h2 
+
+        h2
             font: Normal 22px/25px Montserrat
             letter-spacing: 0.22px
             color: #FFFFFF
-            // margin-bottom: 5px
-        h5 
+
+        h5
             font: normal normal 300 18px/35px Montserrat
             letter-spacing: 0.18px
             color: #FFFFFF
-        h5:nth-of-type(2)
-            // margin-bottom: 55px
-        h3 
+
+        h3
             text-align: left
             font: normal 34px/42px Love Ya Like A Sister
             letter-spacing: 2.38px
 
+#book_presentation_bottom
+    background: #F1ECEC
+
 #book_presentation2
-    background: #F1ECEC 0% 0% no-repeat padding-box
     display: flex
     width: 100%
-    justify-content: space-between
-    padding: 15px 35px 150px
+    justify-content: flex-end
+    padding: 30px
+
     > picture
         margin-top: 157px
+
     > div
         display: flex
         flex-direction: column
         align-items: flex-start
         width: 55%
         justify-content: space-between
+
         #themes
             display: flex
             flex-wrap: wrap
-            p 
-                background: #FFFFFF 0% 0% no-repeat padding-box
+
+            p
+                background: #FFFFFF 0 0 no-repeat padding-box
                 border-radius: 2px
                 font: Normal 14px/22px Montserrat
                 letter-spacing: 0.14px
                 color: $black
                 padding: 5px 10px
                 margin-right: 10px
-        h4 
+
+        h4
             font: Normal 300 22px/25px Montserrat
             letter-spacing: 0.22px
             margin: 40px 0 15px
-        p 
+
+        p
             font: Normal 14px/22px Montserrat
             letter-spacing: 0.14px
+
+
 #book_badges
-    margin-top: -100px
     width: 100%
-    padding: 0 35px
+    padding: 35px
     display: flex
-    
+
     > div:first-child
         width: 313px
         height: 48px
-        background: #FFFFFF 0% 0% no-repeat padding-box
+        background: #FFFFFF 0 0 no-repeat padding-box
         display: flex
         align-items: center
         justify-content: space-between
         padding: 0 10px
+
         h3
             font: Normal 30px/29px Love Ya Like A Sister
-            letter-spacing: 0px
+            letter-spacing: 0
             color: $black
+
         span
             font: Normal 22px/29px Montserrat
             letter-spacing: 0.22px
             color: $blue
+
     > div:nth-child(2)
         margin-left: calc(#{$site-width*0.45} - 348px)
         width: 162px
@@ -370,20 +441,21 @@ footer
         display: flex
         align-items: center
         padding: 0 10px
-        h3 
+
+        h3
             color: $black
             font: Normal 23px/26px Love Ya Like A Sister
             letter-spacing: 1.61px
+
     > div:nth-child(3)
-        margin-left: calc(#{$site-width}*0.45 - 297px)
+        margin-left: calc(#{$site-width} * 0.45 - 297px)
         display: flex
         align-items: center
-        
-        button 
+
+        button
             padding: 0 10px
             width: 200px
             height: 48px
-
 
 
 //////////////////
@@ -391,32 +463,40 @@ footer
 //////////////////
 
 #landing_concept
+    +container
     background: url("/assets/img/concept/landing.png") no-repeat center center
+
     > h1, p
         color: white
-    p 
+
+    p
         font: 300 20px/29px Open Sans
         letter-spacing: 0.2px
 
 #notre_concept
+    +container()
     display: flex
     justify-content: space-between
     align-items: center
-    width: 100%
-    img 
+
+    img
         width: 45%
+
     > div
         padding: 60px 0
         width: 45%
         display: flex
         flex-direction: column
         align-items: flex-start
-        h3 
+
+        h3
             text-transform: uppercase
             color: black
-        h5 
+
+        h5
             font-weight: 300
             margin-top: 23px
+
         p
             font: 300 14px/22px Montserrat
             letter-spacing: 0.14px
@@ -424,41 +504,43 @@ footer
             margin-top: 10px
 
 #qui_sommes_nous
-    background: transparent url('/assets/img/fond-black.png')  0% 0% no-repeat padding-box;
+    +container()
+    background: transparent url('/assets/img/fond-black.png') 0 0 no-repeat padding-box
     display: flex
     flex-direction: column
     align-items: center
-    width: 100%
-    > h4 
+
+    > h4
         margin-top: 50px
-    > h5 
+
+    > h5
         color: white
         text-align: center
         width: 58%
         margin-top: 15px
         font-weight: 500
+
     > div
         margin-top: 80px
         width: 100%
         display: flex
         align-items: flex-start
         justify-content: space-around
+
         > div
             width: 300px
             display: flex
             flex-direction: column
             align-items: flex-start
-            h5 
+
+            h5
                 font-weight: 300
                 margin: 20px 0 10px
-            p 
+
+            p
                 font: Lighter 14px/22px Montserrat
                 letter-spacing: 0.14px
                 color: $black
-
-
-        
-
 
 
 //////////////////
@@ -466,55 +548,69 @@ footer
 //////////////////
 
 #landing_catalogue
+    +container
     background: url("/assets/img/catalogue/landing.png") no-repeat center center
 
+#catalogue_catalogue
+    +container
+
 .catalogue
-    h3 
+    h3
         margin: 41px 0
     width: 100%
-    h5 
+
+    h5
         margin: 40px 0 60px
+
     #filter_results
         padding: 0
         display: flex
         width: 100%
+
         ol
             justify-content: flex-start
             left: 0
             right: 0
+
         li
             margin-right: 57px
+
         li:nth-child(5n)
-                margin-right: 0
+            margin-right: 0
+
     #selectors_container
         width: 100%
-        background: $blue 0% 0% no-repeat padding-box
+        background: $blue 0 0 no-repeat padding-box
         padding: 10px
+
         > p
             text-align: left
             font: Normal 300 18px/25px Montserrat
             letter-spacing: 0.18px
             color: #FFFFFF
             margin-bottom: 15px
+
         #selectors
             display: flex
             align-items: flex-start
             justify-content: space-between
+
             .selector_pair
                 width: 23%
                 display: flex
                 flex-direction: column
-                p
+
+                label
                     text-align: left
                     font: Normal 18px/25px Montserrat
                     letter-spacing: 0.18px
                     color: #070909
                     margin-bottom: 6px
+
                 select
                     width: 100%
                     height: 36px
-                    background: #FFFFFF 0% 0% no-repeat padding-box
-    
+                    background: #FFFFFF 0 0 no-repeat padding-box
 
 
 //////////////////
@@ -522,73 +618,87 @@ footer
 //////////////////
 
 #landing_age
-    background: url("/assets/img/ages/landing.png") no-repeat center center  
+    background: url("/assets/img/ages/landing.png") no-repeat center center
 
 #ages_page
+    +container
+
     #age
         display: flex
         width: 100%
         align-items: center
         justify-content: center
         margin: 40px 0
-        img 
+
+        img
             width: 38px
             height: 38px
-        h3 
+
+        h3
             color: $black
 
 // TODO : gestion couleur du svg
 [class = '3-6']
     color: $red
+
 [class = '6-8']
     color: $yellow
+
 [class = '8-10']
     color: $blue
+
 [class = '10-plus']
     color: $green
 
 #ages_catalogue
     [class = '3-6']
         background: $red 0 0 no-repeat padding-box
+
     [class = '6-8']
         background: $yellow 0 0 no-repeat padding-box
+
     [class = '8-10']
         background: $blue 0 0 no-repeat padding-box
+
     [class = '10-plus']
         background: $green 0 0 no-repeat padding-box
 
 // AUTEURS
 
 #authors_title
-    background: transparent url('/assets/img/fond-black.png') 0% 0% no-repeat padding-box
-    width: 1000px
-    height: 186px
+    background: transparent url('/assets/img/fond-black.png') 0 0 no-repeat padding-box
     color: $blue
     text-align: center
+    padding: 60px
     font: Normal 45px/35px Love Ya Like A Sister
     letter-spacing: 3.15px
     text-transform: uppercase
     display: flex
     justify-content: center
     align-items: center
+
 #authors
     display: flex
     flex-wrap: wrap
     width: 100%
-    margin-top: -30px
-    margin-bottom: 175px
+
     a
+        $gutter: 55px
         margin-right: 15px
         margin-bottom: 20px
         width: calc(100% / 3 - 10px)
         text-decoration: none
+
         img
+            border: 20px solid #0000003D
             max-width: 100%
+
         p:nth-child(2)
             margin-top: 25px
             font: Normal 18px/35px Montserrat
             letter-spacing: 0.18px
             color: $black
+
         p:nth-child(3)
             font: 300 18px/35px Montserrat
             letter-spacing: 0.18px
@@ -602,36 +712,43 @@ footer
 // AUTEURS
 
 #author_page
-    background: transparent url('/assets/img/fond-black.png') 0% 0% no-repeat padding-box
+    background: transparent url('/assets/img/fond-black.png') 0 0 no-repeat padding-box
     width: 1000px
     height: 241px
     display: flex
+
     > div:first-of-type
         width: 50%
         display: flex
         justify-content: center
-        > picture 
+
+        > picture
             margin-top: 40px
             transform: rotate(-5deg)
+
     > div:last-of-type
         width: 50%
         height: 241px
         display: flex
         flex-direction: column
         justify-content: center
-        h1 
+
+        h1
             font: Normal 45px/46px Love Ya Like A Sister
             letter-spacing: 3.15px
             color: $red
             margin-bottom: 15px
+
         h1:after
             margin-left: 10px
             content: url('/assets/img/empreinte chat.svg')
-        p 
+
+        p
             text-align: left
             font: Normal 18px/27px Montserrat
             letter-spacing: 0.18px
             color: white
+
 #author_presentation
     width: 45%
     margin-top: 40px
@@ -640,11 +757,14 @@ footer
     font: Normal 14px/22px Montserrat
     letter-spacing: 0.14px
     color: $black
+
 #author_books
     ol
         justify-content: center
+
         li
             margin-right: 30px
+
         li:last-of-type
             margin-right: 0
 
@@ -653,17 +773,19 @@ footer
 
 #landing_series
     height: 454px
-    background: transparent url('/assets/img/series/landing-series.png') 0% 0% no-repeat padding-box
+    background: transparent url('/assets/img/series/landing-series.png') 0 0 no-repeat padding-box
     margin-bottom: 40px
+
     > *
         color: white
 
-#series 
+#series
     display: flex
     flex-wrap: wrap
     width: 100%
     margin-top: 40px
     margin-bottom: 175px
+
     a
         display: flex
         justify-content: space-between
@@ -671,11 +793,13 @@ footer
         margin-bottom: 20px
         width: calc(100% / 3 - 10px)
         text-decoration: none
-        box-shadow: 0px 3px 6px #00000029
+        box-shadow: 0 3px 6px #00000029
         padding-right: 10px
+
         img
             max-width: 50%
             align-self: flex-end
+
         p
             max-width: 50%
             margin-top: 25px
@@ -683,6 +807,7 @@ footer
             letter-spacing: 0.18px
             color: $black
             align-self: center
-#series 
-     a:nth-child(3n)
+
+#series
+    a:nth-child(3n)
         margin-right: 0

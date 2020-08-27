@@ -1,1 +1,18 @@
-[{"age":"3-6","color":"#FF5757"},{"age":"6-8","color":"#EFC314"},{"age":"8-10","color":"#38B6FF"},{"age":"10-plus","color":"#6CCD61"}]
+[
+    {
+        "age": "3-6",
+        "color": "#FF5757"
+    },
+    {
+        "age": "6-8",
+        "color": "#EFC314"
+    },
+    {
+        "age": "8-10",
+        "color": "#38B6FF"
+    },
+    {
+        "age": "10-plus",
+        "color": "#6CCD61"
+    }
+]

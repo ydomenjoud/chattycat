@@ -2,11 +2,13 @@
 
     <h3>NOUVEAUTÉS</h3>
 
-    <ol>
+    <ol class="container">
         {%- for book in global.newBooks %}
         <li><a href = "books/{{ book.slug }}.html">
             <div>
-                <img src="{{book.image}}" alt="No Image"/>
+                {%- if book.image %}
+                    {% remoteImage book.image, book.title, {widths: [150]} %}
+                {%- endif %}
             </div>
             <p class="book_title">{{ book.title }}</p>
         </a></li>

@@ -17,10 +17,19 @@
 
     <a href="/"><img src="/assets/img/logo.png" alt="logo" width="362" height="120"/></a>
     <nav>
-        <a href="/ages/3-6.html"><img src="/assets/img/header/3-6.png" alt="3-6 ans" width="118" height="150"></a>
-        <a href="/ages/6-8.html"><img src="/assets/img/header/6-8.png" alt="6-8 ans" width="118" height="150"></a>
-        <a href="/ages/8-10.html"><img src="/assets/img/header/8-10.png" alt="8-10 ans" width="130" height="153"></a>
-        <a href="/ages/10-plus.html"><img src="/assets/img/header/10-plus.png" alt="10+ ans" width="123" height="153"></a>
+        <a href="/ages/3-6.html">
+            <img src="/assets/img/header/3-6.png" alt="3-6 ans" width="118" height="150">
+        </a>
+        <a href="/ages/6-8.html">
+            <img src="/assets/img/header/6-8.png" alt="6-8 ans" width="118" height="150">
+            <img src="/assets/img/header/6-8-hover.png" class="display_on_hoover" alt="6-8 ans" width="118" height="150">
+        </a>
+        <a href="/ages/8-10.html">
+            <img src="/assets/img/header/8-10.png" alt="8-10 ans" width="130" height="153">
+        </a>
+        <a href="/ages/10-plus.html">
+            <img src="/assets/img/header/10-plus.png" alt="10+ ans" width="123" height="153">
+        </a>
     </nav>
 
 </header>
@@ -40,22 +49,24 @@
 </nav>
 
 <!-- main content -->
-<main>
+<main class="{{ main }}">
     {{ content | safe }}
+</main>
 
-    <footer>
-        <div id="footer1">
+<footer>
+    <div id="footer1">
+        <div class="container">
             <div>
                 <ol>
-                    <li><a href="/series.html">les séries</a></li>
-                    <li><a href="/authors.html">les auteurs</a></li>
+                    <li><a href="{{ collections.series[0].data.page.url }}">les séries</a></li>
+                    <li><a href="{{ collections.auteurs[0].data.page.url }}">les auteurs</a></li>
                     <li><a>envoyez votre manuscrit</a></li>
                     <li><a>revue de presse</a></li>
                     <li><a>nous contacter</a></li>
                 </ol>
             </div>
             <div id="follow_box">
-                <img src="/assets/img/home/CHATTYCAT-logo-chat-blanc.png" alt="chattycat logo">
+                <img src="/assets/img/home/CHATTYCAT-logo-chat-blanc.png" alt="chattycat logo" width="69" height="69">
                 <div>
                     <p>Suivez-nous</p>
                     <div id="follow_buttons">
@@ -66,25 +77,23 @@
                 </div>
             </div>
             <div id="newsletter_box">
-                <p>Inscrivez-vous à la newsletter !</p>
+                <label for="email">Inscrivez-vous à la newsletter !</label>
                 <div>
                     <input type="search" id="email" placeholder="email"/>
                     <button id="newsletter">envoyer</button>
                 </div>
             </div>
         </div>
-        <div id="footer2">
+    </div>
+    <div id="footer2">
+        <div class="container">
             <p>CHATTYCAT © 2020</p>
             <a href="">MENTIONS LÉGALES</a>
         </div>
-    </footer>
-
-</main>
-
-
-
-</body>
+    </div>
+</footer>
 
 <script src="/assets/js/index.js"></script>
 
+</body>
 </html>

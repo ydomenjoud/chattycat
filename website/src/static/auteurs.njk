@@ -3,16 +3,19 @@ tags: auteurs
 title: Auteurs
 permalink: "authors.html"
 ---
-<h1 id="authors_title">Les auteurs / illustrateurs</h1>
 
-<section id="authors">
+<div class="container">
+    <h1 id="authors_title">Les auteurs / illustrateurs</h1>
 
-    {%- for author in authors %}
-        <a href = "/authors/{{author.slug}}.html">
-            <img src="{{author.image}}" alt="No Image"/>
-            <p>{{ author.name }}</p>
-            <p>{{ author.occupation }}</p>
-        </a>
-    {%- endfor %}
+    <section id="authors">
 
-</section>
+        {%- for author in authors %}
+            <a href = "/authors/{{author.slug}}.html">
+                <img src="{{author.image}}" alt="No Image"/>
+                <p>{{ author.name }}</p>
+                <p>{{ author.occupation }}</p>
+            </a>
+        {%- endfor %}
+
+    </section>
+</div>

@@ -13,23 +13,25 @@ eleventyComputed:
 permalink: "authors/{{author.slug}}.html"
 ---
 
-<section id="author_page" data-author="{{name}}"> 
-    <div>
-        {%- if author.image %}
-            {% remoteImage  author.image, "plop", {widths: [312]} %}
-        {%- endif %}
-    </div>
-    <div>
-        <h1>{{name}}</h1>
-        <p>{{occupation}}</p>
-    <div>
-</section>
+<div class="container">
+    <section id="author_page" data-author="{{name}}">
+        <div>
+            {%- if author.image %}
+                {% remoteImage  author.image, "plop", {widths: [312]} %}
+            {%- endif %}
+        </div>
+        <div>
+            <h1>{{name}}</h1>
+            <p>{{occupation}}</p>
+        </div>
+    </section>
 
- <p id="author_presentation">{{presentation}}</p>
+     <p id="author_presentation">{{presentation}}</p>
 
- <h3>SES OUVRAGES</h3>
+     <h3>SES OUVRAGES</h3>
 
- <div id="author_books" class="books_container"></div>
+     <div id="author_books" class="books_container"></div>
+</div>
 
- <script src="/assets/js/search_base.js"></script>
+<script src="/assets/js/search_base.js"></script>
 <script src="/assets/js/author.js"></script>
