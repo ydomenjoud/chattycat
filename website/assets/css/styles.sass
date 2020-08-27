@@ -25,7 +25,6 @@ body
                 display:
                 transform: translateY(-50px)
                 transition: transform 230ms ease-in-out
-
                 img
                     display: block
 
@@ -66,6 +65,9 @@ body
             // Medium
             text-decoration: none
             text-transform: uppercase
+            &.active
+                background-color: #FF5757
+                color: white
 
             &:not(:first-of-type)
                 border-left: 2px solid $grey
@@ -830,7 +832,7 @@ body > footer
     height: 322px
     justify-content: space-between
     padding: 35px 35px 0
-    
+
     h1
         font: Normal 45px/35px Love Ya Like A Sister
         letter-spacing: 3.15px
@@ -870,3 +872,112 @@ body > footer
                     font: Normal 18px/27px Montserrat
                     letter-spacing: 0.18px
                     color: #FFFFFF
+
+
+// Atelier
+.atelier
+    $padding: 70px
+    .container
+        header
+            padding: $padding
+            background: url('/assets/img/ateliers/atelier-background-top.png')
+            border-bottom: 3px solid #070909
+            & > *
+                width: calc((100% + 2*#{$padding}) / 3)
+            h1
+                flex: 0 0 100%
+                font: normal normal bold 30px/35px Montserrat
+                color: #070909
+            p
+                margin-top: 30px
+                font: normal normal 300 20px/29px Open Sans
+                color: #000000
+
+        section
+            margin-top: 70px
+            color: #070909
+            padding-left: 50%
+            padding-right: 50px
+            background: no-repeat left center
+
+            &:last-of-type
+                padding-bottom: 100px
+
+            // background
+            $background: maternelle, primaire, college
+            @for $i from 1 through length($background)
+                &:nth-of-type(#{$i})
+                    background-image: url('/assets/img/ateliers/#{nth($background, $i)}.png')
+
+            h2
+                font: normal normal normal 45px/35px Love Ya Like A Sister
+            p
+                margin-top: 20px
+                font: normal normal normal 14px/22px Montserrat
+            h4
+                text-align: left
+                margin-top: 20px
+                font: normal normal 300 22px/25px Montserrat
+                color: $blue
+            ul
+                li
+                    margin-top: 20px
+                    font: normal normal 300 14px/22px Montserrat
+                    strong
+                        font: normal normal normal 14px/22px Montserrat
+
+    #example
+        $leftPartWidth: 48%
+        background-image: linear-gradient(to right, $blue $leftPartWidth, #000 $leftPartWidth)
+        background-position: center
+        position: relative
+        &::before
+            display: block
+            content: ""
+            position: absolute
+            width: 0
+            height: 0
+            border-top: 35px solid transparent
+            border-bottom: 35px solid transparent
+            border-left: 48px solid $blue
+            clear: both
+            top: 42%
+            left: $leftPartWidth
+
+        .container
+            display: flex
+            article
+                padding: 105px 80px 105px 0
+                width: $leftPartWidth
+                p
+                    margin-bottom: 20px
+                    font: normal normal normal 22px/30px Montserrat
+                    color: #FFFFFF
+            figure
+                padding: 105px 0
+                width: calc(100% - #{$leftPartWidth})
+                display: flex
+                img
+                    margin: 0 85px
+                figcaption
+                    font: normal normal 300 22px/25px Montserrat
+                    color: #FFFFFF
+                    align-self: center
+
+    footer
+        text-align: center
+        background: url('/assets/img/ateliers/background-footer.png') center center
+        padding: 120px
+        p
+            +container
+            width: 50%
+            font: normal normal bold 30px/35px Montserrat
+            color: #070909
+        a
+            +container
+            display: block
+            margin-top: 20px
+            width: 50%
+            text-decoration: none
+            font: normal normal normal 30px/35px Montserrat
+            color: #FF5757

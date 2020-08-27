@@ -36,10 +36,11 @@
 
 
 <!-- navigation -->
+{% set active_page = active_page|default('index') -%}
 <nav class="container">
-    <a href="{{ collections.concept[0].data.page.url }}">concept</a>
-    <a href="{{ collections.catalogue[0].data.page.url }}">catalogue</a>
-    <a href="/">ateliers</a>
+    <a href="{{ collections.concept[0].data.page.url }}" {% if active_page == "concept" %} class="active"{% endif %}>concept</a>
+    <a href="{{ collections.catalogue[0].data.page.url }}" {% if active_page == "catalogue" %} class="active"{% endif %}>catalogue</a>
+    <a href="{{ collections.ateliers[0].data.page.url }}"  {% if active_page == "atelier" %} class="active"{% endif %}>ateliers</a>
     <label>
         <img src="/assets/img/header/search.png" alt="search" width="28" height="28"/>
         <input type="search" id="search_text" placeholder="titre/auteur/mot clé/genres/thèmes..."/>
@@ -49,7 +50,7 @@
 </nav>
 
 <!-- main content -->
-<main class="{{ main }}">
+<main class="{{ mainClass }}">
     {{ content | safe }}
 </main>
 
