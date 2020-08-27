@@ -811,3 +811,52 @@ body > footer
 #series
     a:nth-child(3n)
         margin-right: 0
+
+
+#serie_presentation
+    background: $blue 0 0 no-repeat padding-box
+    display: flex
+    width: 100%
+    height: 322px
+    justify-content: space-between
+    padding: 35px 35px 0
+    
+    h1
+        font: Normal 45px/35px Love Ya Like A Sister
+        letter-spacing: 3.15px
+        text-transform: uppercase
+
+    > div:first-child
+        display: flex
+        flex-direction: column
+        h1
+            color: white
+        > picture:first-child
+            margin-bottom: 15px
+
+    > div:last-child
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        width: 55%
+        height: 270px
+        > h1
+            color: black
+            align-self: flex-end
+            margin-bottom: 30px
+        > div
+            width: 100%
+            display: flex
+            #serie_descr_key
+                width: 35%
+                margin-right: 5px
+                p
+                    font: 300 18px/27px Montserrat
+                    letter-spacing: 0.18px
+                    color: #FFFFFF
+            #serie_descr_value
+                width: 60%
+                p
+                    font: Normal 18px/27px Montserrat
+                    letter-spacing: 0.18px
+                    color: #FFFFFF

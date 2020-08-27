@@ -9,48 +9,40 @@ eleventyComputed:
     name: "{{serie.name}}"
     image: "{{serie.image}}"
     resume: "{{serie.resume}}"
-    description: "{{serie.description}}"
+    description: serie.description
 permalink: "series/{{serie.slug}}.html"
 ---
 
-<div id="serie_presentation">
-    <div>
-        {%- if image %}
-            {% remoteImage  image, "plop", {widths: [312]} %}
-        {%- endif %}
-    </div>
-    
-    <div>
-        <h1>{{name}}</h1>
-    </div>    
-</div>
-{# 
-<div id="book_presentation2">
+<div class="container">
 
-    
-    <p></p>
-
-    <div>
-        <div id="themes">
-            {% set list = themes.split(', ') %}
-            {%- for theme in list %}
-            <p>{{theme}}</p>
-            {%- endfor %}
+    <div id="serie_presentation">
+        <div>
+            <h1>Série</h1>
+            {%- if image %}
+                {% remoteImage image, "plop", {widths: [312]} %}
+            {%- endif %}
         </div>
-        <h4>Résumé</h4>
-        <p>{{summary}}</p>
+
+        <div>
+            <h1>{{name}}</h1>
+            <div>
+                <div id="serie_descr_key">
+                    {% for item in serie.description %}
+                        <p>{{ item[0] }} :</p>
+                    {% endfor %}
+                </div>
+                <div id="serie_descr_value">
+                    {% for item in serie.description %}
+                        <p>{{ item[1] }}</p>
+                    {% endfor %}
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <div id="serie_presentation_bottom">
+        <p></p>
     </div>
 </div>
 
-<div id="book_badges">
-    <div>
-        <h3>{{age}}<span> ans</span></h3>
-        <span>v</span>
-    </div>
-    <div>
-        <h3>EXTRAIT</h3>
-    </div>
-    <div>
-        <button>LIVRE AUDIO</button>
-    </div>
-</div> #}
+
