@@ -26,8 +26,23 @@ body
                 transform: translateY(-50px)
                 transition: transform 230ms ease-in-out
 
+                img
+                    display: block
+
+                    &.display_on_hoover
+                        display: none
+
                 &:hover, &.active
-                    transform: none
+                    transform: translateY(-30px)
+
+                    img
+                        display: none
+
+                        &.display_on_hoover
+                            display: block
+
+
+                //transform: none
 
         > img
             position: absolute
@@ -652,10 +667,9 @@ body > footer
 
 #authors_title
     background: transparent url('/assets/img/fond-black.png') 0 0 no-repeat padding-box
-    width: 1000px
-    height: 186px
     color: $blue
     text-align: center
+    padding: 60px
     font: Normal 45px/35px Love Ya Like A Sister
     letter-spacing: 3.15px
     text-transform: uppercase
@@ -667,16 +681,16 @@ body > footer
     display: flex
     flex-wrap: wrap
     width: 100%
-    margin-top: -30px
-    margin-bottom: 175px
 
     a
+        $gutter: 55px
         margin-right: 15px
         margin-bottom: 20px
         width: calc(100% / 3 - 10px)
         text-decoration: none
 
         img
+            border: 20px solid #0000003D
             max-width: 100%
 
         p:nth-child(2)

@@ -17,11 +17,19 @@
 
     <a href="/"><img src="/assets/img/logo.png" alt="logo" width="362" height="120"/></a>
     <nav>
-        <a href="/ages/3-6.html"><img src="/assets/img/header/3-6.png" alt="3-6 ans" width="118" height="150"></a>
-        <a href="/ages/6-8.html"><img src="/assets/img/header/6-8.png" alt="6-8 ans" width="118" height="150"></a>
-        <a href="/ages/8-10.html"><img src="/assets/img/header/8-10.png" alt="8-10 ans" width="130" height="153"></a>
-        <a href="/ages/10-plus.html"><img src="/assets/img/header/10-plus.png" alt="10+ ans" width="123"
-                                          height="153"></a>
+        <a href="/ages/3-6.html">
+            <img src="/assets/img/header/3-6.png" alt="3-6 ans" width="118" height="150">
+        </a>
+        <a href="/ages/6-8.html">
+            <img src="/assets/img/header/6-8.png" alt="6-8 ans" width="118" height="150">
+            <img src="/assets/img/header/6-8-hover.png" class="display_on_hoover" alt="6-8 ans" width="118" height="150">
+        </a>
+        <a href="/ages/8-10.html">
+            <img src="/assets/img/header/8-10.png" alt="8-10 ans" width="130" height="153">
+        </a>
+        <a href="/ages/10-plus.html">
+            <img src="/assets/img/header/10-plus.png" alt="10+ ans" width="123" height="153">
+        </a>
     </nav>
 
 </header>
@@ -51,7 +59,7 @@
             <div>
                 <ol>
                     <li><a href="{{ collections.series[0].data.page.url }}">les séries</a></li>
-                    <li><a>les auteurs</a></li>
+                    <li><a href="{{ collections.auteurs[0].data.page.url }}">les auteurs</a></li>
                     <li><a>envoyez votre manuscrit</a></li>
                     <li><a>revue de presse</a></li>
                     <li><a>nous contacter</a></li>
