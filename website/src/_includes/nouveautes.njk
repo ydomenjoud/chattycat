@@ -6,9 +6,7 @@
         {%- for book in global.newBooks %}
         <li><a href = "books/{{ book.slug }}.html">
             <div>
-                {%- if book.image %}
-                    {% remoteImage book.image, book.title, {widths: [150]} %}
-                {%- endif %}
+                {% remoteImage book.image, book.title, {widths: [150]} %}
             </div>
             <p class="book_title">{{ book.title }}</p>
         </a></li>

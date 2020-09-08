@@ -1,0 +1,37 @@
+
+
+#book_informations
+    padding: 40px
+    display: flex
+    +container
+    #links
+        width: 460px
+        h5
+            font: normal normal 300 22px/25px Montserrat
+            color: $black
+            margin-bottom: 20px
+        ul
+            list-style-image: none
+            li
+                display: flex
+                &::before
+                    width: 16px
+                    margin-right: 10px
+                    color: $red
+                    content: "chevron_right"
+                    font-family: 'Material Icons Outlined', serif
+                a
+                    font: 600 12px/20px Montserrat
+                    color: $black
+                    text-decoration: none
+
+    #caracs
+        h4
+            text-align: left
+            font: Normal 300 22px/25px Montserrat
+            margin-bottom: 20px
+        td:first-of-type
+            width: 180px
+            font: normal normal 300 14px/22px Montserrat
+        td:nth-of-type(2)
+            font: 500 14px/22px Montserrat

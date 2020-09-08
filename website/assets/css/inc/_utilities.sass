@@ -42,9 +42,12 @@ h5
     letter-spacing: 0.22px
     color: #38B6FF
 
-button
+button, .button
+    text-decoration: none
+    text-align: center
     font-family: 'Love Ya Like A Sister', cursive
     font-size: 18px
+    line-height: 20px
     background-color: $red
     text-transform: uppercase
     border: 0
@@ -52,3 +55,7 @@ button
     border-radius: 3px
     padding: 10px 16px
     cursor: pointer
+    transition: font-size 200ms
+    &:hover
+        background: #090909
+        font-size: 14px

@@ -7,16 +7,26 @@ const distDir = '../dist/';
 module.exports = function (eleventyConfig) {
 
     //add "unique" filter (for age page)
-    eleventyConfig.addNunjucksFilter("unique", function(array) {
-        function onlyUnique(value, index, self) { 
+    eleventyConfig.addNunjucksFilter("unique", function (array) {
+        function onlyUnique(value, index, self) {
             return self.indexOf(value) === index;
         }
-        const arrayFiltered = array.filter(onlyUnique)
-        return arrayFiltered
+
+        const arrayFiltered = array.filter(onlyUnique);
+        return arrayFiltered;
     });
 
     // add plugin for remote image
     eleventyConfig.addNunjucksAsyncShortcode("remoteImage", async function (src, alt, options) {
+
+        if (!src) {
+            return `
+            <picture>
+                <img src="/assets/img/no-picture.png" width="150" height="210" alt="no picture"/>
+            </picture>
+            `;
+        }
+
         // returns Promise
         const defaultOptions = {
             outputDir: distDir + 'assets/img/',
@@ -50,9 +60,21 @@ module.exports = function (eleventyConfig) {
         return slugify(input, options);
     });
 
+    eleventyConfig.addFilter('fdate', fdate => {
+        const timestamp = fdate && fdate._seconds ? fdate._seconds : fdate;
+        const date = new Date(timestamp * 1000);
+        if (date) {
+            const month = (''+date.getMonth()).padStart(2, '0');
+            const year = date.getFullYear();
+            return month + ' / ' + year;
+        } else {
+            return '';
+        }
+    });
+
     // add sass plugin
     eleventyConfig.addPlugin(pluginSass);
-    
+
     // copy assets
     eleventyConfig.addPassthroughCopy("assets");
 

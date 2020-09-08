@@ -1,0 +1,93 @@
+
+
+#logo:hover
+    [alt="cat"]
+        transform: rotate(-10deg)
+
+#slider
+    position: relative
+    height: 450px
+    +container()
+    > article
+        display: none
+        &.active
+            display: flex
+        height: 450px
+        border-bottom: 3px solid $black
+        box-sizing: border-box
+        flex-direction: column
+        justify-content: center
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+
+
+        > *
+            margin-left: 84px
+            max-width: 290px
+
+        h1
+            text-align: left
+
+        p
+            margin-top: 13px
+            width: 341px
+            text-align: left
+            font: Lighter 20px/29px Open Sans
+            letter-spacing: 0.2px
+            color: #000000
+
+        button, a
+            margin-top: 20px
+            width: 154px
+
+        &.inversed > *
+            color: #FFF
+
+
+#slider_control
+    padding: 20px
+    text-align: center
+    a
+        cursor: pointer
+        &::after
+            font: 400 25px 'Material Icons Outlined'
+            content: "radio_button_unchecked"
+        &:hover, &.active
+            &::after
+                content: "radio_button_checked"
+
+
+
+a picture
+    position: relative
+    &:hover
+        $padding: 60px
+        &::after
+            background-color: $red
+            color: #FFF
+            font: 400 18px/26px 'Montserrat'
+            content: "EN SAVOIR +"
+
+            display: flex
+            position: absolute
+            padding: $padding 28px 0 28px
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            border: 1px solid #FFF
+        &::before
+            display: block
+            content: "read_more"
+            font: 400 60px 'Material Icons Outlined'
+            position: absolute
+            top: calc(#{$padding} + 50px)
+            left: 0
+            right: 0
+            padding-right: 28px
+            text-align: right
+            z-index: 10
+            color: #FFF
+
+

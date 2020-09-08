@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title | default('Chattycat') }} </title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styles.css">
 
 </head>
@@ -15,23 +16,29 @@
 <!-- header -->
 <header class="container">
 
-    <a href="/"><img src="/assets/img/logo.png" alt="logo" width="362" height="120"/></a>
+    <a href="/" id="logo">
+        <img src="/assets/img/cat.png" alt="cat" width="62" height="120"/>
+        <img src="/assets/img/logo.png" alt="logo" width="300" height="120"/>
+    </a>
     <nav>
+        <!--{%- for age in collections.ages %}-->
+        <!--    {{ age.data.page.url }}-->
+        <!--{%- endfor %}-->
         <a href="/ages/3-6.html">
             <img src="/assets/img/header/3-6.png" alt="3-6 ans" width="118" height="150">
-            <img src="/assets/img/header/3-6-hover.svg" width="118" height="150" class="display_on_hoover">
+            <img src="/assets/img/header/3-6-hover.png" height="150" class="display_on_hoover">
         </a>
         <a href="/ages/6-8.html">
             <img src="/assets/img/header/6-8.png" alt="6-8 ans" width="118" height="150">
-            <img src="/assets/img/header/6-8-hover.svg" class="display_on_hoover" alt="6-8 ans" width="118" height="150">
+            <img src="/assets/img/header/6-8-hover.png" class="display_on_hoover" alt="6-8 ans" width="118">
         </a>
         <a href="/ages/8-10.html">
             <img src="/assets/img/header/8-10.png" alt="8-10 ans" width="130" height="153">
-            <img src="/assets/img/header/8-10-hover.svg" class="display_on_hoover" width="130" height="153">
+            <img src="/assets/img/header/8-10-hover.png" class="display_on_hoover" width="130">
         </a>
-        <a href="/ages/10-plus.html">
+        <a href="/ages/10.html">
             <img src="/assets/img/header/10-plus.png" alt="10+ ans" width="123" height="153">
-            <img src="/assets/img/header/10-plus-hover.svg" class="display_on_hoover"  width="123" height="153">
+            <img src="/assets/img/header/10-plus-hover.png" class="display_on_hoover" width="123">
         </a>
     </nav>
 
@@ -41,9 +48,9 @@
 <!-- navigation -->
 {% set active_page = active_page|default('index') -%}
 <nav class="container">
-    <a href="{{ collections.concept[0].data.page.url }}" {% if active_page == "concept" %} class="active"{% endif %}>concept</a>
-    <a href="{{ collections.catalogue[0].data.page.url }}" {% if active_page == "catalogue" %} class="active"{% endif %}>catalogue</a>
-    <a href="{{ collections.ateliers[0].data.page.url }}"  {% if active_page == "atelier" %} class="active"{% endif %}>ateliers</a>
+    <a style="width: 150px" href="{{ collections.concept[0].data.page.url }}" {% if active_page == "concept" %} class="active"{% endif %}>concept</a>
+    <a style="width: 180px" href="{{ collections.catalogue[0].data.page.url }}" {% if active_page == "catalogue" %} class="active"{% endif %}>catalogue</a>
+    <a style="width: 160px" href="{{ collections.ateliers[0].data.page.url }}"  {% if active_page == "atelier" %} class="active"{% endif %}>ateliers</a>
     <label>
         <img src="/assets/img/header/search.png" alt="search" width="28" height="28"/>
         <input type="search" id="search_text" placeholder="titre/auteur/mot clé/genres/thèmes..."/>
@@ -60,12 +67,11 @@
 <footer>
     <div id="footer1">
         <div class="container">
-            <div>
+            <div style="width: 220px">
                 <ol>
                     <li><a href="{{ collections.series[0].data.page.url }}">les séries</a></li>
                     <li><a href="{{ collections.auteurs[0].data.page.url }}">les auteurs</a></li>
-                    <li><a>envoyez votre manuscrit</a></li>
-                    <li><a>revue de presse</a></li>
+                    <!--<li><a>envoyez votre manuscrit</a></li>-->
                     <li><a href="{{ collections.contact[0].data.page.url }}">nous contacter</a></li>
                 </ol>
             </div>
@@ -84,7 +90,7 @@
                 <label for="email">Inscrivez-vous à la newsletter !</label>
                 <div>
                     <input type="search" id="email" placeholder="email"/>
-                    <button id="newsletter">envoyer</button>
+                        <button id="newsletter">envoyer</button>
                 </div>
             </div>
         </div>

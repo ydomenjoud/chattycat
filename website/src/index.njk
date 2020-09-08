@@ -1,22 +1,36 @@
+<section id="slider" class="landing_container">
+    <article style="background-image: url('/assets/img/home/slider/slider-cleo.png')" class="active">
+        <h1>Cléo Lefort : notre série phare a un nouveau look !</h1>
+        <p>Découvrez les aventures de la détective amateure ici (lien vers la page série). Parution en août.</p>
+        <a class="button" href="/series/cloe-lefort.html">découvrir</a>
+    </article>
 
-<section id="landing_index" class="landing_container">
-    <h1>Cléo Lefort : notre série phare a un nouveau look !</h1>
-    <p>Découvrez les aventures de la détective amateure ici (lien vers la page série). Parution en août.</p>
-    <button>découvrir</button>
+    <article style="background-image: url('/assets/img/home/slider/slider-guardiens.png');" class="inversed">
+        <h1>The Guardians : à paraître en septembre</h1>
+        <p>Edwin Lancaster pourra-t-il déjouer le sinistre complot de la société secrète des Guardians ?</p>
+        <a class="button" href="/series/the-guardians.html">découvrir</a>
+    </article>
+
+    <article style="background-image: url('/assets/img/home/slider/slider-coulisse.png')" class="inversed">
+        <h1>Dans les coulisses des éditions Chattycat</h1>
+        <p>On vous dit tout sur la maison, sur ses fondateurs et sur sa mascotte, Puff le chaton !</p>
+        <a class="button" href="{{ collections.concept[0].data.page.url }}">découvrir</a>
+    </article>
 </section>
 
+<section class="container" id="slider_control">
+    <a class="active"></a>
+    <a></a>
+    <a></a>
+</section>
 
 <section id="main_books" class="books_container">
-
     <h3>NOS TITRES PHARES</h3>
-
     <ol>
         {%- for book in global.mainBooks %}
         <li><a href="books/{{ book.slug }}.html">
             <div>
-                {%- if book.image %}
                 {% remoteImage book.image, book.title, {widths: [150]} %}
-                {%- endif %}
             </div>
             <p class="book_title">{{ book.title }}</p>
         </a></li>

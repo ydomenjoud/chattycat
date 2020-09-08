@@ -21,20 +21,22 @@ permalink: "books/{{ book.slug }}.html"
 <div class="container">
     <div id="book_presentation">
         <div>
-            {%- if pagination.items[0].image %}
+            {%- if book.image %}
                 {% remoteImage pagination.items[0].image, "plop", {widths: [312]} %}
-            {%- endif %}
-            {%- if pagination.items[0].image %}
                 {% remoteImage pagination.items[0].image, "plop", {widths: [90]} %}
             {%- endif %}
         </div>
 
         <div>
-            <h1>{{serie}}</h1>
-            <h2>{{title}}</h2>
-            <h5>{{author1}}</h5>
-            <h5>{{illustrator}}</h5>
-            <h3>{{intro}}</h3>
+            <div>
+                <h1>{{serie | safe}}</h1>
+                <h2>{{title | safe}}</h2>
+                <h5>{{author1 | safe}}</h5>
+                <h5>{{illustrator | safe}}</h5>
+            </div>
+            <div>
+                <h3>{{intro | safe}}</h3>
+            </div>
         </div>
     </div>
 
@@ -64,5 +66,74 @@ permalink: "books/{{ book.slug }}.html"
             </div>
         </div>
     </div>
+
+    <section id="book_informations">
+
+        <article id="links" >
+            <h5>Où trouver ce livre ?</h5>
+            <ul>
+                <li ><a href="">Parislibrairies.fr</a></li>
+                <li ><a href="">Placedeslibraires.fr</a></li>
+                <li ><a href="">Sauramps</a></li>
+                <li ><a href="">leslibraires.fr</a></li>
+                <li ><a href="">Amazon</a></li>
+                <li ><a href="">la Fnac</a></li>
+                <li ><a href="">Cultura</a></li>
+                <li ><a href="">Decitre</a></li>
+                <li ><a href="">Furet du Nord</a></li>
+                <li ><a href="">Eleclerc</a></li>
+                <li ><a href="">Chapitre</a></li>
+                <li ><a href="">La Procure</a></li>
+                <li ><a href="">LIbrairie Dialogue</a></li>
+                <li ><a href="">Libraires Ensembles</a></li>
+            </ul>
+        </article>
+
+        <article id="caracs">
+            <h4>Caractéristiques</h4>
+           <table>
+               <tr>
+                   <td>Titre</td>
+                   <td>{{ title }}</td>
+               </tr>
+               <tr>
+                   <td>Auteur(s)</td>
+                   <td>{{ author }}</td>
+               </tr>
+               <tr>
+                   <td>Illustrateur(s)</td>
+                   <td>{{ book.illustrator }}</td>
+               </tr>
+               <tr>
+                   <td>Série</td>
+                   <td>{{book.collection}}</td>
+               </tr>
+               <tr>
+                   <td>Genre</td>
+                   <td>{{ book.genre }}</td>
+               </tr>
+               <tr>
+                   <td>Date de parution</td>
+                   <td>{{ book.date | fdate  }}</td>
+               </tr>
+               <tr>
+                   <td>Nombre de pages</td>
+                   <td>{{ book.pages}}</td>
+               </tr>
+               <tr>
+                   <td>Dimensions</td>
+                   <td>-----</td>
+               </tr>
+               <tr>
+                   <td>Support</td>
+                   <td>------</td>
+               </tr>
+               <tr>
+                   <td>ISBN / EAN</td>
+                   <td>{{ book.ean}}</td>
+               </tr>
+           </table>
+        </article>
+    </section>
 
 </div>
