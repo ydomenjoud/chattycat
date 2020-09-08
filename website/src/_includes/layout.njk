@@ -48,9 +48,9 @@
 <!-- navigation -->
 {% set active_page = active_page|default('index') -%}
 <nav class="container">
-    <a style="width: 150px" href="{{ collections.concept[0].data.page.url }}" {% if active_page == "concept" %} class="active"{% endif %}>concept</a>
-    <a style="width: 180px" href="{{ collections.catalogue[0].data.page.url }}" {% if active_page == "catalogue" %} class="active"{% endif %}>catalogue</a>
-    <a style="width: 160px" href="{{ collections.ateliers[0].data.page.url }}"  {% if active_page == "atelier" %} class="active"{% endif %}>ateliers</a>
+    <a style="width: 150px" href="{{ collections.concept[0].data.page.url }}" {%- if active_page == "concept" %} class="active"{% endif %}>concept</a>
+    <a style="width: 180px" href="{{ collections.catalogue[0].data.page.url }}" {%- if active_page == "catalogue" %} class="active"{% endif %}>catalogue</a>
+    <a style="width: 160px" href="{{ collections.ateliers[0].data.page.url }}"  {%- if active_page == "atelier" %} class="active"{% endif %}>ateliers</a>
     <label>
         <img src="/assets/img/header/search.png" alt="search" width="28" height="28"/>
         <input type="search" id="search_text" placeholder="titre/auteur/mot clé/genres/thèmes..."/>

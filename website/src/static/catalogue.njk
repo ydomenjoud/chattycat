@@ -2,51 +2,61 @@
 tags: catalogue
 title: Catalogue
 permalink: "catalogue.html"
+active_page: catalogue
 ---
 
-<div id="landing_catalogue" class="landing_container">
-    <h1>Cléo Lefort publico vigore, discessit</h1>
-    <p>Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat</p>
-    <button>découvrir</button>
-</div>
+<!--<section id="landing_catalogue" class="landing_container">-->
+<!--    <article>-->
+<!--        <h1>Cléo Lefort publico vigore, discessit</h1>-->
+<!--        <p>Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat</p>-->
+<!--        <button>découvrir</button>-->
+<!--    </article>-->
+<!--</section>-->
 
 <section id="catalogue_catalogue" class="catalogue">
 
     <h3>NOTRE CATALOGUE</h3>
 
-    <div id="selectors_container">
+    <!--<div id="selectors_container">-->
 
-        <p>Affiner ma sélection</p>
+    <!--    <p>Affiner ma sélection</p>-->
 
-        <div id="selectors">
+    <!--    <div id="selectors">-->
 
-            <div class="selector_pair">
-                <label for="age-select">Âges</label>
-                <select name="age" id="age-select"></select>
-            </div>
-            <div class="selector_pair">
-                <label for="genre-select">Genres</label>
-                <select name="genre" id="genre-select"></select>
-            </div>
-            <div class="selector_pair">
-                <label for="author-select">Auteurs / illustrateurs</label>
-                <select name="author" id="author-select"></select>
-            </div>
-            <div class="selector_pair">
-                <label for="collection-select">Séries</label>
-                <select name="collection" id="collection-select"></select>
-            </div>
-        </div>
-    </div>
+    <!--        <div class="selector_pair">-->
+    <!--            <label for="age-select">Âges</label>-->
+    <!--            <select name="age" id="age-select"></select>-->
+    <!--        </div>-->
+    <!--        <div class="selector_pair">-->
+    <!--            <label for="genre-select">Genres</label>-->
+    <!--            <select name="genre" id="genre-select"></select>-->
+    <!--        </div>-->
+    <!--        <div class="selector_pair">-->
+    <!--            <label for="author-select">Auteurs / illustrateurs</label>-->
+    <!--            <select name="author" id="author-select"></select>-->
+    <!--        </div>-->
+    <!--        <div class="selector_pair">-->
+    <!--            <label for="collection-select">Séries</label>-->
+    <!--            <select name="collection" id="collection-select"></select>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
-    <h5>Ma sélection</h5>
+    <!--<h5>Ma sélection</h5>-->
 
     <div id="filter_results" class="books_container">
+        <ol>
+            {%- for book in global.books %}
+            <li><a href="books/{{ book.slug }}.html">
+                <div>
+                    {% remoteImage book.image, book.title, {widths: [150]} %}
+                </div>
+                <p class="book_title">{{ book.title }}</p>
+            </a></li>
+            {%- endfor %}
+        </ol>
     </div>
 
 </section>
 
 {% include "nouveautes.njk" %}
-
-<script src="/assets/js/search_base.js"></script>
-<script src="/assets/js/catalogue.js"></script>

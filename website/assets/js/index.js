@@ -73,6 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    setInterval(() => selectSlide(slider_position + 1), 6000);
+    // setInterval(() => selectSlide(slider_position + 1), 6000);
 
 });

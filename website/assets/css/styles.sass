@@ -6,6 +6,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
 
+.landing_container
+    height: 450px
+    border-bottom: 3px solid $black
+    display: flex
+    > *
+        padding: 40px
+        flex: 0 1 50%
+        box-sizing: border-box
+        display: flex
+        flex-direction: column
+        justify-content: center
+
 body
     font-family: 'Montserrat', sans-serif
     color: $black
@@ -16,6 +28,8 @@ body
         background: transparent url("/assets/img/home/empreinte-patte-chat-chien-chiot-animal-trace_177006-37.png") 0 0 no-repeat padding-box
         background-position: left 70px top -230px
         opacity: 0.7
+        > a
+            text-decoration: none
 
         // navigation by age
         nav
@@ -469,13 +483,15 @@ body > footer
 #landing_concept
     +container
     background: url("/assets/img/concept/landing.png") no-repeat center center
+    article
+        h1
+            color: white
+            margin-bottom: 20px
 
-    > h1, p
-        color: white
-
-    p
-        font: 300 20px/29px Open Sans
-        letter-spacing: 0.2px
+        p
+            color: white
+            font: 300 20px/29px Open Sans
+            letter-spacing: 0.2px
 
 #notre_concept
     +container()
@@ -583,6 +599,7 @@ body > footer
             margin-right: 0
 
     #selectors_container
+        background-color: $blue
         background-repeat: no-repeat
         background-position: 0 0
         background-origin: padding-box
