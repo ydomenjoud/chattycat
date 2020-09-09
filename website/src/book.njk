@@ -131,3 +131,12 @@ permalink: "books/{{ book.slug }}.html"
     </section>
 
 </div>
+
+<section id="discover_collection">
+    <a class="container"
+       style="background-image: url('{{ book.collection_image }}')"
+        href="/series/{{book.collection | slug}}.html">
+        Découvre la série !
+        <span>{{ book.collection }}</span>
+    </a>
+</section>

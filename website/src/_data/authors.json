@@ -1,27 +1,27 @@
 [
     {
-        "slug": "1",
+        "slug": "auteur1",
         "name": "auteur1",
         "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
         "occupation": "auteur",
         "presentation": "Diplômée de l’Académie des Arts, Architecture et Design de Prague, elle a une longue expérience en tant que directrice artistique et illustratrice et a remporté de nombreux prix, notamment la statuette Muriel du Komiksfest et «La meilleure couverture du livre de l’année 2015» au Salon du Livre de Prague. Elle a collaboré avec plusieurs éditeurs dont Talents Hauts, Bayard et l’Apprimerie. Chez Chattycat, elle illustre les couvertures de la série des \"Guardians\""
     },
     {
-        "slug": "2",
+        "slug": "eisenzweig-keren",
         "name": "Eisenzweig, Keren",
         "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
         "occupation": "auteur",
         "presentation": "Diplômée de l’Académie des Arts, Architecture et Design de Prague, elle a une longue expérience en tant que directrice artistique et illustratrice et a remporté de nombreux prix, notamment la statuette Muriel du Komiksfest et «La meilleure couverture du livre de l’année 2015» au Salon du Livre de Prague. Elle a collaboré avec plusieurs éditeurs dont Talents Hauts, Bayard et l’Apprimerie. Chez Chattycat, elle illustre les couvertures de la série des \"Guardians\""
     },
     {
-        "slug": "3",
+        "slug": "dosseul-pierre",
         "name": "Dosseul, Pierre",
         "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
         "occupation": "auteur",
         "presentation": "Diplômée de l’Académie des Arts, Architecture et Design de Prague, elle a une longue expérience en tant que directrice artistique et illustratrice et a remporté de nombreux prix, notamment la statuette Muriel du Komiksfest et «La meilleure couverture du livre de l’année 2015» au Salon du Livre de Prague. Elle a collaboré avec plusieurs éditeurs dont Talents Hauts, Bayard et l’Apprimerie. Chez Chattycat, elle illustre les couvertures de la série des \"Guardians\""
     },
     {
-        "slug": "4",
+        "slug": "auteur4",
         "name": "auteur4",
         "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
         "occupation": "auteur",
