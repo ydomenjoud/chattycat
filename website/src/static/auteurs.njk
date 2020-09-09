@@ -10,10 +10,10 @@ permalink: "authors.html"
     <section id="authors">
 
         {%- for author in authors %}
-            <a href = "/authors/{{author.slug}}.html">
-                <img src="{{author.image}}" alt="No Image"/>
-                <p>{{ author.name }}</p>
-                <p>{{ author.occupation }}</p>
+            <a href="/authors/{{author.slug}}.html" class="disable_hover">
+                {% remoteImage author.image, author.name, {widths: [240]} %}
+                <h3>{{ author.name }}</h3>
+                <h4>{{ author.occupation }}</h4>
             </a>
         {%- endfor %}
 

@@ -7,14 +7,6 @@ pagination:
     addAllPagesToCollections: true
 eleventyComputed:
     title: "{{book.title}}"
-    image: "{{book.image}}"
-    serie: "{{book.collection}}"
-    author: "{{book.author1}}"
-    illustrator: "{{book.illustrator}}"
-    intro: "{{book.introduction}}"
-    themes: "{{book.themes}}"
-    summary: "{{book.summary}}"
-    age: "{{book.age}}"
 permalink: "books/{{ book.slug }}.html"
 ---
 
@@ -22,20 +14,20 @@ permalink: "books/{{ book.slug }}.html"
     <div id="book_presentation">
         <div>
             {%- if book.image %}
-                {% remoteImage pagination.items[0].image, "plop", {widths: [312]} %}
-                {% remoteImage pagination.items[0].image, "plop", {widths: [90]} %}
+                {% remoteImage book.image, "plop", {widths: [312]} %}
+                {% remoteImage book.image, "plop", {widths: [90]} %}
             {%- endif %}
         </div>
 
         <div>
             <div>
-                <h1>{{serie | safe}}</h1>
-                <h2>{{title | safe}}</h2>
-                <h5>{{author1 | safe}}</h5>
-                <h5>{{illustrator | safe}}</h5>
+                <h1>{{ book.collection }}</h1>
+                <h2>{{ book.title }}</h2>
+                <h5>{{ book.author1 }}</h5>
+                <h5>{{ book.illustrator }}</h5>
             </div>
             <div>
-                <h3>{{intro | safe}}</h3>
+                <h3>{{ book.introduction }}</h3>
             </div>
         </div>
     </div>
@@ -44,20 +36,22 @@ permalink: "books/{{ book.slug }}.html"
         <div id="book_presentation2">
             <div>
                 <div id="themes">
-                    {% set list = themes.split(', ') %}
+                    {% set list = book.themes.split(', ') %}
                     {%- for theme in list %}
-                    <p>{{theme}}</p>
+                        <p>{{theme}}</p>
                     {%- endfor %}
                 </div>
                 <h4>Résumé</h4>
-                <p>{{summary}}</p>
+                <p>{{ book.summary }}</p>
             </div>
         </div>
         <div id="book_badges">
-            <div>
-                <h3>{{age}}<span> ans</span></h3>
-                <span>v</span>
-            </div>
+            <a class="age_cat" href="/ages/{{ book.age_cat }}.html">
+                <span>
+                    {{ book.age }}<span class="f{{ book.age_cat }}"> ans</span>
+                </span>
+                <span class="ico">v</span>
+            </a>
             <div>
                 <h3>EXTRAIT</h3>
             </div>
@@ -94,11 +88,11 @@ permalink: "books/{{ book.slug }}.html"
            <table>
                <tr>
                    <td>Titre</td>
-                   <td>{{ title }}</td>
+                   <td>{{ book.title }}</td>
                </tr>
                <tr>
                    <td>Auteur(s)</td>
-                   <td>{{ author }}</td>
+                   <td>{{ book.author1 }}</td>
                </tr>
                <tr>
                    <td>Illustrateur(s)</td>
@@ -106,7 +100,7 @@ permalink: "books/{{ book.slug }}.html"
                </tr>
                <tr>
                    <td>Série</td>
-                   <td>{{book.collection}}</td>
+                   <td>{{ book.collection }}</td>
                </tr>
                <tr>
                    <td>Genre</td>

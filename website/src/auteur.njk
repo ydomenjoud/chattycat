@@ -6,10 +6,7 @@ pagination:
     alias: author
     addAllPagesToCollections: true
 eleventyComputed:
-    name: "{{author.name}}"
-    image: "{{author.image}}"
-    occupation: "{{author.occupation}}"
-    presentation: "{{author.presentation}}"
+    title: "{{author.name}}"
 permalink: "authors/{{author.slug}}.html"
 ---
 
@@ -17,21 +14,36 @@ permalink: "authors/{{author.slug}}.html"
     <section id="author_page" data-author="{{name}}">
         <div>
             {%- if author.image %}
-                {% remoteImage  author.image, "plop", {widths: [312]} %}
+                {% remoteImage  author.image, author.name, {widths: [312]} %}
             {%- endif %}
         </div>
         <div>
-            <h1>{{name}}</h1>
-            <p>{{occupation}}</p>
+            <h1>{{author.name}}</h1>
+            <p>{{author.occupation}}</p>
         </div>
     </section>
 
-     <p id="author_presentation">{{presentation}}</p>
+     <p id="author_presentation">{{author.presentation}}</p>
 
-     <h3>SES OUVRAGES</h3>
 
-     <div id="author_books" class="books_container"></div>
+     <div id="author_books" class="books_container">
+         <h3>SES OUVRAGES</h3>
+         {% set books = global.books|selectBooks('author', author.name) %}
+         {% if books.length == 0 %}
+            Pas encore de livre
+         {% endif %}
+         <ol>
+             {%- for book in books %}
+             <li>
+                 <a href="/books/{{ book.slug }}.html">
+                     <div>
+                         {% remoteImage book.image, book.title, {widths: [150]} %}
+                     </div>
+                     <p class="book_title">{{ book.title }}</p>
+                </a>
+             </li>
+             {%- endfor %}
+         </ol>
+
+     </div>
 </div>
-
-<script src="/assets/js/search_base.js"></script>
-<script src="/assets/js/author.js"></script>

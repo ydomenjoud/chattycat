@@ -8,6 +8,7 @@
         "ean": "9791096106448",
         "themes": "Activités manuelles, autocollants, anglais",
         "age": "5+",
+        "age_cat": "3-6",
         "introduction": "Apprends l'anglais en jouant !",
         "date": {
             "_seconds": 1601503200,
@@ -37,6 +38,7 @@
         "pages": 96,
         "genre": "roman policier",
         "age": "8-10",
+        "age_cat": "8-10",
         "date": {
             "_seconds": 1580598000,
             "_nanoseconds": 0
@@ -62,6 +64,7 @@
         "ean": "9791096106455",
         "introduction": "Une série de romans passionnants permettant de progresser en anglais tout en se plongeant dans l'époque de la Première Guerre mondiale.",
         "age": "13/14+",
+        "age_cat": "10",
         "themes": "Historique, Première Guerre mondiale, anglais, Etats-Unis",
         "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
         "pages": 208,
@@ -81,6 +84,7 @@
         "ean": "à définir",
         "prix": "7,5",
         "age": "8-10",
+        "age_cat": "8-10",
         "date": {
             "_seconds": 1580598000,
             "_nanoseconds": 0
@@ -99,6 +103,7 @@
     },
     {
         "age": "10 ans+",
+        "age_cat": "10",
         "couverture": "Oui",
         "author2": "",
         "illustrator": "Duchêne, Lucille",
@@ -136,6 +141,7 @@
         "ean": "à définir",
         "collection": "Green Goddess",
         "age": "8-10",
+        "age_cat": "8-10",
         "genre": "bande dessinée",
         "pages": 64,
         "author1": "Dosseul, Pierre",
@@ -157,6 +163,7 @@
         "introduction": "Une série de romans passionnants permettant de progresser en anglais tout en se plongeant dans l'époque de la Première Guerre mondiale.",
         "size": "140x190",
         "age": "13/14+",
+        "age_cat": "10",
         "date": {
             "_seconds": 1598911200,
             "_nanoseconds": 0
@@ -180,6 +187,7 @@
         "introduction": "Apprends l'anglais grâce aux aventures amusantes de Mack et de Malo, racontées sous forme de BD !",
         "pages": 64,
         "age": "7+",
+        "age_cat": "6-8",
         "ean": "9791096106547",
         "prix": "9,9",
         "size": "170x210",
@@ -217,6 +225,7 @@
         "themes": "Bande dessinée, chat, anglais",
         "ean": "9791096106172",
         "age": "3 ans+",
+        "age_cat": "3-6",
         "slug": "hello-puff",
         "id": "fPIH0qlj85WVSSFMaFlI",
         "ref": "books/fPIH0qlj85WVSSFMaFlI"
@@ -242,12 +251,14 @@
         "couverture": "Oui",
         "summary": "Cléo Lefort, détective amateur, est ravie de passer ses vacances à Londres. Mais en visite au musée de Sherlock Holmes, elle entend d’étranges bruits semblant venir des murs…\nEt puis, il y a ce manuscrit retrouvé, dont il manque le dernier chapitre… et si les deux énigmes étaient liées ?\nPour élucider ce nouveau mystère, Cléo Lefort devra vite apprendre l���anglais !",
         "age": "8-10",
+        "age_cat": "8-10",
         "slug": "cleo-lefort-secrets-a-londres",
         "id": "jp9HKusytctcTs7PLX55",
         "ref": "books/jp9HKusytctcTs7PLX55"
     },
     {
         "age": "8-10",
+        "age_cat": "8-10",
         "date": {
             "_seconds": 1601762400,
             "_nanoseconds": 0
@@ -279,6 +290,7 @@
         "pages": 96,
         "ean": "9791096106431",
         "age": "8-10",
+        "age_cat": "8-10",
         "introduction": "Mène l'enquête et apprends l'anglais avec Cléo Lefort !",
         "size": "140x190",
         "couverture": "Oui",
@@ -300,6 +312,7 @@
         "ean": "9791096106448",
         "title": "Cléo Lefort : Mystère à Toronto",
         "age": "8-10",
+        "age_cat": "8-10",
         "introduction": "Mène l'enquête et apprends l'anglais avec Cléo Lefort !",
         "author1": "De Glay, A.",
         "illustrator": "Staboszevski, Julie",
@@ -323,6 +336,7 @@
     },
     {
         "age": "10-12",
+        "age_cat": "10",
         "couverture": "Non",
         "title": "The Explorers : A bord du Titanic",
         "size": "140x190",

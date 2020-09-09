@@ -60,16 +60,35 @@ module.exports = function (eleventyConfig) {
         return slugify(input, options);
     });
 
+    // format firebase date
     eleventyConfig.addFilter('fdate', fdate => {
         const timestamp = fdate && fdate._seconds ? fdate._seconds : fdate;
         const date = new Date(timestamp * 1000);
         if (date) {
-            const month = (''+date.getMonth()).padStart(2, '0');
+            const month = ('' + date.getMonth()).padStart(2, '0');
             const year = date.getFullYear();
             return month + ' / ' + year;
         } else {
             return '';
         }
+    });
+
+    // filter to select books
+    eleventyConfig.addFilter("selectBooks", (books, type, value) => {
+        let callback = b => b;
+        switch (type) {
+            case 'author':
+                callback = b => (b.authors || []).indexOf(value) > -1 || b.author1 === value || b.author2 === value;
+                break;
+            case 'collection':
+                callback = b => b.collection === value;
+                break;
+            case 'age':
+                callback = b => b.age_cat === value;
+                break;
+        }
+
+        return books.filter(callback);
     });
 
     // add sass plugin

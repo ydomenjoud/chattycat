@@ -47,7 +47,7 @@ active_page: catalogue
     <div id="filter_results" class="books_container">
         <ol>
             {%- for book in global.books %}
-            <li><a href="books/{{ book.slug }}.html">
+            <li><a href="/books/{{ book.slug }}.html">
                 <div>
                     {% remoteImage book.image, book.title, {widths: [150]} %}
                 </div>

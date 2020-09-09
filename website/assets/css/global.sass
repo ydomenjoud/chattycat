@@ -1,0 +1,386 @@
+@import inc/params
+@import inc/utilities
+
+
+// build colors font and background
+@each $key, $color in $ages-color
+    [class~='f#{$key}']
+        color: $color
+        fill: $color
+    [class~='b#{$key}']
+        background-color: $color
+
+.container
+    +container
+
+::placeholder
+    font-size: 14px
+    color: $light-grey
+    font-weight: 300
+    font-style: italic
+
+h1
+    font: Bold 30px/35px Montserrat
+    letter-spacing: 0.3px
+    color: #070909
+
+h3
+    text-align: center
+    padding: 5px
+    color: $blue
+    font-size: 45px
+    font-family: 'Love Ya Like A Sister', cursive
+    text-transform: uppercase
+
+h4
+    text-align: center
+    font: Bold 30px/35px Montserrat
+    letter-spacing: 0.3px
+    color: $blue
+
+h5
+    text-align: left
+    font: Normal 22px/25px Montserrat
+    letter-spacing: 0.22px
+    color: #38B6FF
+
+button, .button
+    text-decoration: none
+    text-align: center
+    font-family: 'Love Ya Like A Sister', cursive
+    font-size: 18px
+    line-height: 20px
+    background-color: $red
+    text-transform: uppercase
+    border: 0
+    color: #FFF
+    border-radius: 3px
+    padding: 10px 16px
+    cursor: pointer
+    transition: font-size 200ms
+    &:hover
+        background: #090909
+        font-size: 14px
+
+
+.landing_container
+    height: 450px
+    border-bottom: 3px solid $black
+    display: flex
+    > *
+        padding: 40px
+        flex: 0 1 50%
+        box-sizing: border-box
+        display: flex
+        flex-direction: column
+        justify-content: center
+
+
+// les liens qui contiennent une balise picture
+a:not(.disable_hover) picture
+    position: relative
+    &:hover
+        $padding: 60px
+        &::after
+            background-color: $red
+            color: #FFF
+            font: 400 18px/26px 'Montserrat'
+            content: "EN SAVOIR +"
+
+            display: flex
+            position: absolute
+            padding: $padding 28px 0 28px
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            border: 1px solid #FFF
+        &::before
+            display: block
+            content: "read_more"
+            font: 400 60px 'Material Icons Outlined'
+            position: absolute
+            top: calc(#{$padding} + 50px)
+            left: 0
+            right: 0
+            padding-right: 28px
+            text-align: right
+            z-index: 10
+            color: #FFF
+
+
+// layout
+body
+    *
+        box-sizing: border-box
+    font-family: 'Montserrat', sans-serif
+    color: $black
+    // global page header
+    > header
+        display: flex
+        justify-content: space-between
+        background: transparent url("/assets/img/home/empreinte-patte-chat-chien-chiot-animal-trace_177006-37.png") 0 0 no-repeat padding-box
+        background-position: left 70px top -230px
+        opacity: 0.7
+        > a
+            text-decoration: none
+
+            &#logo:hover
+                [alt="cat"]
+                    transform: rotate(-10deg)
+
+        // navigation by age
+        nav
+            height: 130px
+            display: flex
+
+            a
+                z-index: 100
+                display:
+                transform: translateY(-50px)
+                transition: transform 230ms ease-in-out
+                img
+                    display: block
+
+                    &.display_on_hoover
+                        display: none
+
+                &:hover, &.active
+                    transform: translateY(-30px)  scale(1.1)
+
+                    img
+                        display: none
+
+                        &.display_on_hoover
+                            display: block
+
+
+        //transform: none
+
+        > img
+            position: absolute
+            margin-top: -230px
+            margin-left: 70px
+            width: 461px
+            height: 358px
+            opacity: 0.7
+
+    // global page navigation
+    > nav
+        border-bottom: 3px solid $black
+        display: flex
+        padding-bottom: 10px
+
+        label
+            display: flex
+
+        #search_button
+            width: 140px
+        a
+            padding: 10px 40px
+            color: inherit
+            font-size: 16px
+            font-weight: 500
+            // Medium
+            text-decoration: none
+            text-transform: uppercase
+            display: flex
+            align-items: center
+            justify-content: center
+            &.active, &:hover
+                font-size: 20px
+                background-color: $red
+                margin-bottom: -10px
+                margin-top: -10px
+                color: white
+
+            &:not(:first-of-type)
+                border-left: 2px solid $grey
+
+        label
+            flex: 1
+
+            img[alt=search]
+                margin-left: 50px
+
+            input
+                flex: 1
+                padding: 0 25px
+                border: 0
+                font-size: 14px
+
+        #searched_books_container
+            position: absolute
+            visibility: hidden
+            display: flex
+            flex-direction: column
+            border: 1px solid black
+            background-color: white
+            margin-top: 35px
+            margin-left: 570px
+            z-index: 999
+
+            .search_item
+                font-size: 10px
+                line-height: 10px
+                background-color: white
+                border-left: none
+                border-bottom: 1px solid black
+
+                &:last-of-type
+                    border-bottom: none
+
+            .search_item:hover
+                background-color: $red
+                opacity: 0.7
+                color: white
+
+    // footer
+    > footer
+        #footer1
+            box-sizing: border-box
+            background-color: black
+            padding: 30px 0
+
+            button#newsletter
+                width: 100px
+                border: 1px solid #000
+                &:hover
+                    border: 1px solid #FFF
+                    border-radius: 2px
+
+            > .container
+                display: flex
+                justify-content: space-between
+                align-items: flex-start
+
+                li
+                    text-align: left
+                    font: Lighter 12px Montserrat
+                    line-height: 20px
+                    color: white
+                    text-transform: uppercase
+                    margin-bottom: 10px
+
+                    a
+                        color: #FFF
+                        display: block
+                        text-decoration: none
+                        cursor: pointer
+                        &:hover
+                            // liens footer grandissent en 14 px en hover + passent en rouge
+                            font-size: 14px
+                            color: $red
+
+                > #follow_box
+                    display: flex
+
+                    > img
+                        margin-right: 16px
+
+                    p
+                        font: Lighter 16px Montserrat
+                        margin-bottom: 10px
+                        letter-spacing: 0.16px
+                        color: #FFFFFF
+
+                    #follow_buttons
+                        display: flex
+
+                        a
+                            height: 35px
+                            width: 35px
+                            margin-right: 10px
+                            opacity: 1
+                            cursor: pointer
+                            background: transparent 0 0 no-repeat padding-box
+
+                        a:nth-child(1)
+                            background-image: url('/assets/img/home/facebook.svg')
+
+                        a:nth-child(2)
+                            background-image: url('/assets/img/home/instagram.svg')
+
+                        a:nth-child(3)
+                            background-image: url('/assets/img/home/twitter.svg')
+
+                > #newsletter_box
+                    label
+                        display: block
+                        font: Lighter 16px Montserrat
+                        margin-bottom: 10px
+                        letter-spacing: 0.16px
+                        color: #F1ECEC
+
+                    > div
+                        display: flex
+
+                        input
+                            margin-right: 10px
+
+        #footer2
+            box-sizing: border-box
+            background: $blue 0 0 no-repeat padding-box
+            padding: 30px 0
+
+            > div
+                display: flex
+                justify-content: space-between
+                align-items: center
+                color: white
+
+                p
+                    text-align: left
+                    font: 500 12px/20px Montserrat
+                    letter-spacing: 0
+
+                a
+                    font: Lighter 12px/20px Montserrat
+                    text-decoration: none
+                    color: white
+
+.books_container
+    padding: 41px 0 70px
+
+    h3
+        box-sizing: border-box
+        margin-bottom: 40px
+
+    ol
+        display: flex
+        justify-content: space-around
+        align-items: flex-start
+        flex-wrap: wrap
+
+        li
+            display: flex
+            flex-direction: column
+            width: 154px
+            margin-bottom: 30px
+
+        div
+            width: 154px
+            height: 217px
+            display: flex
+            justify-content: center
+            align-items: flex-end
+
+        img
+            max-width: 154px
+            max-height: 217px
+
+        a
+            text-decoration: none
+
+        .book_title
+            margin-top: 14px
+            font: 500 18px/35px Montserrat
+            letter-spacing: 0.18px
+            line-height: 25px
+            color: #070909
+
+        .book_info
+            text-align: left
+            font: 300 18px/27px Montserrat
+            letter-spacing: 0.18px
+            color: $red

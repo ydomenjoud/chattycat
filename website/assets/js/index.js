@@ -44,6 +44,7 @@ search_text.onblur = (e) => {
 };
 
 let slider_position = 0;
+let interval;
 
 function selectSlide(num) {
     const slides = document.querySelectorAll('#slider article');
@@ -59,9 +60,18 @@ function toggle(list, selector, index) {
     Array.from(list).forEach(c => {
         c.classList.remove(selector);
     });
-    if( list[index] ) {
+    if (list[index]) {
         list[index].classList.add(selector);
     }
+}
+
+function resetSlider() {
+    // kill previous
+    if (interval) {
+        clearInterval(interval);
+    }
+
+    interval = setInterval(() => selectSlide(slider_position + 1), 6000);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -70,9 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     Array.from(slider_controls).forEach((c, i) => {
         c.addEventListener('click', () => {
             selectSlide(i);
+            resetSlider();
         });
     });
-
-    // setInterval(() => selectSlide(slider_position + 1), 6000);
-
+    resetSlider();
 });

@@ -1,8 +1,6 @@
 
-
-#logo:hover
-    [alt="cat"]
-        transform: rotate(-10deg)
+#main_books
+    +container()
 
 #slider
     position: relative
@@ -42,6 +40,7 @@
 
 
 #slider_control
+    user-select: none
     padding: 20px
     text-align: center
     a
@@ -53,37 +52,22 @@
             &::after
                 content: "radio_button_checked"
 
+#follow_us
+    +container
+    padding: 50px 1px 120px
 
+    h3
+        color: #070909
+        text-align: left
+        margin-bottom: 20px
 
-a picture
-    position: relative
-    &:hover
-        $padding: 60px
-        &::after
-            background-color: $red
-            color: #FFF
-            font: 400 18px/26px 'Montserrat'
-            content: "EN SAVOIR +"
+    > div
+        width: 100%
+        display: flex
+        justify-content: space-between
 
-            display: flex
-            position: absolute
-            padding: $padding 28px 0 28px
-            top: 0
-            bottom: 0
-            left: 0
-            right: 0
-            border: 1px solid #FFF
-        &::before
-            display: block
-            content: "read_more"
-            font: 400 60px 'Material Icons Outlined'
-            position: absolute
-            top: calc(#{$padding} + 50px)
-            left: 0
-            right: 0
-            padding-right: 28px
-            text-align: right
-            z-index: 10
-            color: #FFF
+        > #insta
+            width: 50%
 
-
+        > #fb
+            width: 40%
