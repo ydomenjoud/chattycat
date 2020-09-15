@@ -29,3 +29,20 @@ export const getBooks = functions
 
     response.json(docs);
 });
+
+
+export const newsletter = functions.region('europe-west1').https.onRequest(async (request, response) => {
+    const email = request.params?.email;
+    if (email) {
+        await admin.firestore()
+            .collection('newsletter')
+            .add({
+                email,
+                date: new Date().getTime()
+            });
+
+        response.json({result: 'OK'});
+    }
+    response.json({result: 'NOK', error: 'email_required'});
+
+})

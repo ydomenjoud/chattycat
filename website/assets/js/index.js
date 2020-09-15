@@ -74,6 +74,30 @@ function resetSlider() {
     interval = setInterval(() => selectSlide(slider_position + 1), 6000);
 }
 
+function _GET(url) {
+    return new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest();
+        request.open('GET', url, true);
+
+        request.onload = function () {
+            if (this.status >= 200 && this.status < 400) {
+                // Success!
+                resolve(this.response);
+            } else {
+                // We reached our target server, but it returned an error
+                reject({status: this.status, response: this.response});
+            }
+        };
+
+        request.onerror = function (error) {
+            // There was a connection error of some sort
+            reject(error);
+        };
+
+        request.send();
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const slider_controls = document.querySelectorAll('#slider_control a');
 
@@ -84,4 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     resetSlider();
+
+    // add newsletter subscription
+    const button = document.getElementById('newsletter_button');
+    button.addEventListener('click', function () {
+        document.getElementById('newsletter_box').style.visibility = 'hidden';
+        const email = document.getElementById('newsletter_email').value;
+        _GET('https://europe-west1-chattycat-site.cloudfunctions.net/newsletter?email=' + encodeURIComponent(email))
+            .then(result => {
+                alert('Votre inscription a bien été prise en compte')
+            }).catch(error => {
+                alert('Une erreur est survenue, merci de réessayer plus tard')
+            console.log('error in newsletter registration', error);
+        });
+    });
 });

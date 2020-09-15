@@ -33,21 +33,26 @@ module.exports = function (eleventyConfig) {
             urlPath: "/assets/img/",
         };
         options = {...defaultOptions, ...options};
-        let stats = await Image(src, options);
-        let lowestSrc = stats.jpeg[0];
-        let sizes = "100vw"; // Make sure you customize this!
+        try {
 
-        // Iterate over formats and widths
-        return `<picture>
+            let stats = await Image(src, options);
+            let lowestSrc = stats.jpeg[0];
+            let sizes = "100vw"; // Make sure you customize this!
+
+            // Iterate over formats and widths
+            return `<picture>
       ${Object.values(stats).map(imageFormat => {
-            return `  <source type="image/${imageFormat[0].format}" srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}">`;
-        }).join("\n")}
+                return `  <source type="image/${imageFormat[0].format}" srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}">`;
+            }).join("\n")}
         <img
           alt="${alt}"
           src="${lowestSrc.url}"
           width="${lowestSrc.width}"
           height="${lowestSrc.height}">
       </picture>`;
+        } catch (e) {
+            return `<picture></picture>`
+        }
     });
 
     // replace default slug with better imp

@@ -1,30 +1,79 @@
 [
     {
-        "slug": "auteur1",
-        "name": "auteur1",
-        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
+        "slug": "Anthony-de-glay",
+        "name": "A. de Glay",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fanthony-g.jpg?alt=media",
         "occupation": "auteur",
-        "presentation": "Diplômée de l’Académie des Arts, Architecture et Design de Prague, elle a une longue expérience en tant que directrice artistique et illustratrice et a remporté de nombreux prix, notamment la statuette Muriel du Komiksfest et «La meilleure couverture du livre de l’année 2015» au Salon du Livre de Prague. Elle a collaboré avec plusieurs éditeurs dont Talents Hauts, Bayard et l’Apprimerie. Chez Chattycat, elle illustre les couvertures de la série des \"Guardians\""
+        "presentation": "Passionné de romans policiers depuis toujours, il vit aux États-Unis, où il écrit des romans pour enfants, dont la série phare des éditions Chattycat, ‘Cléo Lefort’. \nEn ce moment, il prépare une nouvelle collection de livres-jeux, ‘Je mène l’enquête en anglais’, dont les premiers tomes paraîtront en 2021 chez Chattycat."
+    },
+    {
+        "slug": "helen-huig",
+        "name": "Helen Huig",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fhelen.jpg?alt=media",
+        "occupation": "auteur",
+        "presentation": "Britannique d'origine, Helen Huig vit en France depuis plus de 30 ans.  Après quelques années dans la communication internationale elle se tourne vers l'enseignement de sa langue maternelle en école primaire et secondaire.  Passionnée par l'apprentissage des langues étrangères c'est tout naturellement qu'elle s'est lancée dans l'écriture de livres pour jeunes enfants avec son amie Isabelle Sanglé-Ferrière.  Elles publient la série BD ‘Mack and Malo’ chez Chattycat."
+    },
+    {
+        "slug": "isabelle-sangle-ferriere",
+        "name": "Isabelle Sanglé-Ferrière",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fisabelle.jpg?alt=media",
+        "occupation": "auteur",
+        "presentation": "C’est son goût pour l’écriture qui conduit Isabelle Sanglé-Ferrière à des études de droit puis au métier de juriste. \nLorsqu’avec son amie Helen Huig, elles évoquent l'écriture à quatre mains de livres bilingues pour enfants, elle se lance avec enthousiasme dans l’aventure.\nEnsemble, elles publient la série BD ‘Mack and Malo’."
+    },
+    {
+        "slug": "pierre-dosseul",
+        "name": "Pierre Dosseul",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fpierre.jpg?alt=media",
+        "occupation": "auteur",
+        "presentation": "Auteur jeunesse et caméraman, ses expériences derrière la caméra ont permis à Pierre Dosseul de donner vie au personnage de Max Youtubeur. Chez Chattycat, il signe la série ‘Max Youtubeur’, la série BD ‘Green Goddess’ et le titre ‘Clover Farm’."
     },
     {
         "slug": "eisenzweig-keren",
         "name": "Eisenzweig, Keren",
-        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fkeren.jpg?alt=media",
         "occupation": "auteur",
-        "presentation": "Diplômée de l’Académie des Arts, Architecture et Design de Prague, elle a une longue expérience en tant que directrice artistique et illustratrice et a remporté de nombreux prix, notamment la statuette Muriel du Komiksfest et «La meilleure couverture du livre de l’année 2015» au Salon du Livre de Prague. Elle a collaboré avec plusieurs éditeurs dont Talents Hauts, Bayard et l’Apprimerie. Chez Chattycat, elle illustre les couvertures de la série des \"Guardians\""
+        "presentation": "Américaine, elle s’intéresse depuis son plus jeune âge aux langues étrangères, aux livres et \nà l’Histoire.\nAprès avoir enseigné l’anglais dans des écoles à Paris pendant quelques années, elle se tourne vers le monde des livres et est aujourd’hui co-éditeur chez Chattycat. Elle continue également à écrire et publie la série des ‘Guardians’ et la bande dessinée pour tout-petits ‘Hello Puff’. Elle prépare pour 2022 la nouvelle série ‘Independence’."
     },
     {
-        "slug": "dosseul-pierre",
-        "name": "Dosseul, Pierre",
-        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
+        "slug": "romaric-moins",
+        "name": "Romaric Moins",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fromaric.jpg?alt=media",
         "occupation": "auteur",
-        "presentation": "Diplômée de l’Académie des Arts, Architecture et Design de Prague, elle a une longue expérience en tant que directrice artistique et illustratrice et a remporté de nombreux prix, notamment la statuette Muriel du Komiksfest et «La meilleure couverture du livre de l’année 2015» au Salon du Livre de Prague. Elle a collaboré avec plusieurs éditeurs dont Talents Hauts, Bayard et l’Apprimerie. Chez Chattycat, elle illustre les couvertures de la série des \"Guardians\""
+        "presentation": "Journaliste devenu éditeur et auteur, Romaric s’inspire de ses fréquents voyages et de sa passion pour l’Histoire pour écrire la série ‘The Explorers’. "
     },
     {
-        "slug": "auteur4",
-        "name": "auteur4",
-        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fthe_guardians_le_village_englouti.jpg?alt=media",
+        "slug": "julie-staboszevski",
+        "name": "Julie Staboszevski",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fjulie.jpg?alt=media",
         "occupation": "auteur",
-        "presentation": "Diplômée de l’Académie des Arts, Architecture et Design de Prague, elle a une longue expérience en tant que directrice artistique et illustratrice et a remporté de nombreux prix, notamment la statuette Muriel du Komiksfest et «La meilleure couverture du livre de l’année 2015» au Salon du Livre de Prague. Elle a collaboré avec plusieurs éditeurs dont Talents Hauts, Bayard et l’Apprimerie. Chez Chattycat, elle illustre les couvertures de la série des \"Guardians\""
+        "presentation": "Diplômée de la Haute École Albert Jaquard (Namur), elle a illustré de nombreux romans, chez Alice Éditions et Poulpe Fictions entre autres. Chez Chattycat, elle illustre les ‘Cléo Lefort’ et la série de livres-jeux ‘Je mène l’enquête en anglais’, qui paraîtra en 2021."
+    },
+    {
+        "slug": "chadia-loueslati",
+        "name": "Chadia Loueslati",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2F.jpg?alt=media",
+        "occupation": "illustratrice",
+        "presentation": "Illustratrice jeunesse et auteure de romans graphiques, elle est passionnée depuis l’enfance par le dessin et la couture. Elle est publié chez Marabout, Grund et Poulpe Fictions entre autres. Chez Chattycat, elle illustre la série de romans ‘Max Youtubeur’."
+    },
+    {
+        "slug": "gaelle-picard",
+        "name": "Gaëlle Picard",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fgaelle.jpg?alt=media",
+        "occupation": "illustratrice",
+        "presentation": "Depuis son enfance, Gaëlle a une imagination débordante, en toute logique se dirige vers des études artistiques. Après son bac, elle fait une mise à niveau d’arts appliqués, puis une BMA et une école de communication visuelle. Elle illustre les livres d’activité ‘Paper Dolls’ chez Chattycat."
+    },
+    {
+        "slug": "katerina-bazantova",
+        "name": "Katerina Bazantova",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fkaterina.jpg?alt=media",
+        "occupation": "illustratrice",
+        "presentation": "Diplômée de l’Académie des Arts, Architecture et Design de Prague, elle a une longue expérience en tant que directrice artistique et illustratrice et a remporté de nombreux prix, notamment la statuette Muriel du Komiksfest et «La meilleure couverture du livre de l’année 2015» au Salon du Livre de Prague. Elle a collaboré avec plusieurs éditeurs dont Talents Hauts, Bayard et l’Apprimerie. Chez Chattycat, elle illustre les couvertures de la série des ‘Guardians’."
+    },
+    {
+        "slug": "anthony-cocain",
+        "name": "Anthony Cocain",
+        "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/authors%2Fanthony-c.jpg?alt=media",
+        "occupation": "illustrateur",
+        "presentation": "Spécialisé dans la bande dessinée et l’illustration, il est publié chez de nombreux éditeurs (Le Journal de Spirou, Faton, Hatier, Sedrap, Milan, Belin, GulfStream…) Chez Chattycat, il illustre les séries BD ‘Mack and Malo’ et ‘Green Goddess’."
     }
 ]
