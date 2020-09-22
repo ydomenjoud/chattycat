@@ -1,0 +1,39 @@
+<h1>
+  Edition de l'auteur
+  <kal-button
+    (click)="save()"
+    *ngIf="author"
+    kalTheme="primary">Enregistrer
+  </kal-button>
+</h1>
+
+<section *ngIf="author" [kalLoading]="loading$|async" class="w33">
+  <article>
+
+    <kal-form-field *ngIf="author.id">
+      <ng-template kalFormFieldLabel>Image</ng-template>
+      <app-picture
+        (fileUploaded)="updateImage($event)"
+        [filePath]="'authors/' + author.id"
+        [image]="author.image"
+      ></app-picture>
+    </kal-form-field>
+  </article>
+
+  <article>
+
+    <kal-form-field>
+      <kal-input [(ngModel)]="author.name" label="Nom"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-textarea [(ngModel)]="author.presentation" label="Présentation"></kal-textarea>
+    </kal-form-field>
+  </article>
+  <article>
+    <kal-form-field>
+      <kal-input [(ngModel)]="author.occupation" label="Type" placeholder="Illustrateur / Auteur">
+      </kal-input>
+    </kal-form-field>
+
+  </article>
+</section>

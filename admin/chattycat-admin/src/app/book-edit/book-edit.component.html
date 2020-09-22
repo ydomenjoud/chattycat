@@ -1,0 +1,138 @@
+<h1>
+  Edition du livre
+  <kal-button
+    (click)="save()"
+    *ngIf="book"
+    kalTheme="primary">Enregistrer
+  </kal-button>
+</h1>
+
+<section *ngIf="book" [kalLoading]="loading$|async" class="w33">
+  <article>
+
+    <kal-form-field>
+      <kal-checkbox
+        kalTheme="switch"
+        [(ngModel)]="book.titre_phare"
+        label="Titre phare"></kal-checkbox>
+    </kal-form-field>
+
+    <kal-form-field *ngIf="book.id">
+      <ng-template kalFormFieldLabel>Image</ng-template>
+      <app-picture
+        (fileUploaded)="updateImage($event)"
+        [filePath]="'books/' + book.id"
+        [image]="book.image"
+      ></app-picture>
+    </kal-form-field>
+
+    <kal-form-field *ngIf="book.id">
+      <ng-template kalFormFieldLabel>Image 2</ng-template>
+      <app-picture
+        (fileUploaded)="updateImage($event)"
+        [filePath]="'books/' + book.id + '-2'"
+        [image]="book.image2"
+      ></app-picture>
+    </kal-form-field>
+  </article>
+
+  <article>
+
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.name" label="titre"></kal-input>
+    </kal-form-field>
+
+    <kal-form-field>
+      <kal-select
+        [multiple]="true"
+        [(ngModel)]="book.authors"
+        label="Auteurs">
+        <kal-option *ngFor="let author of store.list('authors')"
+        [value]="author.id">
+          {{ author.name }}
+        </kal-option>
+      </kal-select>
+    </kal-form-field>
+
+
+    <kal-form-field>
+      <kal-select
+        [multiple]="true"
+        [(ngModel)]="book.illustrators"
+        label="illustrateurs">
+        <kal-option *ngFor="let author of store.list('authors')"
+                    [value]="author.id">
+          {{ author.name }}
+        </kal-option>
+      </kal-select>
+    </kal-form-field>
+
+    <kal-form-field>
+      <kal-select
+        [(ngModel)]="book.collection"
+        label="Série">
+        <kal-option *ngFor="let collection of store.list('collections')"
+                    [value]="collection.id">
+          {{ collection.name }}
+        </kal-option>
+      </kal-select>
+    </kal-form-field>
+
+    <kal-form-field>
+      <kal-datepicker [(ngModel)]="book.parution" label="Date de parution"></kal-datepicker>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.introduction" label="introduction"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-textarea [(ngModel)]="book.summary" label="Résumé"></kal-textarea>
+    </kal-form-field>
+  </article>
+  <article>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.ean" label="EAN"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.keywords" label="Keywords"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.pages" label="Nombre de page" type="number"></kal-input>
+    </kal-form-field>
+
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.prix" label="Prix"></kal-input>
+    </kal-form-field>
+
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.size" label="Dimensions"></kal-input>
+    </kal-form-field>
+
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.support" label="Support"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.age" label="age"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.genre" label="genre"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-select [(ngModel)]="book.age_cat" label="Catégorie">
+        <kal-option value="3-6">3/6</kal-option>
+        <kal-option value="6-8">6/8</kal-option>
+        <kal-option value="8-10">8/10</kal-option>
+        <kal-option value="10">10+</kal-option>
+      </kal-select>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.soundcloud" label="soundcloud"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.calameo" label="calameo"></kal-input>
+    </kal-form-field>
+    <kal-form-field>
+      <kal-input [(ngModel)]="book.youtube" label="youtube"></kal-input>
+    </kal-form-field>
+
+  </article>
+</section>

@@ -1,0 +1,17 @@
+<h1>
+  Liste des auteurs
+  <kal-button kalTheme="primary" routerLink="/author/edit/0">
+    <kal-icon>add</kal-icon>
+    Ajouter
+  </kal-button>
+</h1>
+
+
+<section class="list">
+  <article
+    *ngFor="let author of store.list('authors')"
+    [routerLink]="['/', 'author', 'edit', author.id]"
+  >
+    <img [alt]="author.name" [src]="author.image"/>
+  </article>
+</section>

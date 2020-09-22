@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@kalidea/kaligraphi/styles/styles.css'
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons")
+
+
+h1
+  font-size: 25px
+  padding: 5px 0
+  margin-top: 10px
+
+kal-textarea textarea
+  height: 300px
+
+section.list
+  display: flex
+  flex-wrap: wrap
+  & > article
+    flex: 1 1 200px
+    max-width: 200px
+    min-height: 200px
+    margin: 5px
+    box-shadow: 3px 3px 4px 0 #989898
+    max-height: 400px
+    &:hover
+      box-shadow: 3px 3px 4px 0 #000000
+    img
+      max-width: 100%
+      max-height: 100%
+      cursor: pointer
+
+@mixin split($columns, $gutter: 10px)
+  $width: round(100 / $columns)
+  .w#{$width}
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    > *
+      flex: 0 0 calc(#{$width + '%'} - #{$gutter * ($columns - 1)})
+      &:not(:first-of-type())
+        margin-left: $gutter
+
++split(3)
++split(2)
+
+
+@media screen and (max-width: 600px)
+  .w33
+    flex-wrap: wrap
+    & > *
+      flex-basis: 100%

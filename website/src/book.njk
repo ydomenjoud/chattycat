@@ -6,25 +6,38 @@ pagination:
     alias: book
     addAllPagesToCollections: true
 eleventyComputed:
-    title: "{{book.title}}"
+    title: "{{book.name}}"
 permalink: "books/{{ book.slug }}.html"
 ---
+
+
+{% set collection = global.series | find(book.collection) %}
 
 <div class="container">
     <div id="book_presentation">
         <div>
             {%- if book.image %}
-                {% remoteImage book.image, "plop", {widths: [312]} %}
-                {% remoteImage book.image, "plop", {widths: [90]} %}
+                {% remoteImage book.image, book.name, {widths: [312]} %}
+                {% remoteImage book.image, book.name, {widths: [90]} %}
             {%- endif %}
         </div>
 
         <div>
             <div>
-                <h1>{{ book.collection }}</h1>
-                <h2>{{ book.title }}</h2>
-                <h5>{{ book.author1 }}</h5>
-                <h5>{{ book.illustrator }}</h5>
+                <h1>{{ collection.name if collection else ''  }}</h1>
+                <h2>{{ book.name }}</h2>
+                <h5>
+                    {%- for authorId in book.authors %}
+                        {% set author = global.authors | find(authorId) %}
+                        <a href="/authors/{{author.slug}}.html">{{ author.name }}</a>
+                    {%- endfor %}
+                </h5>
+                <h5>
+                    {%- for authorId in book.illustrators %}
+                        {% set author = global.authors | find(authorId) %}
+                        <a href="/authors/{{author.slug}}.html">{{ author.name }}</a>
+                    {%- endfor %}
+                </h5>
             </div>
             <div>
                 <h3>{{ book.introduction }}</h3>
@@ -36,10 +49,12 @@ permalink: "books/{{ book.slug }}.html"
         <div id="book_presentation2">
             <div>
                 <div id="themes">
-                    {% set list = book.themes.split(', ') %}
-                    {%- for theme in list %}
-                        <p>{{theme}}</p>
-                    {%- endfor %}
+                    {% if book.keywords %}
+                        {% set list = book.keywords.split(', ') %}
+                        {%- for theme in list %}
+                            <p>{{theme}}</p>
+                        {%- endfor %}
+                    {%- endif %}
                 </div>
                 <h4>Résumé</h4>
                 <p>{{ book.summary }}</p>
@@ -48,16 +63,20 @@ permalink: "books/{{ book.slug }}.html"
         <div id="book_badges">
             <a class="age_cat" href="/ages/{{ book.age_cat }}.html">
                 <span>
-                    {{ book.age }}<span class="f{{ book.age_cat }}"> ans</span>
+                    {{ book.age }}
                 </span>
                 <span class="ico">v</span>
             </a>
-            <div>
-                <h3>EXTRAIT</h3>
+            {% if book.calameo %}
+            <div class="calameo">
+                <h3><a href="{{ book.calameo }}" target="_blank">EXTRAIT</a></h3>
             </div>
-            <div>
-                <button>LIVRE AUDIO</button>
+            {% endif %}
+            {% if book.soundcloud %}
+            <div class="soundcloud">
+                <a href="{{ book.soundcloud }}" target="_blank" class="button">LIVRE AUDIO</a>
             </div>
+            {% endif %}
         </div>
     </div>
 
@@ -86,57 +105,92 @@ permalink: "books/{{ book.slug }}.html"
         <article id="caracs">
             <h4>Caractéristiques</h4>
            <table>
+               {% if book.name %}
                <tr>
                    <td>Titre</td>
-                   <td>{{ book.title }}</td>
+                   <td>{{ book.name }}</td>
                </tr>
+               {% endif %}
+               {% if book.authors %}
                <tr>
                    <td>Auteur(s)</td>
-                   <td>{{ book.author1 }}</td>
+                   <td>
+                       {%- for authorId in book.authors %}
+                            {% set author = global.authors | find(authorId) %}
+                            <a href="/authors/{{author.slug}}.html">{{ author.name }}</a>
+                       {%- endfor %}
+                   </td>
                </tr>
+               {% endif %}
+               {% if book.illustrators %}
                <tr>
                    <td>Illustrateur(s)</td>
-                   <td>{{ book.illustrator }}</td>
+                   <td>
+                       {%- for authorId in book.illustrators %}
+                           {% set author = global.authors | find(authorId) %}
+                           <a href="/authors/{{author.slug}}.html">{{ author.name }}</a>
+                       {%- endfor %}
+                   </td>
                </tr>
+               {% endif %}
+               {% if book.collection %}
                <tr>
                    <td>Série</td>
-                   <td>{{ book.collection }}</td>
+                   <td>
+                       {% set collection = global.series | find(book.collection) %}
+                       <a href="/series/{{collection.slug}}.html">{{ collection.name }}</a>
+                    </td>
                </tr>
+               {% endif %}
+               {% if book.genre %}
                <tr>
                    <td>Genre</td>
                    <td>{{ book.genre }}</td>
                </tr>
+               {% endif %}
+               {% if book.parution %}
                <tr>
                    <td>Date de parution</td>
-                   <td>{{ book.date | fdate  }}</td>
+                   <td>{{ book.parution | fdate  }}</td>
                </tr>
+               {% endif %}
+               {% if book.pages %}
                <tr>
                    <td>Nombre de pages</td>
                    <td>{{ book.pages}}</td>
                </tr>
+               {% endif %}
+               {% if book.sizes %}
                <tr>
                    <td>Dimensions</td>
-                   <td>-----</td>
+                   <td>{{ book.sizes }}</td>
                </tr>
+               {% endif %}
+               {% if book.support %}
                <tr>
                    <td>Support</td>
-                   <td>------</td>
+                   <td>{{ book.support }}</td>
                </tr>
+               {% endif %}
+               {% if book.ean %}
                <tr>
                    <td>ISBN / EAN</td>
                    <td>{{ book.ean}}</td>
                </tr>
+               {% endif %}
            </table>
         </article>
     </section>
 
 </div>
 
-<section id="discover_collection">
-    <a class="container"
-       style="background-image: url('{{ book.collection_image }}')"
-        href="/series/{{book.collection | slug}}.html">
-        Découvre la série !
-        <span>{{ book.collection }}</span>
-    </a>
-</section>
+{% if collection %}
+    <section id="discover_collection">
+        <a class="container"
+           style="background-image: url('{{ collection.image }}')"
+            href="/series/{{ collection.slug }}.html">
+            Découvre la série !
+            <span>{{ collection.name }}</span>
+        </a>
+    </section>
+{% endif %}}

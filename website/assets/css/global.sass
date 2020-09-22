@@ -176,7 +176,7 @@ body
 
         #search_button
             width: 140px
-        a
+        > a
             padding: 10px 40px
             color: inherit
             font-size: 16px
@@ -221,8 +221,11 @@ body
             z-index: 999
 
             .search_item
-                font-size: 10px
-                line-height: 10px
+                padding: 5px
+                font-size: 14px
+                line-height: 17px
+                text-decoration: none
+                color: inherit
                 background-color: white
                 border-left: none
                 border-bottom: 1px solid black
@@ -230,10 +233,10 @@ body
                 &:last-of-type
                     border-bottom: none
 
-            .search_item:hover
-                background-color: $red
-                opacity: 0.7
-                color: white
+                &:hover
+                    background-color: $red
+                    opacity: 0.7
+                    color: white
 
     // footer
     > footer

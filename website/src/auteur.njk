@@ -1,7 +1,7 @@
 ---
 tags: authors
 pagination:
-    data: authors
+    data: global.authors
     size: 1
     alias: author
     addAllPagesToCollections: true
@@ -28,7 +28,7 @@ permalink: "authors/{{author.slug}}.html"
 
      <div id="author_books" class="books_container">
          <h3>SES OUVRAGES</h3>
-         {% set books = global.books|selectBooks('author', author.name) %}
+         {% set books = global.books|selectBooks('author', author.id) %}
          {% if books.length == 0 %}
             Pas encore de livre
          {% endif %}
@@ -37,9 +37,9 @@ permalink: "authors/{{author.slug}}.html"
              <li>
                  <a href="/books/{{ book.slug }}.html">
                      <div>
-                         {% remoteImage book.image, book.title, {widths: [150]} %}
+                         {% remoteImage book.image, book.name, {widths: [150]} %}
                      </div>
-                     <p class="book_title">{{ book.title }}</p>
+                     <p class="book_title">{{ book.name }}</p>
                 </a>
              </li>
              {%- endfor %}

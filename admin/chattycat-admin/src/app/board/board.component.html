@@ -1,0 +1,9 @@
+<h1>Liste des livres</h1>
+<section class="list">
+  <article
+    *ngFor="let book of store.list('books')"
+    [routerLink]="['/', 'book', 'edit', book.id]"
+  >
+    <img [alt]="book.title" [src]="book.image"/>
+  </article>
+</section>

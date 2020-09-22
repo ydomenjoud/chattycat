@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "chattycat-site": {
+      "hosting": {
+        "admin": [
+          "chattycat-admin"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "chattycat-admin"
+  }
+}

@@ -14,9 +14,10 @@ permalink: "series.html"
 
     <section id="series">
 
-        {%- for serie in series %}
+        {%- for serie in global.series %}
         <a href="/series/{{serie.slug}}.html">
-            <img src="{{serie.image}}" alt="No Image"/>
+            {% remoteImage serie.image, serie.name, {widths: [312]} %}
+            <!--<img src="{{serie.image}}" alt="No Image"/>-->
             <p>{{ serie.name }}</p>
         </a>
         {%- endfor %}

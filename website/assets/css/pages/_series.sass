@@ -1,0 +1,154 @@
+
+// SERIES
+
+#landing_series
+    height: 454px
+    background: transparent url('/assets/img/series/landing-series.png') 0 0 no-repeat padding-box
+    margin-bottom: 40px
+    flex-direction: column
+    h1
+        color: white
+        margin-bottom: 20px
+
+    p
+        color: white
+        font: 300 20px/29px Open Sans
+        letter-spacing: 0.2px
+    > *
+        color: white
+        width: 40%
+
+#series
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+    margin-top: 40px
+    margin-bottom: 175px
+
+    a
+        display: flex
+        justify-content: space-between
+        margin-right: 15px
+        margin-bottom: 20px
+        width: calc(100% / 3 - 10px)
+        text-decoration: none
+        box-shadow: 0 3px 6px #00000029
+        padding-right: 10px
+        position: relative
+        picture
+            width: 100%
+
+        img
+            max-height: 100%
+            align-self: flex-end
+
+        p
+            position: absolute
+            bottom: 0
+            max-width: 50%
+            margin-top: 25px
+            font: Normal 18px/35px Montserrat
+            letter-spacing: 0.18px
+            color: $black
+            align-self: center
+
+#series
+    a:nth-child(3n)
+        margin-right: 0
+
+
+#serie_presentation
+    background: $blue 0 0 no-repeat padding-box
+    display: flex
+    width: 100%
+    height: 322px
+    justify-content: space-between
+    padding: 35px 35px 0
+
+    h1
+        font: Normal 45px/35px Love Ya Like A Sister
+        letter-spacing: 3.15px
+        text-transform: uppercase
+
+    > div:first-child
+        display: flex
+        flex-direction: column
+        h1
+            color: white
+        > picture:first-child
+            margin-bottom: 15px
+
+    > div:last-child
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        width: 55%
+        height: 270px
+        > h1
+            color: black
+            align-self: flex-end
+            margin-bottom: 30px
+        > div
+            width: 100%
+            display: flex
+            #serie_descr_key
+                width: 35%
+                margin-right: 5px
+                p
+                    font: 300 18px/27px Montserrat
+                    letter-spacing: 0.18px
+                    color: #FFFFFF
+            #serie_descr_value
+                width: 60%
+                p
+                    font: Normal 18px/27px Montserrat
+                    letter-spacing: 0.18px
+                    color: #FFFFFF
+
+#serie_presentation_bottom
+    display: flex
+    width: 100%
+    justify-content: flex-end
+    padding: 30px
+    background: transparent url('/assets/img/series/sydney.png') bottom right no-repeat padding-box
+    padding-bottom: 425px
+    margin-bottom: 130px
+    p
+        width: 55%
+        font: Normal 14px/22px Montserrat
+        letter-spacing: 0.14px
+        color: $black
+
+#serie_comm
+    width: 100%
+    +greyBackground
+    align-items: center
+    padding: 80px 10px
+    margin-bottom: 80px
+    text-align: center
+    > .container > *
+        margin-bottom: 40px
+    h3
+        font: Bold 30px/35px Montserrat
+        letter-spacing: 0.3px
+        text-transform: none
+        color: $black
+    p:first-child
+        font: Normal 22px/30px Montserrat
+        letter-spacing: 0.22px
+    a
+        text-decoration: none
+        font: Normal 30px/35px Montserrat
+        letter-spacing: 0.3px
+        color: $red
+        margin-bottom: 0
+
+#series_books
+    ol
+        justify-content: center
+        li
+            margin-right: 30px
+        li:last-of-type
+            margin-right: 0
+
+

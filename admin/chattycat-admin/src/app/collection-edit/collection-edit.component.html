@@ -1,0 +1,48 @@
+<h1>
+  Edition de la série
+  <kal-button
+    (click)="save()"
+    *ngIf="collection"
+    kalTheme="primary">Enregistrer
+  </kal-button>
+</h1>
+
+<section *ngIf="collection" [kalLoading]="loading$|async" class="w33">
+  <article>
+
+    <kal-form-field *ngIf="collection.id">
+      <ng-template kalFormFieldLabel>Image</ng-template>
+      <app-picture
+        (fileUploaded)="updateImage($event)"
+        [filePath]="'books/' + collection.id"
+        [image]="collection.image"
+      ></app-picture>
+    </kal-form-field>
+
+    <kal-form-field *ngIf="collection.id">
+      <ng-template kalFormFieldLabel>Background</ng-template>
+      <app-picture
+        (fileUploaded)="updateBackground($event)"
+        [filePath]="'collections-background/' + collection.id"
+        [image]="collection.background"
+      ></app-picture>
+    </kal-form-field>
+  </article>
+
+  <article>
+
+    <kal-form-field>
+      <kal-input [(ngModel)]="collection.name" label="Nom"></kal-input>
+    </kal-form-field>
+
+    <kal-form-field>
+      <kal-textarea [(ngModel)]="collection.introduction" label="Introduction"></kal-textarea>
+    </kal-form-field>
+  </article>
+
+  <article>
+    <kal-form-field>
+      <kal-textarea [(ngModel)]="collection.description" label="Description"></kal-textarea>
+    </kal-form-field>
+  </article>
+</section>

@@ -17,12 +17,28 @@ module.exports = function (eleventyConfig) {
     });
 
     // add plugin for remote image
-    eleventyConfig.addNunjucksAsyncShortcode("remoteImage", async function (src, alt, options) {
+    eleventyConfig.addNunjucksAsyncShortcode("remoteImageSrc", async function (src, options) {
+        if (!src) {
+            return '';
+        }
+        // returns Promise
+        const defaultOptions = {
+            outputDir: distDir + 'assets/img/',
+            urlPath: "/assets/img/",
+        };
+        options = {...defaultOptions, ...options};
+        let stats = await Image(src, options);
+        let lowestSrc = stats.jpeg[0];
+        return lowestSrc.url;
+
+    });
+    // add plugin for remote image
+    eleventyConfig.addNunjucksAsyncShortcode("remoteImage", async function (src, alt, options, defaultImage = '/assets/img/no-picture.png') {
 
         if (!src) {
             return `
             <picture>
-                <img src="/assets/img/no-picture.png" width="150" height="210" alt="no picture"/>
+                <img src="${defaultImage}" width="150" height="210" alt="no picture"/>
             </picture>
             `;
         }
@@ -51,12 +67,16 @@ module.exports = function (eleventyConfig) {
           height="${lowestSrc.height}">
       </picture>`;
         } catch (e) {
-            return `<picture></picture>`
+            return `<picture></picture>`;
         }
     });
 
     // replace default slug with better imp
     eleventyConfig.addFilter("slug", (input) => {
+        if (!input) {
+            console.log('error');
+            return '';
+        }
         const options = {
             replacement: "-",
             remove: /[&,+()$~%.'":*?<>{}]/g,
@@ -83,7 +103,7 @@ module.exports = function (eleventyConfig) {
         let callback = b => b;
         switch (type) {
             case 'author':
-                callback = b => (b.authors || []).indexOf(value) > -1 || b.author1 === value || b.author2 === value;
+                callback = b => [...(b.authors || []), ...(b.illustrators || [])].indexOf(value) > -1;
                 break;
             case 'collection':
                 callback = b => b.collection === value;
@@ -94,6 +114,11 @@ module.exports = function (eleventyConfig) {
         }
 
         return books.filter(callback);
+    });
+
+
+    eleventyConfig.addFilter("find", (list, id) => {
+        return list.find(e => e.id === id);
     });
 
     // add sass plugin

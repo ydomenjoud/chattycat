@@ -51,7 +51,7 @@ active_page: catalogue
                 <div>
                     {% remoteImage book.image, book.title, {widths: [150]} %}
                 </div>
-                <p class="book_title">{{ book.title }}</p>
+                <p class="book_title">{{ book.name }}</p>
             </a></li>
             {%- endfor %}
         </ol>

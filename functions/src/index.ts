@@ -10,16 +10,21 @@ function fdocToJS<T>(doc: admin.firestore.QueryDocumentSnapshot<T>): T {
         remove: /[&,+()$~%.'":*?<>{}]/g,
         lower: true
     };
-    const slug = require("slugify")((doc.data() as any)?.title, options);
+
+    const data: any = doc.data() as any;
+    if (!data.name && data.title) {
+        data.name = data.title;
+    }
+    const slug = require("slugify")(data?.name, options);
     return {
-        ...doc.data(),
+        ...data,
         slug,
         id: doc.id,
         ref: doc.ref.path
     };
 }
 
-export const getBooks = functions
+export const books = functions
     .region('europe-west1')
     .https.onRequest(async (request, response) => {
 
@@ -29,6 +34,30 @@ export const getBooks = functions
 
     response.json(docs);
 });
+
+export const authors = functions
+    .region('europe-west1')
+    .https.onRequest(async (request, response) => {
+
+        const docs = await admin.firestore()
+            .collection('authors').get()
+            .then(b => b.docs.map(fdocToJS));
+
+        response.json(docs);
+    });
+
+
+export const collections = functions
+    .region('europe-west1')
+    .https.onRequest(async (request, response) => {
+
+        const docs = await admin.firestore()
+            .collection('collections').get()
+            .then(b => b.docs.map(fdocToJS));
+
+        response.json(docs);
+    });
+
 
 
 export const newsletter = functions.region('europe-west1').https.onRequest(async (request, response) => {

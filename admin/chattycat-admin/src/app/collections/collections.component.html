@@ -1,0 +1,18 @@
+<h1>
+  Liste des séries
+  <kal-button kalTheme="primary" routerLink="/collection/edit/0">
+    <kal-icon>add</kal-icon>
+    Ajouter
+  </kal-button>
+</h1>
+
+
+
+<section class="list">
+  <article
+    *ngFor="let collection of store.list('collections')"
+    [routerLink]="['/', 'collection', 'edit', collection.id]"
+  >
+    <img [alt]="collection.name" [src]="collection.image"/>
+  </article>
+</section>

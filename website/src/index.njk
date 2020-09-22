@@ -30,9 +30,9 @@
         {%- for book in global.mainBooks %}
         <li><a href="/books/{{ book.slug }}.html">
             <div>
-                {% remoteImage book.image, book.title, {widths: [150]} %}
+                {% remoteImage book.image, book.name, {widths: [150]} %}
             </div>
-            <p class="book_title">{{ book.title }}</p>
+            <p class="book_title">{{ book.name }}</p>
         </a></li>
         {%- endfor %}
     </ol>

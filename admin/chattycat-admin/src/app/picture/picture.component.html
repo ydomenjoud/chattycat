@@ -1,0 +1,16 @@
+<figure>
+  <img [src]="image"/>
+  <div class="action">
+    <kal-button
+      (click)="uploader.click()"
+      kalTheme="primary"
+      title="changer">
+      <kal-icon>refresh</kal-icon>
+    </kal-button>
+    <kal-button style="margin-left: 20px;"
+    (click)="deleteImage()">
+      <kal-icon>delete</kal-icon>
+    </kal-button>
+    <input #uploader (change)="uploadFile($event)" accept=".png,.jpg,.gif,.jpeg" type="file"/>
+  </div>
+</figure>

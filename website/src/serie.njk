@@ -1,14 +1,11 @@
 ---
 tags: series
 pagination:
-    data: series
+    data: global.series
     size: 1
     alias: serie
     addAllPagesToCollections: true
 eleventyComputed:
-    name: "{{serie.name}}"
-    image: "{{serie.image}}"
-    resume: "{{serie.resume | safe}}"
     description: serie.description
 permalink: "series/{{serie.slug}}.html"
 ---
@@ -18,45 +15,53 @@ permalink: "series/{{serie.slug}}.html"
     <div id="serie_presentation">
         <div>
             <h1>Série</h1>
-            {%- if image %}
-                {% remoteImage image, "plop", {widths: [312]} %}
+            {%- if serie.image %}
+                {% remoteImage serie.image, serie.name, {widths: [312]} %}
             {%- endif %}
         </div>
 
         <div>
-            <h1>{{name}}</h1>
+            <h1>{{serie.name}}</h1>
             <div>
-                <div id="serie_descr_key">
-                    {% for item in serie.description %}
-                        <p>{{ item[0] }} :</p>
-                    {% endfor %}
-                </div>
-                <div id="serie_descr_value">
-                    {% for item in serie.description %}
-                        <p>{{ item[1] }}</p>
-                    {% endfor %}
-                </div>
+               {{ serie.introduction | nl2br | safe }}
             </div>
         </div>
     </div>
 
-    <div id="serie_presentation_bottom">
-        <p>{{resume}}</p>
+    <div id="serie_presentation_bottom" style="background-image: url('{% remoteImageSrc serie.background %}')">
+        <p>{{serie.description | nl2br | safe }}</p>
     </div>
 </div>
 
-    <div id="serie_comm">
-        <div class="container">
-            <h3>Le savais-tu ? Ton héros a déjà inspiré de nombreux "fan art" (dessins de fans).</h3>
-            <p>Si tu aimerais rejoindre son fan club et nous envoyer tes dessins et/ou tes impressions de la série, tu peux le faire ici. Nous les partagerons peut-être sur nos réseaux sociaux !</p>
-            <p><a href="mailto:fanclub@chattycat.fr">fanclub@chattycat.fr</a></p>
-        </div>
+<div id="serie_comm">
+    <div class="container">
+        <h3>Le savais-tu ? Ton héros a déjà inspiré de nombreux "fan art" (dessins de fans).</h3>
+        <p>Si tu aimerais rejoindre son fan club et nous envoyer tes dessins et/ou tes impressions de la série, tu peux le faire ici. Nous les partagerons peut-être sur nos réseaux sociaux !</p>
+        <p><a href="mailto:fanclub@chattycat.fr">fanclub@chattycat.fr</a></p>
     </div>
+</div>
 
+<div class="container">
     <h3>LES TITRES DE LA SÉRIE</h3>
+    <div id="filter_results" class="books_container">
+        <ol>
+            {%- for book in global.books|selectBooks('collection', serie.id) %}
+            <li id="{{ book.id }}">
+                <a href="/books/{{ book.slug }}.html">
+                    <div>
+                        {% remoteImage book.image, book.name, {widths: [150]} %}
+                    </div>
+                    <p class="book_title">{{ book.name }}</p>
+                </a>
+            </li>
+            {%- endfor %}
 
-    <div id="series_books" class="books_container" data-serie="{{name}}"></div>
-
+            {% if (global.books|selectBooks('collection', serie.collection)).length === 0 %}
+            Pas encore de livre dans cette catégorie
+            {% endif %}
+        </ol>
+    </div>
+</div>
 
 
 <script src="/assets/js/search_base.js"></script>

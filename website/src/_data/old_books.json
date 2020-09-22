@@ -20,7 +20,6 @@
         "author1": "Picard, Gaëlle ",
         "size": "210x260",
         "pages": 28,
-        "couverture": "Couv et visuels provisoires",
         "slug": "paper-dolls-a-new-york",
         "id": "9fh6z1OZer3p8p3pIF7X",
         "ref": "books/9fh6z1OZer3p8p3pIF7X"
@@ -102,7 +101,7 @@
         "ref": "books/HzFGCvwbzhGObVB2CZKg"
     },
     {
-        "age": "10 ans+",
+        "age": "10",
         "age_cat": "10",
         "couverture": "Oui",
         "author2": "",
@@ -224,7 +223,7 @@
         "pages": 32,
         "themes": "Bande dessinée, chat, anglais",
         "ean": "9791096106172",
-        "age": "3 ans+",
+        "age": "3",
         "age_cat": "3-6",
         "slug": "hello-puff",
         "id": "fPIH0qlj85WVSSFMaFlI",
@@ -249,7 +248,7 @@
         "image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/covers%2Fcleo_lefort_secrets_a_londres.jpg?alt=media",
         "introduction": "Mène l'enquête et apprends l'anglais avec Cléo Lefort !",
         "couverture": "Oui",
-        "summary": "Cléo Lefort, détective amateur, est ravie de passer ses vacances à Londres. Mais en visite au musée de Sherlock Holmes, elle entend d’étranges bruits semblant venir des murs…\nEt puis, il y a ce manuscrit retrouvé, dont il manque le dernier chapitre… et si les deux énigmes étaient liées ?\nPour élucider ce nouveau mystère, Cléo Lefort devra vite apprendre l���anglais !",
+        "summary": "Cléo Lefort, détective amateur, est ravie de passer ses vacances à Londres. Mais en visite au musée de Sherlock Holmes, elle entend d’étranges bruits semblant venir des murs…\nEt puis, il y a ce manuscrit retrouvé, dont il manque le dernier chapitre… et si les deux énigmes étaient liées ?\nPour élucider ce nouveau mystère, Cléo Lefort devra vite apprendre l'anglais !",
         "age": "8-10",
         "age_cat": "8-10",
         "slug": "cleo-lefort-secrets-a-londres",
@@ -321,7 +320,7 @@
         "author2": "",
         "pages": 96,
         "size": "140x190",
-        "summary": "Quand une jeune femme disparaît quelques jours avant un grand\nconcours de sirop d’érable à Toronto, Cléo Lefort décide d��enquêter. Comment est-ce\npossible que personne ne se souvienne d’elle ? Pour le savoir, Cléo va devoir apprendre\nl’anglais... et vite !\nSérie phare des éditions Chattycat, ‘Cléo Lefort’ initie les enfants à l’anglais et leur fait\ndécouvrir des villes étrangères. Ce roman permet aux enfants d’en apprendre plus sur\nla culture d’une des grandes villes du Canada, Toronto. En bonus : lexiques à la fin de chaque chapitre, carte de la ville, jeux, carnet de voyage, version audio téléchargeable gratuitement.",
+        "summary": "Quand une jeune femme disparaît quelques jours avant un grand\nconcours de sirop d’érable à Toronto, Cléo Lefort décide d'enquêter. Comment est-ce\npossible que personne ne se souvienne d’elle ? Pour le savoir, Cléo va devoir apprendre\nl’anglais... et vite !\nSérie phare des éditions Chattycat, ‘Cléo Lefort’ initie les enfants à l’anglais et leur fait\ndécouvrir des villes étrangères. Ce roman permet aux enfants d’en apprendre plus sur\nla culture d’une des grandes villes du Canada, Toronto. En bonus : lexiques à la fin de chaque chapitre, carte de la ville, jeux, carnet de voyage, version audio téléchargeable gratuitement.",
         "collection": "Cléo Lefort",
         "collection_image": "https://firebasestorage.googleapis.com/v0/b/chattycat-site.appspot.com/o/collections%2Fcleolefort.png?alt=media",
         "prix": "7,5",

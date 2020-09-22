@@ -1,0 +1,10 @@
+
+<header>
+  <a routerLink="/board">Livres</a>
+  <a routerLink="/authors">Auteurs</a>
+  <a routerLink="/collections">Séries</a>
+</header>
+
+<main [kalLoading]="!(store.allLoaded$ | async)">
+  <router-outlet *ngIf="store.allLoaded$ | async"></router-outlet>
+</main>
