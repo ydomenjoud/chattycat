@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { KalSnackbarConfig, KalSnackbarService } from '@kalidea/kaligraphi';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -16,6 +17,7 @@ export class PictureComponent implements OnInit {
   loading = false;
 
   constructor(private storage: AngularFireStorage,
+              private readonly snackbar: KalSnackbarService,
               private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -24,6 +26,10 @@ export class PictureComponent implements OnInit {
 
   uploadFile($event: any) {
     const file = $event.target.files[0];
+    if (file.size > 200 * 1024) {
+      this.snackbar.open(new KalSnackbarConfig({title: 'Fichier trop gros, faire moins de 200Ko'}))
+      return;
+    }
     const filePath = this.filePath
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);

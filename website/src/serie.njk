@@ -29,7 +29,7 @@ permalink: "series/{{serie.slug}}.html"
     </div>
 
     <div id="serie_presentation_bottom" style="background-image: url('{% remoteImageSrc serie.background %}')">
-        <p>{{serie.description | nl2br | safe }}</p>
+        <p>{{serie.description }}</p>
     </div>
 </div>
 
@@ -62,7 +62,3 @@ permalink: "series/{{serie.slug}}.html"
         </ol>
     </div>
 </div>
-
-
-<script src="/assets/js/search_base.js"></script>
-<script src="/assets/js/serie.js"></script>
