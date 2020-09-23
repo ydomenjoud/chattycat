@@ -1,4 +1,10 @@
-<h1>Liste des livres</h1>
+<h1>
+  Liste des livres
+  <kal-button kalTheme="primary" routerLink="/book/edit/0">
+    <kal-icon>add</kal-icon>
+    Ajouter
+  </kal-button>
+</h1>
 <section class="list">
   <article
     *ngFor="let book of store.list('books')"

@@ -44,7 +44,8 @@ export class BookEditComponent implements OnInit {
       this.loading$.next(true);
       this.store.upsert(this.book)
         .then(
-          () => {
+          b => {
+            this.book.id = b.id;
             console.log('success');
             this.loading$.next(false)
           },
@@ -61,7 +62,9 @@ export class BookEditComponent implements OnInit {
       pluck('id'),
       map(id => this.store.doc<Book>('books', id)),
       tap(book => {
-        this.book = book;
+        if (book) {
+          this.book = book;
+        }
         console.log(book);
       })
     ).subscribe();

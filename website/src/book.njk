@@ -18,7 +18,9 @@ permalink: "books/{{ book.slug }}.html"
         <div>
             {%- if book.image %}
                 {% remoteImage book.image, book.name, {widths: [312]} %}
-                {% remoteImage book.image, book.name, {widths: [90]} %}
+            {%- endif %}
+            {%- if book.image2 %}
+                {% remoteImage book.image2, book.name, {widths: [90]} %}
             {%- endif %}
         </div>
 
@@ -168,7 +170,7 @@ permalink: "books/{{ book.slug }}.html"
                {% endif %}
                {% if book.support %}
                <tr>
-                   <td>Support</td>
+                   <td>Couverture</td>
                    <td>{{ book.support }}</td>
                </tr>
                {% endif %}
@@ -193,4 +195,4 @@ permalink: "books/{{ book.slug }}.html"
             <span>{{ collection.name }}</span>
         </a>
     </section>
-{% endif %}}
+{% endif %}

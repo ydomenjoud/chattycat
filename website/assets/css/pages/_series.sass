@@ -61,9 +61,8 @@
     background: $blue 0 0 no-repeat padding-box
     display: flex
     width: 100%
-    height: 322px
     justify-content: space-between
-    padding: 35px 35px 0
+    padding: 35px 35px 10px
 
     h1
         font: Normal 45px/35px Love Ya Like A Sister
@@ -71,19 +70,22 @@
         text-transform: uppercase
 
     > div:first-child
+        position: relative
         display: flex
         flex-direction: column
         h1
             color: white
-        > picture:first-child
-            margin-bottom: 15px
+        > picture
+            position: absolute
+            top: 50px
+            &:first-child
+                margin-bottom: 15px
 
     > div:last-child
         display: flex
         flex-direction: column
         align-items: flex-start
         width: 55%
-        height: 270px
         > h1
             color: black
             align-self: flex-end
@@ -113,6 +115,9 @@
     background: transparent url('/assets/img/series/sydney.png') bottom right no-repeat padding-box
     padding-bottom: 425px
     margin-bottom: 130px
+    &.noBg
+        padding-bottom: 15px
+
     p
         width: 55%
         font: Normal 14px/22px Montserrat

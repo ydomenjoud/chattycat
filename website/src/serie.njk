@@ -28,7 +28,10 @@ permalink: "series/{{serie.slug}}.html"
         </div>
     </div>
 
-    <div id="serie_presentation_bottom" style="background-image: url('{% remoteImageSrc serie.background %}')">
+    <div id="serie_presentation_bottom"
+         class="{{ 'noBg' if not serie.background }}"
+         style="background-image: url('{% remoteImageSrc serie.background %}')"
+    >
         <p>{{serie.description }}</p>
     </div>
 </div>
