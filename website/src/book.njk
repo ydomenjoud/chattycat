@@ -80,6 +80,18 @@ permalink: "books/{{ book.slug }}.html"
             </div>
             {% endif %}
         </div>
+        <div id="book_more">
+            {% if book.other_informations %}
+            <div class="other_informations">
+                <a href="{{ book.other_informations }}" target="_blank" class="button">Autour du livre</a>
+            </div>
+            {% endif %}
+            {% if book.bonus %}
+            <div class="bonus">
+                <a href="{{ book.bonus }}" target="_blank" class="button">BONUS</a>
+            </div>
+            {% endif %}
+        </div>
     </div>
 
     <section id="book_informations">

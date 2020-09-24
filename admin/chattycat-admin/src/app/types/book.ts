@@ -31,15 +31,9 @@ export class Book extends Base {
   soundcloud?: string;
   calameo?: string;
   youtube?: string;
-  linked?: string[]; // ids list of others books
-  articles1?: BookArticle;
-  articles2?: BookArticle;
-  articles3?: BookArticle;
+
+  other_informations?: string; // autour du livre
+  bonus?: string;
 
 }
 
-export class BookArticle {
-  title: string;
-  text: string;
-  link: string;
-}
