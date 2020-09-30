@@ -18,10 +18,26 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
+        {
+            "source": "/audio/cleo-ny",
+            "destination": "/books/cleo-lefort-enquete-a-new-york.html"
+        },
+        {
+            "source": "/audio/cleo-toronto",
+            "destination": "/books/cleo-lefort-mystere-a-toronto.html"
+        },
+        {
+            "source": "/audio/guardians1",
+            "destination": "/books/the-guardians-le-village-englouti.html"
+        },
+        {
+            "source": "/audio/guardians2",
+            "destination": "/books/the-guardians-le-soldat-perdu.html"
+        },
+        {
+            "source": "**",
+            "destination": "/index.html"
+        }
     ]
   },
   "emulators": {
