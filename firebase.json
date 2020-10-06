@@ -19,6 +19,16 @@
         ],
         "redirects": [
             {
+                "source": "/audio/Cléo-NY",
+                "destination": "/books/cleo-lefort-enquete-a-new-york.html",
+                "type": 301
+            },
+            {
+                "source": "/audio/Cléo-Toronto",
+                "destination": "/books/cleo-lefort-mystere-a-toronto.html",
+                "type": 301
+            },
+            {
                 "source": "/audio/cleo-ny",
                 "destination": "/books/cleo-lefort-enquete-a-new-york.html",
                 "type": 301
@@ -36,6 +46,26 @@
             {
                 "source": "/audio/guardians2",
                 "destination": "/books/the-guardians-le-soldat-perdu.html",
+                "type": 301
+            },
+            {
+                "source": "/audio/paperdollsny",
+                "destination": "/books/paper-dolls-a-new-york.html",
+                "type": 301
+            },
+            {
+                "source": "/video/paperdollsny",
+                "destination": "/books/paper-dolls-a-new-york.html",
+                "type": 301
+            },
+            {
+                "source": "/audio/cleo-londres",
+                "destination": "/books/cleo-lefort-secrets-a-londres.html",
+                "type": 301
+            },
+            {
+                "source": "/audio/cleo-sydney",
+                "destination": "/books/cleo-lefort-apparition-a-sydney.html",
                 "type": 301
             }
         ],
