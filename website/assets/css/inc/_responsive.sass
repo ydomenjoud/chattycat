@@ -1,8 +1,8 @@
 @import ./params
 
-// layout
 @media screen and (max-width: #{$site-width})
     body
+        // layout
         & > header
             flex-direction: column
             & > a > img
@@ -17,8 +17,45 @@
 
         & > nav
             display: none
-
-
+        & > footer
+            text-align: center
+            #footer1 > div.container
+                $font: normal normal 300 20px/19px Montserrat
+                padding: 0 10px
+                flex-direction: column
+                & > div:nth-child(1)
+                    display: none
+                div
+                    width: 100%
+                    font: #{$font}
+                & > #follow_box
+                    p
+                        font: #{$font}
+                    & > img
+                        display: none
+                    #follow_buttons
+                        margin: 20px 0
+                        justify-content: space-around
+                        a
+                            background-size: cover
+                            width: 80px
+                            height: 80px
+                & > #newsletter_box
+                    label
+                        font: #{$font}
+                    & > div
+                        input
+                            flex: 1 1 auto
+            #footer2
+                padding: 0
+                & > .container
+                    & > p
+                        flex: 1 1 auto
+                        padding: 10px
+                        text-align: center
+                        font: normal normal normal 15px/14px Montserrat
+                    & > a
+                        display: none
 
 
         // index
@@ -36,3 +73,6 @@
             & > div
                 display: flex
                 flex-direction: column
+                & > #fb
+                    width: 100%
+
