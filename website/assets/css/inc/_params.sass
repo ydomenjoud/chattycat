@@ -1,5 +1,11 @@
 
 $site-width: 1000px
+$mobile: $site-width
+
+body
+    --site-width: #{$site-width}
+    @media screen and (max-width: $mobile)
+        --site-width: 100%
 
 $black: #070909
 $blue: #38B6FF

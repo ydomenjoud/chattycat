@@ -1,0 +1,38 @@
+@import ./params
+
+// layout
+@media screen and (max-width: #{$site-width})
+    body
+        & > header
+            flex-direction: column
+            & > a > img
+                height: 90px
+                width: auto
+            & > nav
+                overflow: hidden
+                height: 122px
+                img
+                    height: auto
+                    width: 100%
+
+        & > nav
+            display: none
+
+
+
+
+        // index
+        #slider
+            height: auto
+            & > article
+                background-image: none !important
+                padding: 10px
+                & > *
+                    margin-left: 0
+                    max-width: 100%
+
+
+        #follow_us
+            & > div
+                display: flex
+                flex-direction: column
