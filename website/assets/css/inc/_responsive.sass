@@ -1,5 +1,9 @@
 @import ./params
 
+
+.mobile
+    display: none
+
 #mobileNav
     display: none
     position: absolute
@@ -9,11 +13,18 @@
     right: 0
     background-color: $red
     z-index: 1000
+    padding-top: 30px
     #closeBurger
-        display: block
-        text-align: right
-        padding: 30px
-        color: white
+        position: absolute
+        right: 15px
+        top: 15px
+        height: 70px
+        width: 70px
+        background: url('/assets/img/header/close.svg') center no-repeat
+        background-size: 50px 50px
+        &:hover, &:active
+            border-radius: 50%
+            border: 1px solid #FFF
     nav
         display: flex
         flex-direction: column
@@ -28,8 +39,11 @@
 @media screen and (max-width: #{$site-width})
     #mobileNav.visible
         display: block
+    .desktop
+        display: none
     .mobile
         display: inherit
+
     body
         // layout
         & > header
@@ -45,7 +59,13 @@
                     padding: 20px
             & > nav
                 overflow: hidden
-                height: 122px
+                height: auto
+                display: flex
+                border-bottom: 3px solid $black
+                a
+                    transform: none
+                    border: 1px solid $grey
+                    flex: 1 1 25%
                 img
                     height: auto
                     width: 100%
@@ -111,3 +131,231 @@
                 & > #fb
                     width: 100%
 
+
+        // catalogue
+        $thumbnailMargin: 20px
+        .catalogue #filter_results ol
+            width: 100%
+            justify-content: space-evenly
+            li
+                margin-right: $thumbnailMargin
+                margin-left: $thumbnailMargin
+        .books_container ol li
+            margin-right: $thumbnailMargin
+            margin-left: $thumbnailMargin
+
+
+        // authors
+        #authors
+            position: static
+            padding: 20px 10px
+            a
+                width: calc((100% - 2 * 10px)/ 2)
+                picture
+                    border-color: #EFEFEF
+                    border-width: 20px
+                    border-bottom-width: 40px
+                    &::after
+                        transform: scale(0.7)
+                    img
+                        width: 100%
+                        height: auto
+        #author_page
+            flex-direction: column-reverse
+            padding: 20px
+            height: auto
+            & >div:first-of-type
+                width: 100%
+                picture
+                    border-color: #EFEFEF
+                    position: static
+            & >div:last-of-type
+                width: 100%
+                height: auto
+        #author_presentation
+            width: auto
+            margin: 20px
+            font: normal normal normal 20px/24px Montserrat
+            letter-spacing: 0.25px
+            color: #070909
+
+
+        // book detail
+        #book_presentation
+            flex-direction: column-reverse
+            height: auto
+            & >div:last-child
+                width: auto
+                height: auto
+            picture
+                text-align: center
+        #book_presentation_bottom
+            padding: 20px
+            display: flex
+            flex-direction: column
+            #book_badges
+                display: flex
+                flex-direction: column
+                & > *
+                    width: 100%
+                    margin: 10px 0
+                    & > *
+                        width: 100%
+                    .ico
+                        width: 20px
+            & > *
+                padding: 10px 0
+            #book_presentation2
+                & > div
+                    display: flex
+                    width: auto
+                    h4
+                        margin: 10px 0
+                        order: 1
+                    p
+                        order: 2
+                    #themes
+                        order: 3
+
+        #book_informations
+            flex-direction: column-reverse
+            & > article
+                margin: 10px
+
+        #discover_collection
+            a
+                background-image: none !important
+                padding: 20px
+                text-align: center
+
+
+        // series list
+        #landing_series
+            background-image: none
+            display: block
+            height: auto
+            padding: 40px 80px
+            & > *
+                width: 100%
+                margin: 0
+                padding: 0
+            h1
+                margin-bottom: 40px
+        #series
+            a
+                text-align: center
+                width: 100%
+                display: block
+                margin: 10px 30px
+                p
+                    font: normal normal normal 22px/35px Montserrat
+                    position: static
+                    max-width: 100%
+                    margin-top: 0
+
+
+        // serie detail
+        #serie_presentation
+            flex-direction: column
+            & >div:first-child
+                & >picture
+                    text-align: center
+                    position: static
+                & > h1.mobile
+                    margin-top: 10px
+                    color: $black
+            & > div:last-child
+                width: 100%
+                & > div
+                    font: normal normal normal 25px/30px Montserrat
+
+        #serie_presentation_bottom
+            p
+                width: 100%
+                font: normal normal normal 25px/30px Montserrat
+
+
+        // atelier
+        .atelier
+            .container
+                padding: 0
+                section
+                    padding: 10px
+                    &:nth-of-type(1n)
+                        background-image: none
+                header
+                    background-image: none
+                    padding: 40px
+                    background-color: #F1ECEC
+                    &>*
+                        width: 100%
+            #example
+                &::before
+                    content: none
+                background-image: none
+                .container
+                    flex-direction: column
+                    figure
+                        text-align: center
+                        display: flex
+                        flex-direction: column-reverse
+                        padding: 20px 10px
+                        width: 100%
+                        background-color: $black
+                        > *
+                            margin: auto
+                    article
+                        background-color: $blue
+                        padding: 20px
+                        width: 100%
+
+            footer
+                padding: 30px 10px
+                > *
+                    width: 100%
+
+
+        // concept
+        #landing_concept
+            background-image: none
+            height: auto
+            display: block
+            article
+                width: 100%
+                padding: 20px
+        #notre_concept
+            padding: 20px
+            flex-direction: column
+            img
+                width: 100%
+            & > div
+                width: 100%
+                padding: 0
+                h3
+                    margin-top: 20px
+
+        #qui_sommes_nous
+            padding: 20px
+            > *
+                width: 100%
+            h4
+                margin: 0
+            > div
+                margin: 0
+                display: flex
+                flex-direction: column
+                > div
+                    width: 100%
+                    img
+                        width: 100%
+                    h5
+                        font-size: 30px
+                    p
+                        font-size: 20px
+
+        // contact
+        #contact_page
+            padding: 10px
+            text-align: center
+            p
+                text-align: center

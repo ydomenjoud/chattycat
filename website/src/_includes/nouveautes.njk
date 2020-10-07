@@ -4,7 +4,7 @@
 
     <ol class="container">
         {%- for book in global.newBooks %}
-        <li><a href = "books/{{ book.slug }}.html">
+        <li><a href="/books/{{ book.slug }}.html">
             <div>
                 {% remoteImage book.image, book.name, {widths: [150]} %}
             </div>

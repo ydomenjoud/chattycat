@@ -14,14 +14,15 @@ permalink: "series/{{serie.slug}}.html"
 
     <div id="serie_presentation">
         <div>
-            <h1>Série</h1>
+            <h2>Série</h2>
+            <h1 class="mobile">{{serie.name}}</h1>
             {%- if serie.image %}
                 {% remoteImage serie.image, serie.name, {widths: [312]} %}
             {%- endif %}
         </div>
 
         <div>
-            <h1>{{serie.name}}</h1>
+            <h1 class="desktop">{{serie.name}}</h1>
             <div>
                {{ serie.introduction | nl2br | safe }}
             </div>
