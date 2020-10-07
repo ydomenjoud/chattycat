@@ -96,25 +96,17 @@ permalink: "books/{{ book.slug }}.html"
 
     <section id="book_informations">
 
-        <article id="links" >
+        {% if book.links %}
+        <article id="links">
             <h5>Où trouver ce livre ?</h5>
             <ul>
-                <li ><a href="">Parislibrairies.fr</a></li>
-                <li ><a href="">Placedeslibraires.fr</a></li>
-                <li ><a href="">Sauramps</a></li>
-                <li ><a href="">leslibraires.fr</a></li>
-                <li ><a href="">Amazon</a></li>
-                <li ><a href="">la Fnac</a></li>
-                <li ><a href="">Cultura</a></li>
-                <li ><a href="">Decitre</a></li>
-                <li ><a href="">Furet du Nord</a></li>
-                <li ><a href="">Eleclerc</a></li>
-                <li ><a href="">Chapitre</a></li>
-                <li ><a href="">La Procure</a></li>
-                <li ><a href="">LIbrairie Dialogue</a></li>
-                <li ><a href="">Libraires Ensembles</a></li>
+                {%- for linkInformations in book.links %}
+                    {% set link = linkInformations.split('|') %}
+                    <li><a href="{{ link[1] }}">{{ link[0] }}</a></li>
+                {%- endfor %}
             </ul>
         </article>
+        {% endif %}
 
         <article id="caracs">
             <h4>Caractéristiques</h4>

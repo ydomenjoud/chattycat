@@ -34,6 +34,7 @@ export class Book extends Base {
 
   other_informations?: string; // autour du livre
   bonus?: string;
+  links: any;
 
 }
 

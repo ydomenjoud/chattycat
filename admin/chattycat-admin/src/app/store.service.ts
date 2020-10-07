@@ -57,7 +57,7 @@ export class StoreService {
               }
             });
             this.store[k] = entities.sort((a,b) => a.name > b.name ? 1 : -1);
-            console.log(k, entities)
+            // console.log(k, entities)
 
 
             if (this.isAllListLoaded()) {

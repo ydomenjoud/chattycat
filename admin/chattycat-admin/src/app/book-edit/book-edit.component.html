@@ -87,7 +87,12 @@
     <kal-form-field>
       <kal-textarea [(ngModel)]="book.summary" label="Résumé"></kal-textarea>
     </kal-form-field>
+    <kal-form-field>
+      <kal-textarea [(ngModel)]="book.links" label="Ou trouver ce livre ( titre | lien )"></kal-textarea>
+    </kal-form-field>
   </article>
+
+
   <article>
     <kal-form-field>
       <kal-input [(ngModel)]="book.ean" label="EAN"></kal-input>

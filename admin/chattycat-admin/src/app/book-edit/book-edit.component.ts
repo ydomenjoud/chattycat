@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { KalSnackbarConfig, KalSnackbarService } from '@kalidea/kaligraphi';
 import { BehaviorSubject } from 'rxjs';
 import { map, pluck, tap } from 'rxjs/operators';
 import { StoreService } from 'src/app/store.service';
@@ -14,9 +15,11 @@ import { Book } from 'src/app/types/book';
 export class BookEditComponent implements OnInit {
   book: Book = new Book();
   loading$ = new BehaviorSubject<boolean>(false);
+  error = '';
 
   constructor(public readonly store: StoreService,
               private readonly router: Router,
+              private readonly snackbar: KalSnackbarService,
               private readonly route: ActivatedRoute) { }
 
   @HostListener("document:keydown", ["$event"])
@@ -40,9 +43,28 @@ export class BookEditComponent implements OnInit {
   }
 
   save() {
+    this.error = '';
     if (this.book ) {
+
+      const links = (this.book.links||'')
+        .split("\n")
+        .filter(e => !!e)
+        .map( l => l.split('|'));
+
+      const error = links.findIndex(a => {
+        return a.length != 2 || a[0] === '' || a[1] === ''
+      });
+
+      if( error !== -1 ) {
+        const title = `le lien numéro ${error+1} n'est pas valide`;
+        this.snackbar.open(new KalSnackbarConfig({title}));
+        return;
+      }
+
+      const book = {...this.book, links: links.map(e => e.join('|'))};
+
       this.loading$.next(true);
-      this.store.upsert(this.book)
+      this.store.upsert(book)
         .then(
           b => {
             this.book.id = b.id;
@@ -63,9 +85,8 @@ export class BookEditComponent implements OnInit {
       map(id => this.store.doc<Book>('books', id)),
       tap(book => {
         if (book) {
-          this.book = book;
+          this.book = {...book, links: (book.links || []).join("\n")};
         }
-        console.log(book);
       })
     ).subscribe();
   }
