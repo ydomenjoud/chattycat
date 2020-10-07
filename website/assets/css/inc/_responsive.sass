@@ -1,13 +1,48 @@
 @import ./params
 
+#mobileNav
+    display: none
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: $red
+    z-index: 1000
+    #closeBurger
+        display: block
+        text-align: right
+        padding: 30px
+        color: white
+    nav
+        display: flex
+        flex-direction: column
+        a
+            text-transform: uppercase
+            text-decoration: none
+            display: block
+            padding: 20px
+            font: normal normal normal 25px/24px Montserrat
+            color: #FFFFFF
+
 @media screen and (max-width: #{$site-width})
+    #mobileNav.visible
+        display: block
+    .mobile
+        display: inherit
     body
         // layout
         & > header
+            background: none
             flex-direction: column
-            & > a > img
-                height: 90px
-                width: auto
+            & > div
+                display: flex
+                justify-content: space-between
+                & > a#logo > img
+                    height: 90px
+                    width: auto
+                & > a#burger
+                    padding: 20px
             & > nav
                 overflow: hidden
                 height: 122px

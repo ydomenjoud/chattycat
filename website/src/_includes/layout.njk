@@ -16,10 +16,15 @@
 <!-- header -->
 <header class="container">
 
-    <a href="/" id="logo">
-        <img src="/assets/img/cat.png" alt="cat" width="62" height="120"/>
-        <img src="/assets/img/logo.png" alt="logo" width="300" height="120"/>
-    </a>
+    <div>
+        <a href="/" id="logo">
+            <img src="/assets/img/cat.png" alt="cat" width="62" height="120"/>
+            <img src="/assets/img/logo.png" alt="logo" width="300" height="120"/>
+        </a>
+        <a id="burger" class="mobile">
+            <img src="assets/img/header/burger.svg">
+        </a>
+    </div>
     <nav>
         <!--{%- for age in collections.ages %}-->
         <!--    {{ age.data.page.url }}-->
@@ -43,7 +48,6 @@
     </nav>
 
 </header>
-
 
 <!-- navigation -->
 {% set active_page = active_page|default('index') -%}
@@ -104,6 +108,19 @@
 </footer>
 
 <script src="/assets/js/index.js"></script>
+
+<div id="mobileNav">
+    <a id="closeBurger">Close</a>
+    <nav>
+        <a href="{{ collections.concept[0].data.page.url }}" {%- if active_page == "concept" %} class="active"{% endif %}>concept</a>
+        <a href="{{ collections.catalogue[0].data.page.url }}" {%- if active_page == "catalogue" %} class="active"{% endif %}>catalogue</a>
+        <a href="{{ collections.ateliers[0].data.page.url }}"  {%- if active_page == "atelier" %} class="active"{% endif %}>ateliers</a>
+        <a href="{{ collections.series_list[0].data.page.url }}">les séries</a></li>
+        <a href="{{ collections.auteurs_list[0].data.page.url }}">les auteurs</a></li>
+        <a href="{{ collections.contact[0].data.page.url }}">nous contacter</a></li>
+    </nav>
+</div>
+
 
 </body>
 </html>

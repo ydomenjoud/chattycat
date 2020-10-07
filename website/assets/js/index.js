@@ -98,6 +98,13 @@ function _GET(url) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // manage responsive
+    const mobileNav = document.querySelector('#mobileNav');
+    Array.from(document.querySelectorAll('#burger, #closeBurger')).forEach( e => e.addEventListener('click', () => {
+        mobileNav.classList.toggle('visible');
+    }));
+
+    // manage slider
     const slider_controls = document.querySelectorAll('#slider_control a');
 
     Array.from(slider_controls).forEach((c, i) => {
