@@ -1,5 +1,11 @@
 @import ./params
 
+body > header nav a
+    &:hover, &.active
+        img.display_on_hoover
+            display: none
+            &:not(.mobile)
+                display: block
 
 .mobile
     display: none
@@ -36,6 +42,7 @@
             font: normal normal normal 25px/24px Montserrat
             color: #FFFFFF
 
+
 @media screen and (max-width: #{$site-width})
     #mobileNav.visible
         display: block
@@ -53,10 +60,10 @@
                 display: flex
                 justify-content: space-between
                 & > a#logo > img
-                    height: 90px
+                    height: 80px
                     width: auto
                 & > a#burger
-                    padding: 20px
+                    padding: 5px
             & > nav
                 overflow: hidden
                 height: auto
@@ -64,11 +71,21 @@
                 border-bottom: 3px solid $black
                 a
                     transform: none
-                    border: 1px solid $grey
+                    border-right: 1px solid $grey
+                    border-top: 1px solid $grey
                     flex: 1 1 25%
-                img
-                    height: auto
-                    width: 100%
+                    display: flex
+                    justify-content: center
+                    &:hover, &.active
+                        transform: none
+                        img.display_on_hoover
+                            &.desktop
+                                display: none
+                            &.mobile
+                                display: block
+                    img
+                        height: auto
+                        width: 100%
 
         & > nav
             display: none
@@ -92,14 +109,16 @@
                         margin: 20px 0
                         justify-content: space-around
                         a
-                            background-size: cover
+                            background-size: contain
                             width: 80px
                             height: 80px
                 & > #newsletter_box
                     label
                         font: #{$font}
                     & > div
+                        flex-wrap: wrap
                         input
+                            min-height: 41px
                             flex: 1 1 auto
             #footer2
                 padding: 0
@@ -111,6 +130,7 @@
                         font: normal normal normal 15px/14px Montserrat
                     & > a
                         display: none
+
 
 
         // index
@@ -144,6 +164,8 @@
             margin-right: $thumbnailMargin
             margin-left: $thumbnailMargin
 
+        #heros
+            padding: 20px 0
 
         // authors
         #authors
@@ -234,7 +256,7 @@
             background-image: none
             display: block
             height: auto
-            padding: 40px 80px
+            padding: 40px 10px
             & > *
                 width: 100%
                 margin: 0
@@ -246,7 +268,7 @@
                 text-align: center
                 width: 100%
                 display: block
-                margin: 10px 30px
+                margin: 10px
                 p
                     font: normal normal normal 22px/35px Montserrat
                     position: static
@@ -359,3 +381,13 @@
             text-align: center
             p
                 text-align: center
+
+@media screen and (max-width: 350px)
+    body>header>div
+        > a#logo
+            &>img[alt="logo"]
+                height: 60px
+            &>img[alt="cat"]
+                display: none
+        > a#burger
+            height: 60px

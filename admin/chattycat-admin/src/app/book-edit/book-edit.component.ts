@@ -49,7 +49,7 @@ export class BookEditComponent implements OnInit {
       const links = (this.book.links||'')
         .split("\n")
         .filter(e => !!e)
-        .map( l => l.split('|'));
+        .map( l => l.split('|').map(e => e.trim()));
 
       const error = links.findIndex(a => {
         return a.length != 2 || a[0] === '' || a[1] === ''

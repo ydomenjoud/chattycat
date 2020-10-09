@@ -13,6 +13,9 @@
 </head>
 <body>
 
+<!-- navigation -->
+{% set active_page = active_page|default('index') -%}
+
 <!-- header -->
 <header class="container">
 
@@ -26,31 +29,48 @@
         </a>
     </div>
     <nav>
+        <!-- mw mobile width, mh mobile height-->
+        {% macro link(url, age, width, height = 150) %}
+            {% set age = age | default(url) %}
+            {% set current_page_url = "/ages/" + url + ".html" %}
+            {% set is_current_page = page.url == current_page_url %}
+            <a href="{{ current_page_url }}" {% if is_current_page %} class="active"{% endif %}>
+                <img src="/assets/img/header/{{age}}.png" width="{{ width }}" height="{{ height }}" class="desktop" alt="{{age}}">
+                <img src="/assets/img/header/{{age}}-hover.png" width="{{ width }}" height="{{ height }}" class="display_on_hoover desktop" alt="{{age}} hover">
+                <img src="/assets/img/header/mobile/{{age}}.png" width="137" height="122" class="mobile" alt="{{age}} mobile">
+                <img src="/assets/img/header/mobile/{{age}}-hover.png" width="137" height="122" class="display_on_hoover mobile" alt="{{age}} mobile hover">
+            </a>
+        {% endmacro %}
+
         <!--{%- for age in collections.ages %}-->
         <!--    {{ age.data.page.url }}-->
         <!--{%- endfor %}-->
-        <a href="/ages/3-6.html">
-            <img src="/assets/img/header/3-6.png" alt="3-6 ans" width="118" height="150">
-            <img src="/assets/img/header/3-6-hover.png" height="150" class="display_on_hoover" alt="3-6 ans hover">
-        </a>
-        <a href="/ages/6-8.html">
-            <img src="/assets/img/header/6-8.png" alt="6-8 ans" width="118" height="150">
-            <img src="/assets/img/header/6-8-hover.png" class="display_on_hoover" alt="6-8 ans" width="118" alt="6-8 ans hover">
-        </a>
-        <a href="/ages/8-10.html">
-            <img src="/assets/img/header/8-10.png" alt="8-10 ans" width="130" height="153">
-            <img src="/assets/img/header/8-10-hover.png" class="display_on_hoover" width="130" alt="8-10 ans hover">
-        </a>
-        <a href="/ages/10.html">
-            <img src="/assets/img/header/10-plus.png" alt="10 ans et plus" width="123" height="153">
-            <img src="/assets/img/header/10-plus-hover.png" class="display_on_hoover" width="123" alt="10 ans et plus hover">
-        </a>
+        {{ link('3-6', width = 118) }}
+        <!--<a href="/ages/3-6.html">-->
+        <!--    <img src="/assets/img/header/3-6.png" alt="3-6 ans" width="118" height="150" class="desktop">-->
+        <!--    <img src="/assets/img/header/3-6-hover.png" height="150" class="display_on_hoover desktop" alt="3-6 ans hover">-->
+        <!--    <img src="/assets/img/header/mobile/3-6.png" alt="3-6 ans" class="mobile" width="137" height="122">-->
+        <!--    <img src="/assets/img/header/mobile/3-6-hover.png" height="122" width="137" class="display_on_hoover mobile" alt="3-6 ans hover">-->
+        <!--</a>-->
+        {{ link('6-8', width = 118) }}
+        <!--<a href="/ages/6-8.html">-->
+        <!--    <img src="/assets/img/header/6-8.png" alt="6-8 ans" width="118" height="150">-->
+        <!--    <img src="/assets/img/header/6-8-hover.png" class="display_on_hoover" alt="6-8 ans" width="118" alt="6-8 ans hover">-->
+        <!--</a>-->
+        {{ link('8-10', width = 130) }}
+        <!--<a href="/ages/8-10.html">-->
+        <!--    <img src="/assets/img/header/8-10.png" alt="8-10 ans" width="130" height="153">-->
+        <!--    <img src="/assets/img/header/8-10-hover.png" class="display_on_hoover" width="130" alt="8-10 ans hover">-->
+        <!--</a>-->
+        {{ link('10', age = '10-plus', width = 123) }}
+        <!--<a href="/ages/10.html">-->
+        <!--    <img src="/assets/img/header/10-plus.png" alt="10 ans et plus" width="123" height="153">-->
+        <!--    <img src="/assets/img/header/10-plus-hover.png" class="display_on_hoover" width="123" alt="10 ans et plus hover">-->
+        <!--</a>-->
     </nav>
 
 </header>
 
-<!-- navigation -->
-{% set active_page = active_page|default('index') -%}
 <nav class="container">
     <a style="width: 150px" href="{{ collections.concept[0].data.page.url }}" {%- if active_page == "concept" %} class="active"{% endif %}>concept</a>
     <a style="width: 180px" href="{{ collections.catalogue[0].data.page.url }}" {%- if active_page == "catalogue" %} class="active"{% endif %}>catalogue</a>
