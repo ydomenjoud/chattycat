@@ -5,11 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{{ description | default('Chattycat') | safe }}">
     <title>{{ title | default('Chattycat') }} </title>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styles.css">
 
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -25,7 +27,7 @@
             <img src="/assets/img/logo.png" alt="logo" width="300" height="120"/>
         </a>
         <a id="burger" class="mobile">
-            <img src="/assets/img/header/burger.svg">
+            <img src="/assets/img/header/burger.svg" width="70" height="70">
         </a>
     </div>
     <nav>
@@ -141,6 +143,7 @@
     </nav>
 </div>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined&display=swap" rel="stylesheet">
 
 </body>
 </html>

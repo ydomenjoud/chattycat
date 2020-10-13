@@ -110,10 +110,10 @@
 
 #book_more
     display: flex
-    padding: 20px 20px 20px 380px
+    flex: 1 1 auto
+    justify-content: space-around
     & > *
         text-align: center
-        flex: 0 0 50%
 
 #book_badges
     width: 100%
@@ -139,23 +139,6 @@
             font: Normal 22px/29px Montserrat
             letter-spacing: 0.22px
             color: $blue
-
-    > div.calameo
-        margin-left: calc(#{$site-width*0.45} - 348px)
-        width: 162px
-        height: 48px
-        border: 2px solid $black
-        display: flex
-        align-items: center
-        padding: 0 10px
-
-        a
-            color: inherit
-            text-decoration: none
-        h3
-            color: $black
-            font: Normal 23px/26px Love Ya Like A Sister
-            letter-spacing: 1.61px
 
     > div.soundcloud
         margin-left: calc(#{$site-width} * 0.45 - 297px)

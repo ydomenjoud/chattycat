@@ -1,27 +1,47 @@
 const search_text = document.getElementById("search_text");
 const searched_books_container = document.getElementById("searched_books_container");
-const searched_keys = ['name', 'introduction'];
+const searched_keys = ['name', 'introduction', 'genre', 'themes', 'summary', 'keywords'];
+
 
 //fonction proposant une liste de livres correspondant à la recherche (sur les clés de l'array searched_keys)
 function displayBooks(text) {
-    if (!text) {
+    text = (text || '').toLowerCase().trim();
+    if (text === '' || text.length < 2) {
         searched_books_container.innerHTML = "";
         searched_books_container.style.visibility = "hidden";
     } else {
-        fetch("/books.json")
-            .then(response => response.json().then(books => {
-                    let books_searched = books.filter(book => searched_keys.map(key => book[key].toLowerCase().includes(text)).includes(true));
-                    //affichage des éléments trouvés
-                    let booksHTML = "";
-                    if (books_searched.length > 0) {
-                        books_searched.map(book => {
-                            booksHTML += `<a href="/books/${book.slug}.html" class="search_item">${book.name}</a>`;
-                        });
-                    }
-                    searched_books_container.innerHTML = booksHTML;
-                    searched_books_container.style.visibility = "visible";
-                })
-            );
+        Promise.all([
+            fetch("/books.json").then(response => response.json()),
+            fetch("/authors.json").then(response => response.json())
+        ])
+            .then(([books, authors]) => {
+                // clear
+                let booksHTML = "";
+
+                const filter = (list, fields, text) => list.filter(element => fields.some(k => (element[k] || '').toLowerCase().indexOf(text) > -1));
+                const displayResult = (list, path) => {
+                    list.map(element => {
+                        booksHTML += `<a href="/${path}/${element.slug}.html" class="search_item">${element.name}</a>`;
+                    });
+                };
+
+                // liste des livres
+                let books_searched = filter(books, ['name', 'introduction', 'genre', 'themes', 'summary', 'keywords'], text);
+                //affichage des livres trouvés
+                if (books_searched.length > 0) {
+                    displayResult(books_searched, 'books');
+                }
+
+                // liste des auteurs
+                let authors_searched = filter(authors, ['presentation', 'name', 'occupation'], text);
+                //affichage des auteurs trouvés
+                if (authors_searched.length > 0) {
+                    displayResult(authors_searched, 'authors');
+                }
+
+                searched_books_container.innerHTML = booksHTML;
+                searched_books_container.style.visibility = "visible";
+            });
     }
 }
 
@@ -100,7 +120,7 @@ function _GET(url) {
 document.addEventListener('DOMContentLoaded', () => {
     // manage responsive
     const mobileNav = document.querySelector('#mobileNav');
-    Array.from(document.querySelectorAll('#burger, #closeBurger')).forEach( e => e.addEventListener('click', () => {
+    Array.from(document.querySelectorAll('#burger, #closeBurger')).forEach(e => e.addEventListener('click', () => {
         mobileNav.classList.toggle('visible');
     }));
 
@@ -122,9 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('newsletter_email').value;
         _GET('https://europe-west1-chattycat-site.cloudfunctions.net/newsletter?email=' + encodeURIComponent(email))
             .then(result => {
-                alert('Votre inscription a bien été prise en compte')
+                alert('Votre inscription a bien été prise en compte');
             }).catch(error => {
-                alert('Une erreur est survenue, merci de réessayer plus tard')
+            alert('Une erreur est survenue, merci de réessayer plus tard');
             console.log('error in newsletter registration', error);
         });
     });

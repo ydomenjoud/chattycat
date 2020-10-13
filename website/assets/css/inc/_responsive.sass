@@ -51,6 +51,9 @@ body > header nav a
     .mobile
         display: inherit
 
+    .button:hover
+        transform: scale(1)
+
     body
         // layout
         & > header
@@ -227,6 +230,12 @@ body > header nav a
                         width: 20px
             & > *
                 padding: 10px 0
+            #book_more
+                padding: 0
+                flex-direction: column
+                .button
+                    margin: 5px 0
+                    display: block
             #book_presentation2
                 & > div
                     display: flex

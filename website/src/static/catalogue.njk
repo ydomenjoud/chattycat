@@ -49,7 +49,7 @@ active_page: catalogue
             {%- for book in global.books %}
             <li><a href="/books/{{ book.slug }}.html">
                 <div>
-                    {% remoteImage book.image, book.title, {widths: [150]} %}
+                    {% remoteImage book.image, book.title, {widths: [300]} %}
                 </div>
                 <p class="book_title">{{ book.name }}</p>
             </a></li>

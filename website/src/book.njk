@@ -7,6 +7,7 @@ pagination:
     addAllPagesToCollections: true
 eleventyComputed:
     title: "{{book.name}}"
+    description: "Livre: {{ book.name}} - {{book.introduction}}"
 permalink: "books/{{ book.slug }}.html"
 ---
 
@@ -69,28 +70,35 @@ permalink: "books/{{ book.slug }}.html"
                 </span>
                 <span class="ico">v</span>
             </a>
-            {% if book.calameo %}
-            <div class="calameo">
-                <h3><a href="{{ book.calameo }}" target="_blank">EXTRAIT</a></h3>
+
+            <div id="book_more">
+                {% if book.calameo %}
+                <div class="calameo">
+                    <a href="{{ book.calameo }}" target="_blank" class="button">EXTRAIT</a>
+                </div>
+                {% endif %}
+                {% if book.soundcloud %}
+                <div class="soundcloud">
+                    <a href="{{ book.soundcloud }}" target="_blank" class="button">LIVRE AUDIO</a>
+                </div>
+                {% endif %}
+                {% if book.youtube %}
+                <div class="youtube">
+                    <a href="{{ book.youtube }}" target="_blank" class="button">YOUTUBE</a>
+                </div>
+                {% endif %}
+                {% if book.other_informations %}
+                <div class="other_informations">
+                    <a href="{{ book.other_informations }}" target="_blank" class="button">Autour du livre</a>
+                </div>
+                {% endif %}
+                {% if book.bonus %}
+                <div class="bonus">
+                    <a href="{{ book.bonus }}" target="_blank" class="button">BONUS</a>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-            {% if book.soundcloud %}
-            <div class="soundcloud">
-                <a href="{{ book.soundcloud }}" target="_blank" class="button">LIVRE AUDIO</a>
-            </div>
-            {% endif %}
-        </div>
-        <div id="book_more">
-            {% if book.other_informations %}
-            <div class="other_informations">
-                <a href="{{ book.other_informations }}" target="_blank" class="button">Autour du livre</a>
-            </div>
-            {% endif %}
-            {% if book.bonus %}
-            <div class="bonus">
-                <a href="{{ book.bonus }}" target="_blank" class="button">BONUS</a>
-            </div>
-            {% endif %}
+
         </div>
     </div>
 
@@ -102,7 +110,7 @@ permalink: "books/{{ book.slug }}.html"
             <ul>
                 {%- for linkInformations in book.links %}
                     {% set link = linkInformations.split('|') %}
-                    <li><a href="{{ link[1] }}">{{ link[0] }}</a></li>
+                    <li><a href="{{ link[1] }}" target="_blank">{{ link[0] }}</a></li>
                 {%- endfor %}
             </ul>
         </article>
