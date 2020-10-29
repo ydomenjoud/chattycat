@@ -6,4 +6,5 @@ node_modules
 /website/.cache/
 /website/.directory
 *.log
+/.firebase/
 /admin/chattycat-admin/.firebase/
