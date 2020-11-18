@@ -39,7 +39,7 @@ jobs:
           name: website
           path: dist/
 
-      - uses: w9jds/firebase-action@v2.0.O
+      - uses: w9jds/firebase-action@master
         if: ${{ github.event_name == 'push' }}
         with:
           args: deploy --project chattycat-site --only hosting
