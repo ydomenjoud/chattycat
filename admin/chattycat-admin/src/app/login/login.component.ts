@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   error = '';
 
   form = new FormGroup({
-    email: new FormControl('contact@chattycat.fr', [Validators.required, Validators.email]),
-    password: new FormControl('nV0aZ7jA8kE9rN4d', [Validators.required, Validators.minLength(8)])
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8)])
   });
 
   constructor(private readonly auth: AngularFireAuth,
