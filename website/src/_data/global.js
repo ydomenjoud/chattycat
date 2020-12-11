@@ -46,8 +46,9 @@ module.exports = async function () {
     return Promise.all([
         getJSON('books', jsonToData),
         getJSON('authors', data => ({authors: data})),
-        getJSON('collections', data => ({series: data}))
-    ]).then(([books, authors, series]) => {
-        return {...books, ...authors, ...series};
+        getJSON('collections', data => ({series: data})),
+        getJSON('slides', data => ({slides: data.sort(((a, b) => a.position > b.position ? 1 : -1))}))
+    ]).then(([books, authors, series, slides]) => {
+        return {...books, ...authors, ...series, ...slides};
     })
 };

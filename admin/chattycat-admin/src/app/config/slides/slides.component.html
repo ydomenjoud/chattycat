@@ -1,0 +1,22 @@
+<h1>
+  Liste des slides
+  <kal-button kalTheme="primary" routerLink="/slide/edit/0">
+    <kal-icon>add</kal-icon>
+    Ajouter
+  </kal-button>
+</h1>
+
+
+<section class="list">
+  <article
+    *ngFor="let slide of sortedList()"
+    [routerLink]="['/', 'slide', 'edit', slide.id]"
+  >
+    <img [alt]="slide.name" [src]="slide.image"/>
+    <h6>[{{ slide.position }}] -  {{ slide.title }}</h6>
+    <p [class.active]="slide.active">
+      <kal-icon>{{ slide.active ? 'verified' : 'unpublished' }}</kal-icon>
+      {{ slide.active ? 'activé' : 'désactivé' }}
+    </p>
+  </article>
+</section>

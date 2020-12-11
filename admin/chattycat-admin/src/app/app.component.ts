@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { StoreService } from 'src/app/store.service';
 
 @Component({
@@ -9,6 +11,12 @@ import { StoreService } from 'src/app/store.service';
 export class AppComponent {
   title = 'chattycat-admin';
 
-  constructor(public readonly store: StoreService) {
+  constructor(public readonly store: StoreService,
+              private readonly router: Router,
+              public readonly auth: AngularFireAuth) {
+  }
+
+  logout() {
+    this.auth.signOut().then(() => this.router.navigateByUrl('/'));
   }
 }

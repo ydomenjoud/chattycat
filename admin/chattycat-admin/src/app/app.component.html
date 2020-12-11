@@ -1,8 +1,15 @@
 
 <header>
-  <a routerLink="/board">Livres</a>
-  <a routerLink="/authors">Auteurs</a>
-  <a routerLink="/collections">Séries</a>
+  <ng-container *ngIf="auth.user | async as user else notLoggedIn">
+    <a routerLink="/board">Livres</a>
+    <a routerLink="/authors">Auteurs</a>
+    <a routerLink="/collections">Séries</a>
+    <a routerLink="/slides">Slider</a>
+    <a (click)="logout()" class="logout">Déconnexion</a>
+  </ng-container>
+  <ng-template #notLoggedIn>
+    <a routerLink="/login">Connexion</a>
+  </ng-template>
 </header>
 
 <main [kalLoading]="!(store.allLoaded$ | async)">

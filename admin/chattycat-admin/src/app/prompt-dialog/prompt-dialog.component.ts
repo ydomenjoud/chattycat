@@ -10,7 +10,7 @@ export class PromptDialogComponent implements OnInit {
 
   response = '';
 
-  constructor(private dialogRef: KalDialogRef<PromptDialogComponent>) {
+  constructor(private dialogRef: KalDialogRef<PromptDialogComponent>,) {
   }
 
   submit() {

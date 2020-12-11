@@ -127,13 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // manage slider
     const slider_controls = document.querySelectorAll('#slider_control a');
 
-    Array.from(slider_controls).forEach((c, i) => {
-        c.addEventListener('click', () => {
-            selectSlide(i);
-            resetSlider();
-        });
-    });
-    resetSlider();
+    // Array.from(slider_controls).forEach((c, i) => {
+    //     c.addEventListener('click', () => {
+    //         selectSlide(i);
+    //         resetSlider();
+    //     });
+    // });
+    // resetSlider();
 
     // add newsletter subscription
     const button = document.getElementById('newsletter_button');

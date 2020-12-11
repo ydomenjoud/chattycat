@@ -1,6 +1,8 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 
+const region = 'europe-west1';
+
 //init app
 admin.initializeApp(functions.config().firebase);
 
@@ -25,7 +27,7 @@ function fdocToJS<T>(doc: admin.firestore.QueryDocumentSnapshot<T>): T {
 }
 
 export const books = functions
-    .region('europe-west1')
+    .region(region)
     .https.onRequest(async (request, response) => {
 
     const docs = await admin.firestore()
@@ -36,7 +38,7 @@ export const books = functions
 });
 
 export const authors = functions
-    .region('europe-west1')
+    .region(region)
     .https.onRequest(async (request, response) => {
 
         const docs = await admin.firestore()
@@ -48,7 +50,7 @@ export const authors = functions
 
 
 export const collections = functions
-    .region('europe-west1')
+    .region(region)
     .https.onRequest(async (request, response) => {
 
         const docs = await admin.firestore()
@@ -59,8 +61,18 @@ export const collections = functions
     });
 
 
+export const slides = functions
+    .region(region)
+    .https.onRequest(async (request, response) => {
+        const docs = await admin.firestore()
+            .collection('slides').get()
+            .then(b => b.docs.map(fdocToJS));
 
-export const newsletter = functions.region('europe-west1').https.onRequest(async (request, response) => {
+        response.json(docs);
+    });
+
+
+export const newsletter = functions.region(region).https.onRequest(async (request, response) => {
     const email = request.params?.email;
     if (email) {
         await admin.firestore()

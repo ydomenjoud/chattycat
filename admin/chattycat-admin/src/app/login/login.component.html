@@ -1,1 +1,19 @@
-<p>login works!</p>
+
+
+<kal-card style="max-width: 600px; margin: auto" [kalLoading]="loading">
+  <kal-card-title>Connexion</kal-card-title>
+
+  <kal-card-content [formGroup]="form">
+    <kal-form-field>
+      <kal-input formControlName="email" label="Email" required></kal-input>
+    </kal-form-field>
+
+    <kal-form-field>
+      <kal-input formControlName="password" label="Password"></kal-input>
+    </kal-form-field>
+  </kal-card-content>
+
+  <kal-card-actions>
+    <kal-button kalTheme="primary" (click)="login()" [disabled]="form.invalid">Envoyer</kal-button>
+  </kal-card-actions>
+</kal-card>

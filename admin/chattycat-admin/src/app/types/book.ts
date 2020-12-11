@@ -2,7 +2,7 @@ import { Base } from 'src/app/types/base';
 
 export class Book extends Base {
   type = 'books';
-  id?: string;
+  id: string;
   slug?: string;
   age?: string;
   author?: string; // link to author ID deprecated

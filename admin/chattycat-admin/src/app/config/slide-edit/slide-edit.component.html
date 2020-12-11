@@ -1,0 +1,75 @@
+<h1>
+  Edition de la slide
+  <kal-button
+    (click)="save()"
+    *ngIf="slide"
+    kalTheme="primary">Enregistrer
+  </kal-button>
+  <app-confirm
+    (accepted)="delete()"
+    *ngIf="slide.id"
+    style="float: right"
+    title="Etes vous sûr de vouloir supprimer cette slide ? Cette opération est irréversible ">Supprimer
+  </app-confirm>
+</h1>
+
+<div [kalLoading]="loading$|async">
+
+  <!-- configuration -->
+  <section style="display: flex;">
+    <label>
+      Texte
+      <input [(ngModel)]="slide.fontColor" type="color">
+    </label>
+    <label>
+      Fond
+      <input [(ngModel)]="slide.backgroundColor" type="color">
+    </label>
+    <label>
+      Intitulé du bouton
+      <input [(ngModel)]="slide.button" type="text">
+    </label>
+    <label>
+      Url du bouton
+      <input [(ngModel)]="slide.url" type="text">
+    </label>
+    <label>
+      Position
+      <input [(ngModel)]="slide.position" type="number" min="0" style="width: 60px">
+    </label>
+    <label>
+      Actif ?
+      <kal-checkbox kalTheme="switch" [(ngModel)]="slide.active"></kal-checkbox>
+    </label>
+
+
+    <label>
+      Image (1004*452)
+      <app-picture (fileUploaded)="updateImage($event)"
+                   *ngIf="slide.id else noSlide"
+                   [filePath]="'slides/' + slide.id"
+                   [image]="slide.image"
+                   [max]="400"
+                   id="slide_image"
+      ></app-picture>
+      <ng-template #noSlide>
+        <p><small>Veuillez enregistrer d'abord votre brouillon</small></p>
+      </ng-template>
+    </label>
+  </section>
+
+  <!-- preview -->
+  <section class="landing_container" id="slider">
+    <article
+      [style.backgroundColor]="slide.backgroundColor"
+      [style.backgroundImage]="'url(\'' + slide.image + '\')'"
+      [style.color]="slide.fontColor">
+      <h1 (blur)="update('title', $event)" (keyup.control.z)="restoreHistory('title')" [innerHTML]="slide.title"
+          contenteditable></h1>
+      <p (blur)="update('body', $event)" (keyup.control.z)="restoreHistory('body')" [innerHTML]="slide.body"
+         contenteditable></p>
+      <a [href]="slide.url" class="button" target="_blank">{{ slide.button }}</a>
+    </article>
+  </section>
+
+</div>

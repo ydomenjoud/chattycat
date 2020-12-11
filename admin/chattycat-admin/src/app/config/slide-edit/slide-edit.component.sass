@@ -1,0 +1,97 @@
+
+
+#slide_edit
+  display: flex
+
+$black: #070909
+$red: #FF5757
+
+[contenteditable]
+  box-shadow: 0 0 3px 1px blue, 0 0 3px 1px red
+
+label
+  padding: 10px
+  border-radius: 5px
+  border: 1px solid #CCC
+  margin: 5px
+  input
+    margin-top: 5px
+    display: block
+    &[type=text]
+      padding: 5px 0
+
+
+#slider
+
+  h1
+    font: Bold 30px/35px Montserrat
+    letter-spacing: 0.3px
+    color: inherit
+    background-color: transparent
+    box-sizing: border-box
+  position: relative
+  height: 450px
+  width: 1000px
+  > article
+    flex-basis: 100%
+    display: flex
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    color: #000000
+
+
+    > *
+      margin-left: 84px
+      max-width: 290px
+
+    textarea
+      text-align: left
+
+    p
+      margin-top: 13px
+      width: 341px
+      text-align: left
+      font: Lighter 20px/29px Open Sans
+      letter-spacing: 0.2px
+      color: inherit
+
+    button, a
+      margin-top: 20px
+
+    &.inversed > *
+      color: #FFF
+
+
+.landing_container
+  height: 450px
+  border-bottom: 3px solid $black
+  display: flex
+  > *
+    padding: 40px
+    flex: 0 1 50%
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+
+
+.button
+  display: inline-block
+  text-decoration: none
+  text-align: center
+  font-family: 'Love Ya Like A Sister', cursive
+  font-size: 18px
+  line-height: 20px
+  background-color: $red
+  text-transform: uppercase
+  border: 0
+  color: #FFF
+  border-radius: 3px
+  padding: 10px 16px
+  cursor: pointer
+  transition: all 200ms
+  &:hover
+    background: #090909
+    transform: scale(0.9)

@@ -1,4 +1,5 @@
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +20,10 @@ import { AuthorEditComponent } from './author-edit/author-edit.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { CollectionEditComponent } from './collection-edit/collection-edit.component';
 import { PromptDialogComponent } from './prompt-dialog/prompt-dialog.component';
+import { SlidesComponent } from 'src/app/config/slides/slides.component';
+import { SlideEditComponent } from './config/slide-edit/slide-edit.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +36,18 @@ import { PromptDialogComponent } from './prompt-dialog/prompt-dialog.component';
     AuthorEditComponent,
     CollectionsComponent,
     CollectionEditComponent,
-    PromptDialogComponent
+    PromptDialogComponent,
+    SlidesComponent,
+    SlideEditComponent,
+    ConfirmDialogComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     AngularFireStorageModule,
     FormsModule,
     KaligraphiModule,

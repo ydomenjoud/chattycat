@@ -20,17 +20,18 @@ export class BookEditComponent implements OnInit {
   constructor(public readonly store: StoreService,
               private readonly router: Router,
               private readonly snackbar: KalSnackbarService,
-              private readonly route: ActivatedRoute) { }
+              private readonly route: ActivatedRoute) {
+  }
 
-  @HostListener("document:keydown", ["$event"])
-  bindKey($event: KeyboardEvent){
+  @HostListener('document:keydown', ['$event'])
+  bindKey($event: KeyboardEvent) {
 
     if ($event.ctrlKey && $event.key === 's') {
       $event.stopPropagation();
       $event.preventDefault();
       this.save();
 
-      if( $event.altKey ) {
+      if ($event.altKey) {
         console.log('navigat');
         this.router.navigateByUrl('/board');
       }
@@ -44,19 +45,19 @@ export class BookEditComponent implements OnInit {
 
   save() {
     this.error = '';
-    if (this.book ) {
+    if (this.book) {
 
-      const links = (this.book.links||'')
-        .split("\n")
+      const links = (this.book.links || '')
+        .split('\n')
         .filter(e => !!e)
-        .map( l => l.split('|').map(e => e.trim()));
+        .map(l => l.split('|').map(e => e.trim()));
 
       const error = links.findIndex(a => {
-        return a.length != 2 || a[0] === '' || a[1] === ''
+        return a.length != 2 || a[0] === '' || a[1] === '';
       });
 
-      if( error !== -1 ) {
-        const title = `le lien numéro ${error+1} n'est pas valide`;
+      if (error !== -1) {
+        const title = `le lien numéro ${error + 1} n'est pas valide`;
         this.snackbar.open(new KalSnackbarConfig({title}));
         return;
       }
@@ -69,7 +70,7 @@ export class BookEditComponent implements OnInit {
           b => {
             this.book.id = b.id;
             console.log('success');
-            this.loading$.next(false)
+            this.loading$.next(false);
           },
           error => {
             console.log('error', {error});
@@ -79,18 +80,6 @@ export class BookEditComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.route.params.pipe(
-      pluck('id'),
-      map(id => this.store.doc<Book>('books', id)),
-      tap(book => {
-        if (book) {
-          this.book = {...book, links: (book.links || []).join("\n")};
-        }
-      })
-    ).subscribe();
-  }
-
   updateImage($event: string) {
     this.loading$.next(true);
     this.book.image = $event;
@@ -98,5 +87,17 @@ export class BookEditComponent implements OnInit {
       () => this.loading$.next(false),
       () => this.loading$.next(false),
     );
+  }
+
+  ngOnInit(): void {
+    this.route.params.pipe(
+      pluck('id'),
+      map(id => this.store.doc<Book>('books', id)),
+      tap(book => {
+        if (book) {
+          this.book = {...book, links: (book.links || []).join('\n')};
+        }
+      })
+    ).subscribe();
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, Output, EventEmitter, HostBinding } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { KalSnackbarConfig, KalSnackbarService } from '@kalidea/kaligraphi';
 import { finalize } from 'rxjs/operators';
@@ -13,6 +13,8 @@ export class PictureComponent implements OnInit {
   @Input() image: string;
   @Input() filePath: string;
   @Output() readonly fileUploaded = new EventEmitter<string>();
+  @Input() id: string;
+  @Input() max = 200;
 
   loading = false;
 
@@ -21,16 +23,15 @@ export class PictureComponent implements OnInit {
               private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    console.log(this.filePath)
   }
 
   uploadFile($event: any) {
     const file = $event.target.files[0];
-    if (file.size > 200 * 1024) {
-      this.snackbar.open(new KalSnackbarConfig({title: 'Fichier trop gros, faire moins de 200Ko'}))
+    if (file.size > this.max * 1024) {
+      this.snackbar.open(new KalSnackbarConfig({title: `Fichier trop gros, faire moins de ${this.max}Ko`}));
       return;
     }
-    const filePath = this.filePath
+    const filePath = this.filePath;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
     this.loading = true;
