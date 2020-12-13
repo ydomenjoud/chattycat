@@ -47,7 +47,7 @@ module.exports = async function () {
         getJSON('books', jsonToData),
         getJSON('authors', data => ({authors: data})),
         getJSON('collections', data => ({series: data})),
-        getJSON('slides', data => ({slides: data.sort(((a, b) => a.position > b.position ? 1 : -1))}))
+        getJSON('slides', data => ({slides: data.filter(a => a.active).sort(((a, b) => a.position > b.position ? 1 : -1))}))
     ]).then(([books, authors, series, slides]) => {
         return {...books, ...authors, ...series, ...slides};
     })
