@@ -11,5 +11,6 @@ export class Slide extends Base {
   backgroundColor?: string;
   fontColor?: string;
   image?: string;
+  image_small?: string;
   position?: number;
 }

@@ -19,6 +19,8 @@ export class SlideEditComponent implements OnInit {
     body: [],
   };
 
+  displayMobile = false;
+
   constructor(public readonly store: StoreService,
               private readonly router: Router,
               private readonly route: ActivatedRoute) {
@@ -46,6 +48,9 @@ export class SlideEditComponent implements OnInit {
 
   updateImage($event: string) {
     this.slide.image = $event;
+  }
+  updateImageSmall($event: string) {
+    this.slide.image_small = $event;
   }
 
   save() {
@@ -128,5 +133,9 @@ export class SlideEditComponent implements OnInit {
         this.history.body = [this.slide.body];
       })
     ).subscribe();
+  }
+
+  toggle() {
+    this.displayMobile = !this.displayMobile
   }
 }
