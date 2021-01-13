@@ -17,12 +17,10 @@ jobs:
       - name: Build website site
         working-directory: ./website
         run: npm run website:build
-
-    -   uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
             name: website
             path: dist/
-
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
