@@ -4,7 +4,14 @@
             style="background-image: url('{% remoteImageSrc  slide.image %}'); background-color: {{ slide.backgroundColor }}; color: {{ slide.fontColor }}"
             class="{{ 'active' if loop.first  }}">
             <h1>{{ slide.title }}</h1>
-            <p>{{ slide.body }}</p>
+            <div style="display: flex">
+                <p>{{ slide.body }}</p>
+                {%- if slide.image_small %}
+                <figure>
+                    <img src="{{  slide.image_small }}" width="100" style="margin-left: 10px">
+                </figure>
+                {%- endif %}
+            </div>
             <a class="button" href="{{ slide.url }}">{{  slide.button }}</a>
         </article>
     {% endfor %}

@@ -56,10 +56,26 @@
         <p><small>Veuillez enregistrer d'abord votre brouillon</small></p>
       </ng-template>
     </label>
+
+    <label>
+      Image mobile (100*130)
+      <app-picture (fileUploaded)="updateImageSmall($event)"
+                   *ngIf="slide.id else noSlide"
+                   [filePath]="'slides_small/' + slide.id"
+                   [image]="slide.image_small"
+                   [max]="400"
+                   id="slide_image_small"
+      ></app-picture>
+      <ng-template #noSlide>
+        <p><small>Veuillez enregistrer d'abord votre brouillon</small></p>
+      </ng-template>
+    </label>
   </section>
 
-  <!-- preview -->
-  <section class="landing_container" id="slider">
+  <kal-button (click)="toggle()" kalTheme="primary"> voir la version {{ !displayMobile ? 'mobile' : 'desktop' }} </kal-button>
+
+  <!-- preview desktop -->
+  <section class="landing_container" id="slider" [style.display]="displayMobile ? 'none' : 'block'">
     <article
       [style.backgroundColor]="slide.backgroundColor"
       [style.backgroundImage]="'url(\'' + slide.image + '\')'"
@@ -68,6 +84,25 @@
           contenteditable></h1>
       <p (blur)="update('body', $event)" (keyup.control.z)="restoreHistory('body')" [innerHTML]="slide.body"
          contenteditable></p>
+      <a [href]="'https://chattycat.fr' + slide.url" class="button" target="_blank">{{ slide.button }}</a>
+    </article>
+  </section>
+
+  <!--  preview mobile -->
+  <section id="slider_mobile"  [style.display]="!displayMobile ? 'none' : 'block'">
+    <article
+      [style.backgroundColor]="slide.backgroundColor"
+      [style.width.px]="400"
+      [style.color]="slide.fontColor">
+      <h1 (blur)="update('title', $event)" (keyup.control.z)="restoreHistory('title')" [innerHTML]="slide.title"
+          contenteditable></h1>
+      <div style="display: flex">
+        <p (blur)="update('body', $event)" (keyup.control.z)="restoreHistory('body')" [innerHTML]="slide.body"
+           contenteditable></p>
+        <figure>
+          <img [src]="slide.image_small" width="100" style="margin-left: 10px">
+        </figure>
+      </div>
       <a [href]="slide.url" class="button" target="_blank">{{ slide.button }}</a>
     </article>
   </section>

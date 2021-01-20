@@ -1,93 +1,93 @@
 {
-    "firestore": {
-        "rules": "firestore.rules",
-        "indexes": "firestore.indexes.json"
-    },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint",
+      "npm --prefix \"$RESOURCE_DIR\" run build"
+    ],
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/audio/Cléo-NY",
+        "destination": "/books/cleo-lefort-enquete-a-new-york.html",
+        "type": 301
+      },
+      {
+        "source": "/audio/Cléo-Toronto",
+        "destination": "/books/cleo-lefort-mystere-a-toronto.html",
+        "type": 301
+      },
+      {
+        "source": "/audio/cleo-ny",
+        "destination": "/books/cleo-lefort-enquete-a-new-york.html",
+        "type": 301
+      },
+      {
+        "source": "/audio/cleo-toronto",
+        "destination": "/books/cleo-lefort-mystere-a-toronto.html",
+        "type": 301
+      },
+      {
+        "source": "/audio/guardians1",
+        "destination": "/books/the-guardians-le-village-englouti.html",
+        "type": 301
+      },
+      {
+        "source": "/audio/guardians2",
+        "destination": "/books/the-guardians-le-soldat-perdu.html",
+        "type": 301
+      },
+      {
+        "source": "/audio/paperdollsny",
+        "destination": "/books/paper-dolls-a-new-york.html",
+        "type": 301
+      },
+      {
+        "source": "/video/paperdollsny",
+        "destination": "/books/paper-dolls-a-new-york.html",
+        "type": 301
+      },
+      {
+        "source": "/audio/cleo-londres",
+        "destination": "/books/cleo-lefort-secrets-a-londres.html",
+        "type": 301
+      },
+      {
+        "source": "/audio/cleo-sydney",
+        "destination": "/books/cleo-lefort-apparition-a-sydney.html",
+        "type": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "emulators": {
     "functions": {
-        "predeploy": [
-            "npm --prefix \"$RESOURCE_DIR\" run lint",
-            "npm --prefix \"$RESOURCE_DIR\" run build"
-        ],
-        "source": "functions"
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
     },
     "hosting": {
-        "public": "dist",
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
-        ],
-        "redirects": [
-            {
-                "source": "/audio/Cléo-NY",
-                "destination": "/books/cleo-lefort-enquete-a-new-york.html",
-                "type": 301
-            },
-            {
-                "source": "/audio/Cléo-Toronto",
-                "destination": "/books/cleo-lefort-mystere-a-toronto.html",
-                "type": 301
-            },
-            {
-                "source": "/audio/cleo-ny",
-                "destination": "/books/cleo-lefort-enquete-a-new-york.html",
-                "type": 301
-            },
-            {
-                "source": "/audio/cleo-toronto",
-                "destination": "/books/cleo-lefort-mystere-a-toronto.html",
-                "type": 301
-            },
-            {
-                "source": "/audio/guardians1",
-                "destination": "/books/the-guardians-le-village-englouti.html",
-                "type": 301
-            },
-            {
-                "source": "/audio/guardians2",
-                "destination": "/books/the-guardians-le-soldat-perdu.html",
-                "type": 301
-            },
-            {
-                "source": "/audio/paperdollsny",
-                "destination": "/books/paper-dolls-a-new-york.html",
-                "type": 301
-            },
-            {
-                "source": "/video/paperdollsny",
-                "destination": "/books/paper-dolls-a-new-york.html",
-                "type": 301
-            },
-            {
-                "source": "/audio/cleo-londres",
-                "destination": "/books/cleo-lefort-secrets-a-londres.html",
-                "type": 301
-            },
-            {
-                "source": "/audio/cleo-sydney",
-                "destination": "/books/cleo-lefort-apparition-a-sydney.html",
-                "type": 301
-            }
-        ],
-        "rewrites": [
-            {
-                "source": "**",
-                "destination": "/index.html"
-            }
-        ]
+      "port": 5000
     },
-    "emulators": {
-        "functions": {
-            "port": 5001
-        },
-        "firestore": {
-            "port": 8080
-        },
-        "hosting": {
-            "port": 5000
-        },
-        "ui": {
-            "enabled": true
-        }
+    "ui": {
+      "enabled": true
     }
+  }
 }
