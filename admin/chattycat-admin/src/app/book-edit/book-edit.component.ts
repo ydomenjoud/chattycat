@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { map, pluck, tap } from 'rxjs/operators';
 import { StoreService } from 'src/app/store.service';
 import { Book } from 'src/app/types/book';
+import slugify from 'slugify';
 
 @Component({
   selector: 'app-book-edit',
@@ -64,19 +65,26 @@ export class BookEditComponent implements OnInit {
 
       const book = {...this.book, links: links.map(e => e.join('|'))};
 
-      this.loading$.next(true);
-      this.store.upsert(book)
-        .then(
-          b => {
-            this.book.id = b.id;
-            console.log('success');
-            this.loading$.next(false);
-          },
-          error => {
-            console.log('error', {error});
-            this.loading$.next(false);
-          }
-        );
+      // check title uniqness
+      const hasSameName  = b => slugify(b.name) === slugify(book.name) && (b.id !== book.id || !book.id)
+      if (this.store.list<Book>('books').some(hasSameName)) {
+        const title = `il y a déjà un livre avec ce titre`;
+        this.snackbar.open(new KalSnackbarConfig({title}));
+      } else {
+        this.loading$.next(true);
+        this.store.upsert(book)
+          .then(
+            b => {
+              this.book.id = b.id;
+              console.log('success');
+              this.loading$.next(false);
+            },
+            error => {
+              console.log('error', {error});
+              this.loading$.next(false);
+            }
+          );
+      }
     }
   }
 

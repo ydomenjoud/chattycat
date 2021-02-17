@@ -23,6 +23,9 @@ export class Book extends Base {
   support?: string;
   summary?: string;
   themes?: string;
+  /**
+   * @deprecated use name instead
+   */
   title?: string; // deprecated
   name?: string; //replace title
   keywords?: string[];
