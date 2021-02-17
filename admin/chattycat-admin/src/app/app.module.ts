@@ -9,6 +9,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KaligraphiModule } from '@kalidea/kaligraphi';
 import { environment } from 'src/environments/environment';
 
+import localeData from 'dayjs/plugin/localeData';
+import weekday from 'dayjs/plugin/weekday';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import isBetween from 'dayjs/plugin/isBetween';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import dayjs from 'dayjs';
+dayjs.extend(localeData);
+dayjs.extend(weekday);
+dayjs.extend(customParseFormat);
+dayjs.extend(isBetween);
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
