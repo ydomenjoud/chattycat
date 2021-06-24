@@ -51,7 +51,7 @@ export class BookEditComponent implements OnInit {
       const links = (this.book.links || '')
         .split('\n')
         .filter(e => !!e)
-        .map(l => l.split('|').map(e => e.trim()));
+        .map(l => l.split(/[|,]/).map(e => e.trim()));
 
       const error = links.findIndex(a => {
         return a.length != 2 || a[0] === '' || a[1] === '';
@@ -103,7 +103,13 @@ export class BookEditComponent implements OnInit {
       map(id => this.store.doc<Book>('books', id)),
       tap(book => {
         if (book) {
-          this.book = {...book, links: (book.links || []).join('\n')};
+          if (book.links.length > 0 && !Array.isArray(book.links)) {
+            // c'est une string et il faut l'injecter tel quel
+          } else {
+            // c'est un tableau et il faut le process
+            book.links = (book.links || []).join('\n');
+          }
+          this.book = {...book };
         }
       })
     ).subscribe();
