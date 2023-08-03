@@ -1,6 +1,5 @@
 const Image = require("@11ty/eleventy-img");
 const slugify = require("slugify");
-const pluginSass = require("eleventy-plugin-sass");
 
 const distDir = '../dist/';
 
@@ -121,8 +120,6 @@ module.exports = function (eleventyConfig) {
         return list.find(e => e.id === id);
     });
 
-    // add sass plugin
-    eleventyConfig.addPlugin(pluginSass);
 
     // copy assets
     eleventyConfig.addPassthroughCopy("assets");
